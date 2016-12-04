@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+* @structure HtmlSectionAdmin
+*
+* @author Leano Martinet <info@asterion-cms.com>
+* @package Asterion
+* @version 3.0.1
+-->
+<object>
+    <name>HtmlSectionAdmin</name>
+    <info>
+        <sql>
+            <primary>idHtmlSectionAdmin</primary>
+        </sql>
+        <form>
+            <title>htmlSectionsAdmin</title>
+            <orderBy>code</orderBy>
+            <label>#title</label>
+            <hiddenAdminMenu>true</hiddenAdminMenu>
+            <templateItemAdmin>
+                <p class="accent"><strong>#title</strong></p>
+                <p class="tiny"><em>_code</em> : <span class="mainAlt">#code</span></p>
+            </templateItemAdmin>
+        </form>
+    </info>
+    <attributes>
+        <attribute>
+            <name>idHtmlSectionAdmin</name>
+            <type>id-autoincrement</type>
+        </attribute>
+        <attribute>
+            <name>code</name>
+            <label>code</label>
+            <type>text-code</type>
+            <required>unique</required>
+        </attribute>
+        <attribute>
+            <name>title</name>
+            <lang>true</lang>
+            <label>title</label>
+            <required>notEmpty</required>
+            <type>text</type>
+        </attribute>
+        <attribute>
+            <name>titleUrl</name>
+            <lang>true</lang>
+            <type>hidden-url</type>
+            <refAttribute>title</refAttribute>
+        </attribute>
+        <attribute>
+            <name>section</name>
+            <label>section</label>
+            <lang>true</lang>
+            <required>notEmpty</required>
+            <type>textarea-ck</type>
+        </attribute>
+    </attributes>
+    <indexes>
+        <index>
+            <name>code</name>
+            <fields>code</fields>
+        </index>
+        <index>
+            <name>titleUrl</name>
+            <fields>titleUrl</fields>
+            <lang>true</lang>
+        </index>
+    </indexes>
+</object>

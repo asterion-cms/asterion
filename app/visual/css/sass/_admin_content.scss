@@ -1,0 +1,451 @@
+.tiny {
+    font-size: $fontSizeTiny;
+}
+.small {
+    font-size: $fontSizeSmall;
+}
+.medium {
+    font-size: $fontSizeNormal;
+}
+.big {
+    font-size: $fontSizeBig;
+}
+.large {
+    font-size: $fontSizeLarge;
+}
+.huge {
+    font-size: $fontSizeHuge;
+}
+.main {
+    color: $colorMain;
+}
+.mainAlt {
+    color: $colorMainAlt;
+}
+.accent {
+    color: $colorAccent;
+}
+.accentAlt {
+    color: $colorAccentAlt;
+}
+.contentWrapper {
+    position: relative;
+    h1 {
+        font-size: 1.6em;
+        font-weight: normal;
+        color: lighten($colorAccent, 10%);
+        padding-bottom: 1em;
+    }
+    h2 {
+        font-size: 1.3em;
+        font-weight: normal;
+        color: lighten($colorAccent, 10%);
+        padding: 20px 0;
+        &:first-child {
+            padding: 0 0 20px;
+        }
+    }
+    h3 {
+        font-size: 1.2em;
+        font-weight: normal;
+        color: lighten($colorAccent, 5%);
+        padding: 10px 0;
+        &:first-child {
+            padding: 0 0 10px;
+        }
+    }
+}
+.contentSimple {
+    width: 400px;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 15px;
+    border: 1px solid $colorTextAlt;
+    background: $white;
+    padding: 15px;
+    @include simpleShadow();
+    p,a {
+        color: $colorText;
+        text-align: center;
+        font-size: 0.9em;
+        padding: 5px 0px;
+    }
+    .formAdmin {
+        h2 {
+            padding-top: 1em;
+            margin-top: 1em;
+            border-top: 1px solid $colorTextAlt;
+        }
+        .formField input,
+        .formField textarea,
+        .formField select {
+            width: 100%;
+        }
+        .formField .checkboxIns {
+            input {
+                float: left;
+                margin-right: 15px;
+                width: auto;
+            }
+        }
+        input.formSubmit {
+            margin: auto;
+            margin-top: 1em;
+        }
+    }
+}
+.contentSimpleInstall {
+    margin: 50px auto;
+}
+.contentIns {
+    width: $sizeDesktop;
+    margin: auto;
+    position: relative;
+    .contentTop {
+        padding-bottom: 10px;
+        @include clearer();
+        .contentTopLeft {
+            width: 40%;
+            float: left;
+        }
+        .contentTopRight {
+            width: 60%;
+            float: left;
+        }
+    }
+    .contentMenu {
+        width: 18%;
+        float: left;
+        padding-bottom: 40px;
+    }
+    .contentInsWrapper {
+        width: 82%;
+        float: right;
+        background: $colorTextAlt;
+    }
+    .content {
+        padding: 20px;
+        margin: 20px;
+        margin-right: 0px;
+        background: $white;
+        @include simpleShadow();
+    }
+    .listAdmin {
+        padding-bottom: 10px;
+    }
+    .sublistAdmin {
+        padding-bottom: 20px;
+    } 
+    .sublistAdmin .listAdmin {
+        margin-left: 60px;
+        padding: 0px;
+        border: 0px;
+        margin-top: 0px;
+    }
+    .formAdminInsert,
+    .formAdminModify {
+        margin-bottom: 10px;
+        background: $colorTextAlt;
+        border: 1px solid $colorTextAlt;
+        padding: 10px;
+        position: relative;
+    }
+}
+
+.listWrapper {
+    .listResults {
+        font-size: $fontSizeTiny;
+        font-style: italic;
+        padding-bottom: 10px;
+        opacity: 0.5;
+    }
+}
+
+//Pager
+.pagerAll {
+    padding-bottom: 10px;
+    text-align: center;
+    .pagerActive,
+    .pager {
+        display: inline-block;
+        font-size: $fontSizeSmall;
+        margin: 0 2px;
+        a {
+            padding: 5px 10px;
+            background: lighten($colorText, 45%);
+            font-weight: bold;
+            display: inline-block;
+            color: $white;
+            @include borderRadius(3px);
+            &:hover {
+                background: lighten($colorText, 20%) !important;
+            }
+        }
+    }
+    .pagerActive a {
+        background: lighten($colorText, 25%);
+    }
+}
+
+.lineAdmin {
+    padding: 8px;
+    margin-bottom: 8px;
+    border: 1px solid $colorTextAlt;
+    background: $colorTextAlt;
+    @include borderRadius(3px);
+    @include clearer();
+    .lineAdminWrapper {
+        display: table;
+        width: 100%;
+        .lineAdminCell {
+            display: table-cell;
+            vertical-align: top;
+        }
+    }
+    .lineAdminCheckbox {
+        input {
+            display: block;
+            margin: 0 10px 0 0;
+        }
+    }
+    .lineAdminLabel {
+        width: 100%;
+    }
+    .lineAdminOptions {
+        text-align: right;
+        white-space: nowrap;
+    }
+    .iconSide {
+        display: inline-block;
+        margin: 0 0 0 5px;
+        a,
+        span {
+            display: inline-block;
+            padding: 7px 10px;
+            background: $colorMainAlt;
+            color: $white;
+            font-weight: normal;
+            font-size: $fontSizeTiny;
+            cursor: pointer;
+            @include borderRadius(3px);
+            @include iconBeforeAbsolute($icon-circle-right, $paddingLeft: 25px, $top: 7px, $left: 7px);
+            &:before {
+                opacity: 0.5;
+            }
+            &:hover {
+                background: darken($colorMainAlt, 10%);
+            }
+        }
+        &.iconDelete a {
+            background: $colorError;
+            &:before {
+                content: $icon-cross;
+            }
+            &:hover {
+                background: darken($colorError, 10%);
+            }
+        }
+        &.iconModify a {
+            background: $colorAccent;
+            &:before {
+                content: $icon-edit;
+            }
+            &:hover {
+                background: darken($colorAccent, 10%);
+            }
+        }
+        &.iconHandle {
+            margin: 0 10px 0 0;
+            span {
+                background: transparent;
+                color: lighten($colorText, 20%);
+                padding: 0;
+                text-indent: -5000px;
+                overflow: hidden;
+                width: $fontSizeNormal;
+                height: $fontSizeNormal;
+                &:before {
+                    content: $icon-move;
+                    text-indent: 0;
+                    top: 0;
+                    left: 0;
+                    font-size: $fontSizeNormal;
+                    line-height: $fontSizeNormal;
+                }
+                &:hover {
+                    background: transparent;
+                    color: $colorText;
+                }
+            }
+        }
+    }
+    //Labels
+    .label {
+        font-size: $fontSizeSmall;
+        color: $colorText;
+        @include clearer();
+        a {
+            display: block;
+            color: $colorText;
+            font-weight: normal;
+            @include clearer();
+            &:hover {
+                color: darken($colorAccent, 10%);
+                * {
+                   color: darken($colorAccent, 15%); 
+                }
+                .image {
+                    img {
+                        border: 3px solid darken($colorAccent, 10%);
+                    }
+                }
+            } 
+        }
+        .image {
+            float: left;
+            width: 80px;
+            margin: 0 15px 0 0;
+            display: block;
+            img {
+                width: 100%;
+                border: 3px solid $white;
+            }
+            &:empty {
+                display: none;
+            }
+        }
+        .download {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 0;
+            background: $colorAccent;
+            color: $white;
+            font-weight: bold;
+            text-decoration: none;
+            @include borderRadius(3px);
+            &:hover {
+                background: darken($colorAccent, 10%);
+                color: $white;
+            }
+        }
+        .active {
+            @include iconBeforeAbsolute($icon-cancel, $paddingLeft: 25px, $top: 0, $left: 0);
+            &:before {
+                color: $colorNotActive;
+                opacity: 0.5;
+            }
+            &.active-1 {
+                &:before {
+                    opacity: 1;
+                    content: $icon-checkmark;
+                    color: $colorActive;
+                }
+            }
+        }
+        p {
+            padding-bottom: 5px;
+            &:last-child {
+                padding-bottom: 0;
+            }
+        }
+        strong {
+            font-weight: bold;
+        }
+        em {
+            font-style: italic;
+        }
+        .labelTable {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+            .labelCell {
+                display: table-cell;
+                vertical-align: top;
+                border-right: 1px solid rgba($colorText, 0.2);
+                padding: 5px 5px 5px 10px;
+                @include textEllipsis();
+                &:first-child {
+                    padding-left: 0;
+                }
+                &:last-child {
+                    border-right: 0;
+                }
+                &:empty {
+                    display: none;
+                    border-right: 0;
+                }
+                &.labelCell5 {
+                    width: 5%;
+                }
+                &.labelCell10 {
+                    width: 10%;
+                }
+                &.labelCell20 {
+                    width: 20%;
+                }
+                &.labelCell30 {
+                    width: 30%;
+                }
+                &.labelCell40 {
+                    width: 40%;
+                }
+                &.labelCell50 {
+                    width: 50%;
+                }
+                &.labelCell60 {
+                    width: 60%;
+                }
+                &.labelCell70 {
+                    width: 70%;
+                }
+                &.labelCell80 {
+                    width: 80%;
+                }
+                &.labelCell90 {
+                    width: 90%;
+                }
+            }
+        }
+    }
+}
+
+.lineAdminBlock {
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba($colorText, 0.3);
+    &:last-child {
+        padding-bottom: 0;
+        margin-bottom: 0;
+        border-bottom: 0;
+    }
+    .lineAdminTitle {
+        font-size: $fontSizeBig;
+        color: $colorAccent;
+        padding-bottom: 15px;
+    }
+}
+
+.message {
+    font-size: $fontSizeSmall;
+    padding: 20px;
+    margin: 20px 0px;
+    text-align: center;
+    color: $white;
+    background: $colorMessage;
+    font-weight: bold;
+    white-space: normal;
+    @include borderRadius(3px);
+    a {
+        color: $white;
+        text-decoration: underline;
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+}
+.messageError {
+    background: $colorMessageError;
+}
+.messageAlert {
+    background: $colorMessageAlert;
+}

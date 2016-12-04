@@ -1,0 +1,55 @@
+###
+# @file
+#
+# The .htaccess file is used to configure the Apache server.
+# It is crucial to Asterion since it uses the rewrite conditions
+# to load the proper variables of the requested URL.
+# 
+# @author Leano Martinet <info@asterion-cms.com>
+# @package Asterion
+# @version 3.0.1
+##
+
+##
+# The following lines send the "Not Found" pages to a proper URL
+##
+ErrorDocument 403 /error
+ErrorDocument 404 /error
+
+##
+# Rewrite conditions to parse all of the requested URLs
+##
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    ##
+    # The following two lines can be used in certain servers
+    # to force the use of www in the URL
+    #
+    # RewriteCond %{HTTP_HOST} !^www\.
+    # RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+    ##
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+</IfModule>
+Options All -Indexes
+
+##
+# Expiration of the different files in the HTTP response
+##
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 10 days"
+    ExpiresByType text/css "access plus 1 week"
+    ExpiresByType text/plain "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType application/x-javascript "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 week"
+    ExpiresByType application/x-icon "access plus 1 year"
+</IfModule>
+<Files 403.shtml>
+order allow,deny
+allow from all
+</Files>

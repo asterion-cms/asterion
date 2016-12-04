@@ -1,0 +1,133 @@
+//Autocomplete
+.ui-autocomplete {
+	padding: 0px;
+	margin: 0px;
+	border:1px solid $colorText;
+	background: $white;
+	color: $colorText;
+	width:200px;
+	font-size: $fontSizeTiny;
+	a {
+		display: block;
+		color:$colorText;
+		padding: 5px;
+		font-weight: normal;
+		&.ui-state-hover,
+		&.ui-state-focus{
+			background: lighten($colorAccent, 60%);
+			text-decoration: none;
+		}
+	}
+	li {
+		padding: 0px;
+		margin: 0px;
+		list-style: none;
+	}
+}
+.ui-helper-hidden-accessible {
+	display: none;
+}
+
+//Date picker
+.ui-datepicker {
+	background: $white;
+	padding: 5px;
+	border: 1px solid lighten($colorText, 40%);
+	color: $colorText;
+	font-size: $fontSizeTiny;
+	width: 200px;
+	z-index: 999999 !important;
+	@include borderBox();
+	a {
+		display: block;
+		color: $colorText;
+		padding: 3px 6px;
+		background: $colorTextAlt;
+		text-align: center;
+		&:hover{
+			background: $colorAccent !important;
+			color: $white !important;
+		}
+	}
+	.ui-datepicker-unselectable span {
+		display: block;
+		color: lighten($colorText, 20%);
+		padding: 3px 6px;
+		background: $white;
+		text-align: center;
+	}
+	.ui-datepicker-week-end a {
+		background: $colorTextAlt;
+	}
+	.ui-datepicker-today a {
+		background: $colorAccentAlt;
+	}
+	.ui-datepicker-calendar {
+		margin: auto;
+		width: 100%;
+		th {
+			text-align: center;
+			color: $colorText;
+			font-size: $fontSizeTiny;
+			&.ui-datepicker-week-end {
+				background: $white;
+			}
+		}
+		td {
+			border: 1px solid $white;
+		}
+	}
+	.ui-state-highlight {
+		color: $colorTextAlt;
+	}
+	.ui-datepicker-header {
+		position: relative;
+		width: 180px;
+		margin: auto;
+		padding: 0 0 5px 0;
+		.ui-datepicker-title {
+			text-align: center;
+			font-weight: bold;
+			color: $colorText;
+			clear: both;
+			line-height: 20px;
+			font-size: $fontSizeTiny;
+		}
+		a.ui-datepicker-prev,
+		a.ui-datepicker-next {
+			position: absolute;
+			top:0px;
+			left: 0px;
+			width: 20px;
+			height: 20px;
+			padding: 0;
+			float: left;
+			cursor: pointer;
+			background: transparent !important;
+			span {
+				display: none;
+			}
+			&:before {
+				position: absolute;
+		        top: 0;
+		        left: 0;
+		        text-indent: 0;
+		        width: 20px;
+		        line-height: 20px;
+		        text-align: center;
+		        @include icon($icon-arrow-simple-left);
+			}
+			&:hover {
+				color: $colorAccent !important;
+			}
+		}
+		a.ui-datepicker-next {
+			left: auto;
+			right: 0;
+			float: right;
+			&:before {
+				content: $icon-arrow-simple-right;
+			}
+		}
+	}
+}

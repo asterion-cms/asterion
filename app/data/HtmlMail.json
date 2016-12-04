@@ -1,0 +1,28 @@
+[
+	{
+		"code": "notification",
+		"idsAvailable": "#CONTENT",
+		"title_en": "Notification",
+		"title_fr": "Notification",
+		"title_es": "Notificación",
+		"subject_en": "You have a new notification",
+		"subject_fr": "Vous avez une notification",
+		"subject_es": "Usted tiene una nueva notificación",
+		"mail_en": "<p>Hello,</p><p>You have a new notification:</p><p>#CONTENT</p><p>Thanks,</p>",
+		"mail_fr": "<p>Bonjour,</p><p>Vous avez une notification:</p><p>#CONTENT</p><p>Merci,</p>",
+		"mail_es": "<p>Hola,</p><p>Usted tiene una nueva notificación:</p><p>#CONTENT</p><p>Gracias,</p>"
+	},
+	{
+		"code": "passwordForgot",
+		"idsAvailable": "#TEMP_PASSWORD, #UPDATE_PASSWORD_LINK",
+		"title_en": "Password forgotten",
+		"title_fr": "Mot de passe oubliée",
+		"title_es": "Contraseña olvidada",
+		"subject_en": "Password forgotten",
+		"subject_fr": "Mot de passe oubliée",
+		"subject_es": "Contraseña olvidada",
+		"mail_en": "<p>Hello,</p><p>Your temporary password is:</p><p>#TEMP_PASSWORD</p><p> </p><p>Click here to recover it:</p><p><a href=\"#UPDATE_PASSWORD_LINK\" target=\"_blank\">#UPDATE_PASSWORD_LINK</a></p><p>Thanks,</p>",
+		"mail_fr": "<p>Bonjour,</p><p>Votre mot de passe temporaire est:</p><p>#TEMP_PASSWORD</p><p> </p><p>Clickez ici pour récuperer votre compte:</p><p><a href=\"#UPDATE_PASSWORD_LINK\" target=\"_blank\">#UPDATE_PASSWORD_LINK</a></p><p>Merci,</p>",
+		"mail_es": "<p>Hola,</p><p>Su password temporal es:</p><p>#TEMP_PASSWORD</p><p> </p><p>Haga click en el enlace para recuperarlo:</p><p><a href=\"#UPDATE_PASSWORD_LINK\" target=\"_blank\">#UPDATE_PASSWORD_LINK</a></p><p>Gracias,</p>"
+	}
+]

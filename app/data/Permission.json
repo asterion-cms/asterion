@@ -1,0 +1,40 @@
+[
+	{
+		"idUserType": "2",
+		"objectName": "HtmlSection",
+		"permissionListAdmin": "1",
+		"permissionInsert": "1",
+		"permissionModify": "1",
+		"permissionDelete": "1"
+	},
+	{
+		"idUserType": "2",
+		"objectName": "LangTrans",
+		"permissionListAdmin": "1",
+		"permissionModify": "1"
+	},
+	{
+		"idUserType": "2",
+		"objectName": "Page",
+		"permissionListAdmin": "1",
+		"permissionInsert": "1",
+		"permissionModify": "1",
+		"permissionDelete": "1"
+	},
+	{
+		"idUserType": "2",
+		"objectName": "Params",
+		"permissionListAdmin": "1",
+		"permissionInsert": "1",
+		"permissionModify": "1",
+		"permissionDelete": "1"
+	},
+	{
+		"idUserType": "2",
+		"objectName": "Banner",
+		"permissionListAdmin": "1",
+		"permissionInsert": "1",
+		"permissionModify": "1",
+		"permissionDelete": "1"
+	}
+]

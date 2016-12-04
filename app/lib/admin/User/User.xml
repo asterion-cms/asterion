@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+* @structure User
+*
+* @author Leano Martinet <info@asterion-cms.com>
+* @package Asterion
+* @version 3.0.1
+-->
+<object>
+    <name>User</name>
+    <info>
+        <sql>
+            <primary>idUser</primary>
+            <created>true</created>
+            <modified>true</modified>
+        </sql>
+        <form>
+            <title>users</title>
+            <label>#name</label>
+            <orderBy>name</orderBy>
+            <templateItemAdmin>
+                <div class="active active-##active">
+                    <p class="image">#image</p>
+                    <p class="accent"><strong>#name</strong></p>
+                    <p class="tiny">_type : <span class="mainAlt">#idUserType</span></p>
+                    <p class="tiny">_email : <span class="mainAlt">#email</span></p>
+                </div>
+            </templateItemAdmin>
+        </form>
+    </info>
+    <attributes>
+        <attribute>
+            <name>idUser</name>
+            <type>id-autoincrement</type>
+        </attribute>
+        <attribute>
+            <name>idUserType</name>
+            <label>userType</label>
+            <type>select</type>
+            <refObject>UserType</refObject>
+        </attribute>
+        <attribute>
+            <name>image</name>
+            <label>image</label>
+            <type>file</type>
+            <mode>image</mode>
+        </attribute>
+        <attribute>
+            <name>name</name>
+            <label>name</label>
+            <required>notEmpty</required>
+            <type>text</type>
+        </attribute>
+        <attribute>
+            <name>email</name>
+            <label>email</label>
+            <required>unique-email</required>
+            <type>text-email</type>
+        </attribute>
+        <attribute>
+            <name>password</name>
+            <label>password</label>
+            <type>password</type>
+        </attribute>
+        <attribute>
+            <name>passwordTemp</name>
+            <type>hidden</type>
+        </attribute>
+        <attribute>
+            <name>telephone</name>
+            <label>telephone</label>
+            <type>text-telephone</type>
+        </attribute>
+        <attribute>
+            <name>address</name>
+            <label>address</label>
+            <type>textarea</type>
+        </attribute>
+        <attribute>
+            <name>active</name>
+            <label>active</label>
+            <type>checkbox</type>
+        </attribute>
+    </attributes>
+    <indexes>
+        <index>
+            <name>email</name>
+            <fields>email</fields>
+        </index>
+        <index>
+            <name>idUserType</name>
+            <fields>idUserType</fields>
+        </index>
+    </indexes>
+</object>

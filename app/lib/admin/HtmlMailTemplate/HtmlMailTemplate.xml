@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+* @structure HtmlMailTemplate
+*
+* @author Leano Martinet <info@asterion-cms.com>
+* @package Asterion
+* @version 3.0.1
+-->
+<object>
+    <name>HtmlMailTemplate</name>
+    <info>
+        <sql>
+            <primary>idHtmlMailTemplate</primary>
+        </sql>
+        <form>
+            <title>mailTemplates</title>
+            <orderBy>code</orderBy>
+            <label>#title</label>
+        </form>
+    </info>
+    <attributes>
+        <attribute>
+            <name>idHtmlMailTemplate</name>
+            <type>id-autoincrement</type>
+        </attribute>
+        <attribute>
+            <name>code</name>
+            <label>code</label>
+            <type>text-code</type>
+            <required>unique</required>
+        </attribute>
+        <attribute>
+            <name>idsAvailable</name>
+            <label>idsAvailable</label>
+            <type>text-unchangeable</type>
+        </attribute>
+        <attribute>
+            <name>title</name>
+            <lang>true</lang>
+            <label>title</label>
+            <required>notEmpty</required>
+            <type>text-long</type>
+        </attribute>
+        <attribute>
+            <name>titleUrl</name>
+            <lang>true</lang>
+            <type>hidden-url</type>
+            <refAttribute>title</refAttribute>
+        </attribute>
+        <attribute>
+            <name>template</name>
+            <lang>true</lang>
+            <label>template</label>
+            <required>notEmpty</required>
+            <type>textarea-ck</type>
+        </attribute>
+    </attributes>
+    <indexes>
+        <index>
+            <name>code</name>
+            <fields>code</fields>
+        </index>
+    </indexes>
+</object>

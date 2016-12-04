@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+* @structure HtmlMail
+*
+* @author Leano Martinet <info@asterion-cms.com>
+* @package Asterion
+* @version 3.0.1
+-->
+<object>
+    <name>HtmlMail</name>
+    <info>
+        <sql>
+            <primary>idHtmlMail</primary>
+        </sql>
+        <form>
+            <title>mails</title>
+            <layout>simple</layout>
+            <orderBy>title</orderBy>
+            <label>#title</label>
+            <templateItemAdmin>
+                <p class="accent"><strong>#title</strong></p>
+                <p class="tiny"><em>_code</em> : <span class="mainAlt">#code</span></p>
+                <p class="tiny">#description</p>
+            </templateItemAdmin>
+        </form>
+    </info>
+    <attributes>
+        <attribute>
+            <name>idHtmlMail</name>
+            <type>id-autoincrement</type>
+        </attribute>
+        <attribute>
+            <name>code</name>
+            <label>code</label>
+            <type>text-code</type>
+            <required>unique</required>
+        </attribute>
+        <attribute>
+            <name>idsAvailable</name>
+            <label>idsAvailable</label>
+            <type>text-unchangeable</type>
+        </attribute>
+        <attribute>
+            <name>title</name>
+            <label>title</label>
+            <lang>true</lang>
+            <type>text</type>
+            <required>notEmpty</required>
+        </attribute>
+        <attribute>
+            <name>titleUrl</name>
+            <lang>true</lang>
+            <type>hidden-url</type>
+            <refAttribute>title</refAttribute>
+        </attribute>
+        <attribute>
+            <name>subject</name>
+            <lang>true</lang>
+            <label>subject</label>
+            <type>text-long</type>
+            <required>notEmpty</required>
+        </attribute>
+        <attribute>
+            <name>replyTo</name>
+            <label>replyTo</label>
+            <type>text-long</type>
+        </attribute>
+        <attribute>
+            <name>description</name>
+            <lang>true</lang>
+            <label>description</label>
+            <type>textarea</type>
+        </attribute>
+        <attribute>
+            <name>mail</name>
+            <lang>true</lang>
+            <label>mail</label>
+            <type>textarea-ck</type>
+            <required>notEmpty</required>
+        </attribute>
+    </attributes>
+    <indexes>
+        <index>
+            <name>code</name>
+            <fields>code</fields>
+        </index>
+        <index>
+            <name>titleUrl</name>
+            <fields>titleUrl</fields>
+            <lang>true</lang>
+        </index>
+    </indexes>
+</object>

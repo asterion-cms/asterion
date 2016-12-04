@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+* @structure Params
+*
+* @author Leano Martinet <info@asterion-cms.com>
+* @package Asterion
+* @version 3.0.1
+-->
+<object>
+    <name>Params</name>
+    <info>
+        <sql>
+            <primary>idParams</primary>
+        </sql>
+        <form>
+            <title>params</title>
+            <orderBy>code</orderBy>
+            <label>#information</label>
+            <templateItemAdmin>
+                <p class="accent"><strong>#name</strong></p>
+                <p class="tiny"><em>_code</em> : <span class="mainAlt">#code</span></p>
+                <p class="tiny"><em>_value</em> : <span class="mainAlt">#information</span></p>
+            </templateItemAdmin>
+        </form>
+    </info>
+    <attributes>
+        <attribute>
+            <name>idParams</name>
+            <type>id-autoincrement</type>
+        </attribute>
+        <attribute>
+            <label>code</label>
+            <name>code</name>
+            <type>text-code</type>
+            <required>unique</required>
+        </attribute>
+        <attribute>
+            <name>name</name>
+            <label>name</label>
+            <type>text</type>
+            <required>notEmpty</required>
+        </attribute>
+        <attribute>
+            <label>information</label>
+            <name>information</name>
+            <type>textarea-code</type>
+            <required></required>
+        </attribute>
+    </attributes>
+    <indexes>
+        <index>
+            <name>code</name>
+            <type></type>
+            <fields>code</fields>
+        </index>
+    </indexes>
+</object>

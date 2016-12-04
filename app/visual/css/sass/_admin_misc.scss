@@ -1,0 +1,728 @@
+
+
+.listAnnotations {
+    .listAnnotationsItem {
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid $colorTextAlt;
+        &:last-child {
+            padding-bottom: 0;
+            margin-bottom: 0;
+            border-bottom: 0;
+        }
+    }
+    .listAnnotationsTitle {
+        color: $colorAccent;
+        font-size: 1.1em;
+        font-weight: bold;
+        padding-bottom: 10px;
+    }
+    .listAnnotationsItems {
+        padding-left: 30px;
+    }
+    .responsesAdmin {
+        font-size: 0.8em;
+        color: $colorText;
+        padding: 5px;
+        border-bottom: 1px solid $colorTextAlt;
+        background: lighten($colorTextAlt, 5%);
+        .responsesAdminLeft {
+            width: 50%;
+            float: left;
+            padding-left: 25%;
+        }
+        .responsesAdminRight {
+            width: 25%;
+            float: right;
+            text-align: right;
+            .responsesAdminOption {
+                display: inline-block;
+                margin: 0px 3px 3px 0px;
+                font-size: 0.8em;
+                font-weight: bold;
+                padding: 3px 5px;
+                background: $colorError;
+                color: $white;
+                cursor: pointer;
+                @include animate();
+                &:hover {
+                    opacity: 0.6;
+                }
+            }
+        }
+    }
+    .annotationAdmin {
+        padding-bottom: 3px;
+        margin-bottom: 3px;
+        border-bottom: 1px solid $colorTextAlt;
+        &:last-child {
+            padding-bottom: 0;
+            margin-bottom: 0;
+            border-bottom: 0;
+        }
+        &.annotationAdminHidden {
+            color: $colorTextAlt;
+        }
+    }
+    .annotationAdminIns {
+        display: table;
+        table-layout: fixed;
+        font-size: 0.8em;
+        strong {
+            font-weight: bold;
+        }
+        .annotationAdminItem {
+            display: table-cell;
+            padding: 3px;
+        }
+        .annotationAdminItem1 {
+            width: 15%;
+            font-size: 0.9em;
+            opacity: 0.6;
+        }
+        .annotationAdminItem3 {
+            width: 25%;
+        }
+    }
+    .annotationAdminOptions {
+        text-align: right;
+        .annotationAdminOption {
+            display: inline-block;
+            margin: 0px 3px 3px 0px;
+            font-size: 0.8em;
+            font-weight: bold;
+            padding: 3px 5px;
+            background: $colorText;
+            color: $white;
+            cursor: pointer;
+            @include animate();
+            &:hover {
+                opacity: 0.6;
+            }
+        }
+        .annotationAdminOptionDelete {
+            background: $colorError;
+        }
+        .annotationAdminOptionPublic {
+            background: $colorAccept;
+        }
+    }
+}
+
+.backButton {
+    padding-bottom: 10px;
+    a {
+        font-size: 0.7em;
+        display: inline-block;
+        padding: 5px 10px;
+        background: $colorAccent;
+        color: $white;
+        &:hover {
+            background: $colorMain;
+        }
+    }
+}
+
+.adminTable {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    box-sizing: border-box;
+    border-collapse: collapse;
+    .adminTableRow {
+        display: table-row;
+        &.adminTableRowHeader {
+            .adminTableItem {
+                font-weight: bold;
+                text-align: center;
+                background-color: $colorTextAlt;
+            }
+        }
+        &:nth-child(2n+2) {
+            .adminTableItem {
+                background: $colorTextAlt;
+            }    
+        }
+        &.adminTableRowTotal {
+            .adminTableItem {
+                background: lighten($colorMain, 65%);
+                color: $colorMain;
+                font-weight: bold;
+            }
+        }
+    }
+    .adminTableItem {
+        display: table-cell;
+        padding: 5px;
+        border: 1px solid $colorTextAlt;
+        box-sizing: border-box;
+        background: $white;
+        font-size: 0.8em;
+        vertical-align: top;
+        &.adminTableItem5 {
+            width: 5%;
+        }
+        &.adminTableItem10 {
+            width: 10%;
+        }
+        &.adminTableItem15 {
+            width: 15%;
+        }
+        &.adminTableItem20 {
+            width: 20%;
+        }
+        &.adminTableItem30 {
+            width: 30%;
+        }
+        &.adminTableItem40 {
+            width: 40%;
+        }
+        &.adminTableItem50 {
+            width: 50%;
+        }
+        &.adminTableItemSingle {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        &.adminTableItemPrice {
+            text-align: right;
+            span {
+                font-size: 0.8em;
+            }
+        }
+        .adminTableItemActive {
+            width: 10px;
+            height: 10px;
+            overflow: hidden;
+            background: $colorTextAlt;
+            text-indent: -5000px;
+            display: block;
+            margin: auto;
+            &.adminTableItemActive1 {
+                background: $colorAccept;
+            }
+        }
+        a {
+            color: $colorMain;
+            display: block;
+            &:hover {
+                color: $colorAccentAlt;
+            }
+        }
+    }
+    .adminTableItemDelete,
+    .adminTableItemModify {
+        a {
+            display: block;
+            width: 16px;
+            height: 16px;
+            background-image: url(../../img/icons16.png);
+            background-position: -96px 0px;
+            cursor: pointer;
+            text-indent: -5000px;
+            overflow: hidden;
+            margin: auto;
+            &:hover {
+                opacity: 0.5;
+            }
+        }
+    }
+    .adminTableItemModify {
+        a {
+            background-position: -32px 0px;
+        }
+    }
+    .adminTableItemCenter {
+        text-align: center;
+    }
+    .formField {
+        input,
+        textarea,
+        select {
+            max-width: 100%;
+        }
+    }
+    // Sorter
+    thead {
+        .tablesorter-header {
+            background-image: url(../../img/bg.gif);
+            background-repeat: no-repeat;
+            background-position: center right;
+            background-color: $colorTextAlt !important;
+            padding: 10px 5px;
+            cursor: pointer;
+            &.sorter-false {
+                background-image: none;
+                cursor: default;
+            }
+            &.tablesorter-headerAsc {
+                background-image: url(../../img/asc.gif);
+                background-color: darken($colorTextAlt, 10%) !important;
+            }
+            &.tablesorter-headerDesc {
+                background-image: url(../../img/desc.gif);
+                background-color: darken($colorTextAlt, 10%) !important;
+            }
+        }
+    }
+}
+#adminTableStock {
+    .formField {
+        label {
+            display: none;
+        }
+    }
+    .stockForm {
+        .adminTableRowInfoEdit {
+            display: none;
+        }
+        .stockFormEdit,
+        .stockFormSave {
+            text-align: center;
+            display: inline-block;
+            padding: 3px 10px;
+            background: $colorText;
+            color: $white;
+            font-size: 0.9em;
+            font-weight: bold;
+            cursor: pointer;
+            @include borderRadius(3px);
+            &:hover {
+                background: $colorMain;
+            }
+        }
+        .stockFormSave {
+            background: $colorAccept;
+        }
+    }
+    .stockFormEmpty {
+        display: none;
+    }
+}
+.adminTableStockOptions {
+    padding-top: 20px;
+    .adminTableStockAdd {
+        display: inline-block;
+        padding: 10px 20px;
+        background: $colorAccept;
+        font-weight: bold;
+        color: $white;
+        cursor: pointer;
+        @include borderRadius(3px);
+        &:hover {
+            background: $colorText;
+        }
+    }
+}
+.orderState {
+    padding-left: 20px;
+    position: relative;
+    &:after {
+        position: absolute;
+        top: 5px;
+        left: 0;
+        display: block;
+        width: 10px;
+        height: 10px;
+        background: $colorTextAlt;
+        content: " ";
+    }
+    &.orderState1 {
+        &:after {
+            background: $colorError;
+        }
+    }
+    &.orderState2 {
+        &:after {
+            background: $colorAccept;
+        }
+    }
+    &.orderState3 {
+        &:after {
+            background: darken($colorError, 25%);
+        }
+    }
+    &.orderState4 {
+        &:after {
+            background: $colorAccentAlt;
+        }
+    }
+}
+
+.multipleBlocks {
+    .multipleBlock {
+        margin-bottom: 30px;
+        padding-bottom: 30px;
+        border-bottom: 1px solid $colorTextAlt;
+        &:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: 0;
+        }
+        .multipleBlockHeader {
+            padding-bottom: 20px;
+            h2 {
+                width: 50%;
+                float: left;
+                font-weight: bold;
+                font-size: 1.2em;
+                padding-top: 10px;
+            }
+            a {
+                display: block;
+                width: 180px;
+                padding: 10px 10px;
+                float: right;
+                background: $colorAccept;
+                color: $white;
+                font-weight: bold;
+                text-align: center;
+                @include borderRadius(3px);
+                @include animate();
+                &:hover {
+                    background: $colorMain;
+                }
+            }
+        }
+    }
+}
+
+.orderOptions {
+    margin: 10px;
+    width: 440px;
+    float: left;
+    &:last-child {
+        margin-bottom: 0;
+    }
+    .orderOption {
+        background: $colorTextAlt;
+        border: 1px solid darken($colorTextAlt, 5%);
+        padding: 5px 10px;
+        border-left: 3px solid $colorTextAlt;
+        min-height: 125px;
+        &.orderOptionShip {
+            border-left: 3px solid $colorAccept;
+            .orderOptionLeft .formSubmitWrapper input,
+            .orderOptionLeft .formSubmitWrapper input:hover {
+                background: $colorAccept;
+            }
+            .orderOptionRight h2 {
+                color: $colorAccept;
+            }
+        }
+        &.orderOptionCancel {
+            border-left: 3px solid $colorError;
+            .orderOptionLeft .formSubmitWrapper input,
+            .orderOptionLeft .formSubmitWrapper input:hover {
+                background: $colorError;
+            }
+            .orderOptionRight h2 {
+                color: $colorError;
+            }
+        }
+        &.orderOptionFinish {
+            border-left: 3px solid $colorMain;
+            .orderOptionLeft .formSubmitWrapper input,
+            .orderOptionLeft .formSubmitWrapper input:hover {
+                background: $colorMain;
+            }
+            .orderOptionRight h2 {
+                color: $colorMain;
+            }
+        }
+        &.orderOptionSendMessage {
+            border-left: 3px solid $colorAccentAlt;
+            .orderOptionLeft .formSubmitWrapper input,
+            .orderOptionLeft .formSubmitWrapper input:hover {
+                background: $colorAccentAlt;
+            }
+            .orderOptionRight h2 {
+                color: $colorAccentAlt;
+            }
+        }
+        .orderOptionLeft {
+            width: 60%;
+            float: right;
+            label {
+                font-weight: normal;
+                font-size: 0.9em;
+                padding: 0;
+                padding-bottom: 3px;
+            }
+            .formField {
+                input,
+                textarea {
+                    width: 100%;
+                }
+            }
+            .formSubmitWrapper {
+                input {
+                    width: 100%;
+                    padding: 5px;
+                    text-align: center;
+                    display: block;
+                    cursor: pointer;
+                    background: $colorText;
+                    color: $white;
+                    font-weight: normal;
+                    text-transform: uppercase;
+                    font-size: 1em;
+                    border: 0;
+                    font-weight: bold;
+                    &:hover {
+                        background: darken($colorText, 10%);
+                    }
+                }
+            }
+        }
+        .orderOptionRight {
+            width: 35%;
+            float: left;
+            color: $colorText;
+            p {
+                font-size: 0.9em;
+            }
+            h2 {
+                font-weight: bold;
+                padding-bottom: 10px;
+                font-size: 1.2em;
+                color: $colorText;
+            }
+        }
+    }
+}
+.orderOptionsMessage {
+    margin: 10px 0;
+    padding: 10px;
+    text-align: center;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    color: $white;
+    background: $colorText;
+    &.orderOptionsMessage2 {
+        background: $colorAccept;
+    }
+    &.orderOptionsMessage3 {
+        background: $colorError;
+    }
+    &.orderOptionsMessage4 {
+        background: $colorMain;
+    }
+    span {
+        font-weight: bold;
+        font-size: 1.2em;
+        display: inline-block;
+        padding: 0 0 0 20px;
+    }
+    em {
+        font-style: normal;
+        font-size: 0.9em;
+        text-transform: none;
+        opacity: 0.8;
+    }
+}
+
+.orderModify {
+    padding: 10px;
+    background: $colorTextAlt;
+    border: 1px solid darken($colorTextAlt, 5%);
+    margin: 30px 0;
+    form {
+        padding: 0;
+        margin: 0;
+        border: 0;
+    }
+    .orderStockItem {
+        padding-bottom: 20px;
+        &:last-child {
+            padding-bottom: 0;
+        }
+        h3 {
+            font-weight: bold;
+            font-size: 1em;
+            padding-bottom: 5px;
+            color: $colorMain;
+            span {
+                color: $colorText;
+                padding-right: 10px;
+                display: inline-block;
+            }
+        }
+    }
+    .adminTable {
+        font-size: 1.1em;
+    }
+}
+.orderModifyOptions {
+    margin: 30px 0;
+}
+.orderModifySimpleOptions {
+    text-align: right;
+    padding-top: 5px;
+    &.orderModifySimpleOptionAll {
+        text-align: left;
+        padding-bottom: 20px;
+        .orderModifySimpleOption {
+            padding: 0 5px 0 0;
+            a {
+                background: $colorAccentAlt;
+                border: 1px solid darken($colorAccentAlt, 5%);
+                color: $white;
+                &:hover {
+                    background: $colorAccent;
+                }
+            }
+        }    
+    }
+    .orderModifySimpleOption {
+        display: inline-block;
+        padding: 0 0 0 5px;
+        a {
+            display: inline-block;
+            padding: 5px 10px;
+            background: lighten($colorText, 50%);
+            border: 1px solid lighten($colorText, 45%);
+            color: $colorText;
+            font-size: 0.9em;
+            font-weight: normal;
+            strong {
+                font-weight: bold;
+            }
+            &:hover {
+                background: $colorText;
+                color: $white;
+            }
+        }
+        &.orderModifySimpleOptionImportant {
+            a {
+                background: lighten($colorText, 55%);
+                &:hover {
+                    background: $colorText;
+                    color: $white;
+                }
+            }
+        }
+    }
+}
+.buttonCards {
+    @include clearer();
+    .buttonCard {
+        width: 50%;
+        margin: auto;
+        a {
+            display: block;
+            padding: 20px;
+            background: rgba($colorAccent, 0.1);
+            border: 1px solid rgba($colorAccent, 0.2);
+            text-align: center;
+            font-weight: normal;
+            font-size: $fontSizeSmall;
+            color: $colorText;
+            @include borderRadius(5px);
+            @include borderBox();
+            strong {
+                display: block;
+                font-size: $fontSizeNormal;
+                color: lighten($colorAccent, 10%);
+                padding: 0 0 5px;
+                font-weight: bold;
+            }
+            &:hover {
+                background: rgba($colorAccentAlt, 0.1);
+                border: 1px solid rgba($colorAccentAlt, 0.2);
+            }
+        }
+    }
+    &.buttonCards2 {
+        .buttonCard {
+            float: left;
+            width: 46%;
+            margin: 0 2% 2% 2%;
+        }
+    }
+}
+
+.blockCacheItems {
+    .blockCacheItem {
+        padding: 0 0 10px 0;
+        margin: 0 0 10px 0;
+        border-bottom: 1px solid rgba($colorAccent, 0.1);
+        font-size: $fontSizeSmall;
+        @include clearer();
+        &:last-child {
+            padding: 0;
+            margin: 0;
+            border-bottom: 0;
+        }
+        a {
+            float: right;
+            display: block;
+            padding: 3px 10px;
+            margin: 0 0 0 5px;
+            background: lighten($colorAccent, 30%);
+            color: $white;
+            font-weight: normal;
+            font-size: $fontSizeTiny;
+            @include borderRadius(3px);
+            &.resetObject {
+                background: lighten($colorAccent, 40%);
+            }
+            &:hover {
+                background: $colorAccentAlt;
+            }
+        }
+        span {
+            color: rgba($colorText, 0.6);
+            font-size: $fontSizeSmall;
+        }
+    }
+}
+
+.blocksCache {
+    padding: 15px 0 0 0;
+    .blockCache {
+        padding: 0 0 10px 0;
+        margin: 0 0 10px 0;
+        border-bottom: 1px solid rgba($colorAccent, 0.1);
+        @include clearer();
+        &:last-child {
+            padding: 0;
+            margin: 0;
+            border-bottom: 0;
+        }
+        .blockCacheTitle {
+            font-weight: bold;
+            color: $colorAccent;
+            padding: 0 0 5px;
+        }
+        .blockCacheMethods {
+            padding: 0 0 0 20px;
+            .blockCacheMethod {
+                color: lighten($colorText, 20%);
+                padding: 0 0 3px;
+                span {
+                    font-size: $fontSizeTiny;
+                    color: lighten($colorText, 30%);
+                }
+            }
+        }
+        a {
+            float: right;
+            display: block;
+            padding: 3px 10px;
+            margin: 0 0 0 5px;
+            background: lighten($colorAccent, 30%);
+            color: $white;
+            font-weight: normal;
+            font-size: $fontSizeTiny;
+            @include borderRadius(3px);
+            &.resetObject {
+                background: lighten($colorAccent, 40%);
+            }
+            &:hover {
+                background: $colorAccentAlt;
+            }
+        }
+    }
+}

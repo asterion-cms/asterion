@@ -1,0 +1,165 @@
+.menuSide {
+    margin: 20px 0 0 0;
+    .menuSideItem {
+        a {
+            display: block;
+            padding: 10px 10px 10px 30px;
+            margin: 0 0 2px 0;
+            color: $white;
+            background: $colorAccent;
+            font-size: $fontSizeTiny;
+            @include iconBeforeAbsolute($icon-arrow-simple-right, $paddingLeft: 30px, $top: 10px, $left: 10px);
+            &:before {
+                opacity: 0.4;
+            }
+            &:hover {
+                background: darken($colorAccent, 5%);
+                &:before {
+                    opacity: 1;
+                }
+            }
+        }
+        &.menuSideItemBase {
+            a {
+                background: lighten($colorAccent, 10%);
+                &:hover {
+                    background: lighten($colorAccent, 5%);
+                }
+            }
+        }
+        span {
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 3px 0;
+            margin-top: 10px;
+            border-top: 1px solid $colorTextAlt; 
+            color: $colorText;
+            display: block;
+        }
+        &.menuSideItem-User,
+        &.menuSideItem-UserType {
+            a {
+                &:before {
+                    content: $icon-user;
+                }
+            }
+        }
+        &.menuSideItem-Params {
+            a {
+                &:before {
+                    content: $icon-settings;
+                }
+            }
+        }
+        &.menuSideItem-Lang,
+        &.menuSideItem-LangTrans {
+            a {
+                &:before {
+                    content: $icon-bubbles;
+                }
+            }
+        }
+        &.menuSideItem-HtmlMail,
+        &.menuSideItem-HtmlMailTemplate {
+            a {
+                &:before {
+                    content: $icon-email;
+                }
+            }
+        }
+        &.menuSideItem-permissions,
+        &.menuSideItem-backup,
+        &.menuSideItem-cache,
+        &.menuSideItem-langs {
+            a {
+                background: darken($colorAccent, 10%);
+                &:before {
+                    content: $icon-users;
+                }
+                &:hover {
+                    background: darken($colorAccent, 15%);
+                }
+            }
+        }
+        &.menuSideItem-langs {
+            a {
+                &:before {
+                    content: $icon-bubbles;
+                }
+            }
+        }
+        &.menuSideItem-backup {
+            a {
+                &:before {
+                    content: $icon-download;
+                }
+            }
+        }
+        &.menuSideItem-cache {
+            a {
+                &:before {
+                    content: $icon-file-text;
+                }
+            }
+        }
+        &.menuSideItem-logout {
+            a {
+                background: $colorNeutral;
+                &:before {
+                    content: $icon-exit;
+                }
+                &:hover {
+                    background: darken($colorNeutral, 5%);
+                }
+            }
+        }
+    }
+}
+.menuSimple {
+    @include clearer();
+    .menuSimpleItem {
+        width: 120px;
+        float: right;
+        margin-left: 10px;
+        a {
+            display: block;
+            background: $colorTextAlt;
+            border: 1px solid darken($colorTextAlt, 10%);
+            text-align: center;
+            font-size: $fontSizeTiny;
+            font-weight: normal;
+            @include iconBeforeAbsolute($icon-menu, $paddingLeft: 0, $top: 10px, $left: 0);
+            padding: 45px 5px 5px 5px;
+            @include borderRadius(3px);
+            @include textEllipsis();
+            &:before {
+                right: 0;
+                font-size: 25px;
+                line-height: 25px;
+                text-align: center;
+                opacity: 0.5;
+            }
+            &:hover {
+                background: $colorAccentAlt;
+                border: 1px solid darken($colorAccentAlt, 5%);
+                color: $white;
+            }
+        }
+        &.menuSimpleItemInsert a {
+            &:before {
+                content: $icon-plus;
+            }
+        }
+        &.menuSimpleItemExportJson a {
+            &:before {
+                content: $icon-download;
+            }
+        }
+        &.menuSimpleItemCancel a {
+            &:before {
+                content: $icon-cancel;
+            }
+        }
+    }
+}

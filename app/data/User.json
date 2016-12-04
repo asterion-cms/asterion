@@ -1,0 +1,22 @@
+[
+	{
+		"idUserType": "1",
+		"image": "https://image.freepik.com/free-icon/user-image-with-black-background_318-34564.jpg",
+		"name": "Asterion Administrator",
+		"email": "##EMAIL",
+		"password": "asterion",
+		"telephone": "+33771513195",
+		"address": "15 cours Gambetta, 69007, Lyon",
+		"active": "1"
+	},
+	{
+		"idUserType": "2",
+		"image": "https://image.freepik.com/free-icon/user-image-with-black-background_318-34564.jpg",
+		"name": "Asterion Editor",
+		"email": "editor@asterion-cms.com",
+		"telephone": "",
+		"address": "15 cours Gambetta, 69007, Lyon",
+		"password": "asterion",
+		"active": "1"
+	}
+]

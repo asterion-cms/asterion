@@ -1,0 +1,668 @@
+.formAdmin {
+    font-size: 0.9em;
+    display: block;
+    label {
+        display: block;
+        color: $colorAccent;
+        font-weight: bold;
+        padding-bottom: 3px;
+        font-size: $fontSizeSmall;
+        span {
+            font-size: $fontSizeTiny;
+            font-style: italic;
+            color: $colorText;
+            font-weight: normal;
+            opacity: 0.6;
+        }
+    }
+    .formField {
+        padding-bottom: 10px;
+    }
+    .formField input,
+    .formField textarea,
+    .formField select {
+        background: $white;
+        color: $colorText;
+        border: 1px solid lighten($colorText, 40%);
+        padding: 3px;
+        font-size: $fontSizeSmall;
+        font-family: $fontFamily;
+        @include borderBox();
+        &:focus {
+            border: 1px solid lighten($colorText, 20%);
+        }
+        &:disabled {
+            background: $colorTextAlt;
+            border: 1px solid $colorTextAlt;
+            color: $colorText;
+        }
+    }
+    .text-unchangeable {
+        input[disabled] {
+            padding: 0;
+            opacity: 0.6;
+        }
+    }
+    .text-large input,
+    .textarea-large textarea {
+        width: 100%;
+    }
+    .text-long input,
+    .textarea-long textarea {
+        width: 80%;
+    }
+    .dateText input {
+        width: 200px;
+    }
+    .formField .checkboxIns {
+        @include clearer();
+        label {
+            padding: 3px 0 0 0;
+        }
+        input {
+            float: left;
+            margin-right: 15px;
+            width: auto;
+            font-family: $fontFamily;
+        }
+    }
+    .formFieldsImage img {
+        padding: 3px;
+        background: $white;
+        border: 1px solid $colorTextAlt;
+        margin-bottom: 3px;
+    }
+    .formFieldsFile {
+        padding-top: 3px;
+        font-size: $fontSizeTiny;
+        a {
+            background: $colorAccent;
+            color: $white;
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 3px 0 0 0;
+            @include borderRadius(3px);
+            &:hover {
+                color: $white;
+                background: darken($colorAccent, 10%);
+            }
+        }
+    }
+    .multipleCheckboxes {
+        padding-bottom: 10px;
+        label {
+            padding-bottom: 10px;
+        }
+        .checkboxIns label {
+            font-weight: normal;
+            color: $colorText;
+            padding-bottom: 2px;
+        }
+        .formField {
+            padding: 0px;
+        }
+    }
+    .selectCheckbox select,
+    .selectCheckbox .checkbox {
+        float: left;
+    }
+    .selectDate {
+        select {
+            margin-right: 10px;
+        }
+    }
+    input.formSubmit {
+        border: 0px;
+        display: block;
+        width: 200px;
+        padding: 10px 15px;
+        text-align: center;
+        color: $white;
+        background: $colorAccent;
+        margin-top: 10px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: $fontSizeNormal;
+        @include borderRadius(3px);
+        &:hover {
+            background: $colorAccentAlt;
+        }
+    }
+    .submitButtons input.formSubmit {
+        float: left;
+        margin-right: 15px;
+    }
+    .btnExtraAction a {
+        border: 0px;
+        display: block;
+        width: 300px;
+        padding: 5px 10px;
+        text-align: center;
+        color: $white;
+        background: $colorAccept;
+        margin-top: 10px;
+        cursor: pointer;
+        font-weight: normal;
+        font-size: $fontSizeSmall;
+        @include borderRadius(3px);
+        &:hover {
+            background: $colorAccentAlt;
+        }
+    }
+    .btnExtraActionInfo {
+        padding: 10px 0px;
+        color: $colorText;
+        font-size: $fontSizeSmall;
+        font-style: italic;
+        strong {
+            font-weight: bold;
+        }
+    }
+    .error {
+        color: $colorMessageError;
+    }
+    .errorField input,
+    .errorField textarea,
+    .errorField select {
+        border: 1px solid $colorMessageError;
+    }
+    p {
+        padding-bottom: 5px;
+    }
+}
+.simpleForm {
+    p {
+        font-size: $fontSizeSmall;
+        padding-bottom: 10px;
+    }
+    a {
+        color: $colorAccept;
+        @include animate();
+        &:hover {
+            color: $colorAccent;
+        }
+    }
+}
+//Form search
+.formAdminSearch {
+    padding-bottom: 10px;
+    width: 400px;
+    .formField {
+        float: left;
+        width: 70%;
+        input {
+            width: 100%;
+            padding: 2px 5px;
+            border: 1px solid $colorTextAlt;
+            font-family: $fontFamily;
+        }
+    }
+    .formSubmitWrapper {
+        width: 27%;
+        float: right;
+        input {
+            width: 100%;
+            display: block;
+            background: $colorAccept;
+            color: $white;
+            text-align: center;
+            font-family: $fontFamily;
+            padding: 2px;
+            border: 0px;
+            font-weight: bold;
+            cursor: pointer;
+            &:hover {
+                background: $colorAccent;
+            }
+        }
+    }
+}
+
+// Form permissions
+.formPermissions {
+    font-size: $fontSizeSmall;
+    .formPermission {
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+        border-bottom: 1px solid rgba($colorText, 0.2);
+        @include clearer();
+        &:last-child {
+            padding-bottom: 0;
+            margin-bottom: 0;
+            border-bottom: 0;
+        }
+        .formPermissionObject {
+            width: 23%;
+            float: left;
+            color: $colorAccent;
+            font-weight: bold;
+            line-height: $fontSizeNormal;
+            @include textEllipsis();
+        }
+        .formPermissionOptions {
+            width: 75%;
+            float: right;
+            .formPermissionOptionsIns {
+                display: table;
+                width: 100%;
+                table-layout: fixed;
+                .formField {
+                    padding: 0;
+                }
+                .formPermissionOption {
+                    display: table-cell;
+                    vertical-align: top;
+                    .formPermissionOptionUser {
+                        color: $colorAccentAlt;
+                        padding-bottom: 5px;
+                    }
+                    .formPermissionOptionCheckboxes {
+                        label {
+                            font-size: $fontSizeTiny !important;
+                            color: $colorText !important;
+                            font-weight: normal !important;
+                        }
+                    }
+                }
+            }
+        }
+        &.formPermissionBase {
+            .formPermissionObject {
+                color: darken($colorAccent, 10%);
+            }
+            .formPermissionOptions {
+                .formPermissionOptionsIns {
+                    .formPermissionOption {
+                        .formPermissionOptionCheckboxes {
+                            label {
+                                color: $colorAccent !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+//Multiple forms
+.nestedFormField {
+    margin: 10px 0 0 0;
+    padding: 10px 0;
+    border-top: 1px solid rgba($colorText, 0.3);
+    .nestedFormFieldIns {
+        @include clearer();
+    }
+    .nestedFormFieldObject {
+        padding: 10px;
+        background: rgba($colorText, 0.1);
+        border: 1px solid rgba($colorText, 0.15);
+        margin: 10px 0px;
+        position: relative;
+        .nestedFormFieldOptions {
+            .nestedFormFieldDelete,
+            .nestedFormFieldOrder {
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                cursor: pointer;
+                @include iconAfterAbsolute($icon-cross, $paddingRight: 0, $top: 0, $right: 0);
+                &:after {
+                    opacity: 0.6;
+                    color: $colorError;
+                }
+                &:hover {
+                    &:after {
+                        opacity: 1;
+                    }
+                }
+            }
+            .nestedFormFieldOrder {
+                &:after {
+                    content: $icon-move;
+                    right: 25px;
+                    color: $colorMain;
+                }
+            }
+        }
+        }
+    .nestedFormFieldAdd {
+        border: 0px;
+        display: block;
+        width: 240px;
+        padding: 5px 10px;
+        text-align: center;
+        color: $white;
+        background: $colorAccept;
+        margin-top: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: $fontSizeSmall;
+        @include borderRadius(3px);
+        &:hover {
+            background: $colorAccent;
+        }
+    }
+    .nestedFormFieldEmpty {
+        display: none;
+    }
+}
+
+.contentWrapper-UserType {
+    .nestedFormField-idUserTypeMenu {
+        position: relative;
+        .nestedFormFieldOptions {
+            padding: 5px;
+            background: rgba($white, 0.7);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            text-align: right;
+            .nestedFormFieldDelete,
+            .nestedFormFieldOrder {
+                position: static;
+                margin: 0 0 0 10px;
+                padding: 0;
+                display: inline-block;
+                &:after {
+                    position: static;
+                }
+            }
+        }
+        .nestedFormFieldContent {
+            padding-top: 25px;
+        }
+        .nestedFormFieldObject {
+            width: 32%;
+            margin: 0 2% 20px 0;
+            float: left;
+            @include borderBox();
+            &:nth-child(3n+3) {
+                margin: 0 0 10px 0;
+            }
+            input,
+            select,
+            textarea {
+                width: 100%;
+            }
+        }
+    }
+}
+
+//Controls top
+.controlsTop {
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    background: $colorTextAlt;
+    @include borderRadius(3px);
+    @include clearer();
+    .multipleActions {
+        width: 65%;
+        float: left;
+    }
+    .orderActions {
+        width: 35%;
+        float: right;
+    }
+}
+
+//Orders control
+.orderActions {
+    .select {
+        @include clearer();
+        label {
+            width: 38%;
+            float: left;
+            text-align: right;
+            font-size: $fontSizeTiny;
+            padding: 5px 2% 0 0;
+        }
+        select {
+            width: 60%;
+            float: right;
+            font-size: $fontSizeTiny;
+            background: lighten($colorTextAlt, 3%);
+            border: 0;
+            padding: 3px;
+            color: $colorText;
+            font-size: $fontSizeTiny;
+            @include borderRadius(3px);
+            @include borderBox();
+        }
+    }
+}
+
+//Multiple actions
+.multipleActions {
+    @include clearer();
+    .multipleAction {
+        padding: 3px 10px;
+        margin: 0 5px;
+        display: inline-block;
+        background: darken($colorTextAlt, 10%);
+        font-size: $fontSizeTiny;
+        line-height: $fontSizeNormal;
+        cursor: pointer;
+        @include borderRadius(3px);
+        &:hover {
+            color: $white;
+            background: $colorMain;
+        }
+        &.multipleActionCheckAll {
+            background: transparent !important;
+            margin: 0;
+            padding: 0;
+            .formField {
+                padding: 0;
+                margin: 0 10px 0 0;
+                input {
+                    padding: 0;
+                    margin: 0;
+                }
+            }
+        }
+    }
+    .multipleActionSelectAll,
+    .multipleActionDeselectAll {
+        color: $colorText;
+        font-weight: bold;
+    }
+}
+
+.formWrapper {
+    .formLine {
+        &.formLine4,
+        &.formLine3,
+        &.formLine2 {
+            & > .formField {
+                width: 23%;
+                margin-right: 2%;
+                float: left;
+                input,
+                select,
+                textarea {
+                    width: 100%;
+                }
+                .checkBoxInline {
+                    input,
+                    select {
+                        width: auto;
+                    }
+                }
+            }
+        }
+        &.formLine3 {
+            & > .formField {
+                width: 31%;
+            }
+        }
+        &.formLine2 {
+            & > .formField {
+                width: 48%;
+            }
+        }
+        &.formLineMultiple {
+            padding-top: 10px;
+            margin-top: 10px;
+            border-top: 1px solid $colorTextAlt;
+            .formField {
+                float: left;
+                width: 23%;
+                margin-right: 2%;
+                float: left;
+                label {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+            }
+        }
+        &.formLineHidden {
+            .multipleCheckboxesIns {
+                max-height: 200px;
+                overflow: auto;
+                margin-bottom: 20px;
+                background: rgba($white, 0.25);
+                padding: 10px;
+                border: 1px solid $colorTextAlt;
+            }
+        }
+        &.formLineSimple {
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid $colorTextAlt;
+        }
+        &.formLinePrice {
+            padding: 20px 0;
+            margin: 20px 0;
+            border-bottom: 1px solid $colorTextAlt;    
+            strong {
+                font-size: $fontSizeNormal;
+                display: block;
+                font-weight: bold;
+            }
+        }
+        p {
+            strong {
+                font-weight: bold;
+            }
+        }
+        h3 {
+            font-weight: bold;
+            font-size: 1.1em;
+            padding-bottom: 5px;
+        }
+    }
+    .formFieldTable {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px auto;
+        background: $colorTextAlt;
+        .formFieldRow {
+            display: table-row;
+        }
+        .formFieldRowHeader {
+            .formFieldCell {
+                background: $colorText;
+                color: $white;
+                text-align: center;
+                font-weight: bold;
+            }
+        }
+        .formFieldCell {
+            display: table-cell;
+            padding: 10px;
+            border: 1px solid $colorTextAlt;
+            vertical-align: top;
+            &.formFieldCellCenter {
+                text-align: center;
+            }
+            &.formFieldCell5 {
+                width: 5%;
+            }
+            &.formFieldCell10 {
+                width: 10%;
+            }
+            &.formFieldCell15 {
+                width: 15%;
+            }
+            &.formFieldCell20 {
+                width: 20%;
+            }
+        }
+    }
+}
+
+.formFieldsBlocks {
+    .formFieldsBlock {
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid $colorTextAlt;
+        &:last-child {
+            padding-bottom: 0;
+            margin-bottom: 0;
+            border-bottom: 0;            
+        }
+        h2 {
+            font-weight: bold;
+            padding-bottom: 10px;
+            color: $colorMain;
+        }
+    }
+    .formFieldsBlock3 {
+        .formField {
+            float: left;
+            width: 30%;
+            margin: 0 2% 5px 0;
+            input,
+            select,
+            textarea {
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+//Form My Information
+.myAccount {
+    @include clearer();
+    .myAccountPersonal {
+        width: 48%;
+        float: left;
+    }
+    .myAccountPassword {
+        width: 48%;
+        float: right;
+    }
+    .simpleForm {
+        padding: 20px;
+        background: lighten($colorTextAlt, 3%);
+        @include borderRadius(3px);
+        .formField {
+            input,
+            select,
+            textarea {
+                width: 100%;
+            }
+        }
+    }
+}
+
+//Form Menu
+.contentWrapper-Menu,
+.contentWrapper-LangTrans {
+    .formFieldLangs {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        .formField {
+            display: table-cell;
+            padding: 0 20px 10px 0;
+            input {
+                width: 100%;
+            }
+        }
+    }
+}
