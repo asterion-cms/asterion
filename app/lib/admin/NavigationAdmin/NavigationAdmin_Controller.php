@@ -56,8 +56,8 @@ class NavigationAdmin_Controller extends Controller{
             case 'backup':
                 $this->checkLoginAdmin();
                 $this->titlePage = __('backup');
-                File::createDirectory(BASE_FILE.'data');
-                File::createDirectory(BASE_FILE.'data/backup');
+                File::createDirectory(BASE_FILE.'data', false);
+                File::createDirectory(BASE_FILE.'data/backup', false);
                 if (!is_writable(BASE_FILE.'data/backup')) {
                     $this->messageError = str_replace('#DIRECTORY', BASE_FILE.'data/backup', __('directoryNotWritable'));
                 } else {
@@ -92,7 +92,7 @@ class NavigationAdmin_Controller extends Controller{
             case 'cache':
                 $this->checkLoginAdmin();
                 $this->titlePage = __('cache');
-                File::createDirectory(BASE_FILE.'cache');
+                File::createDirectory(BASE_FILE.'cache', false);
                 if (!is_writable(BASE_FILE.'cache')) {
                     $this->messageError = str_replace('#DIRECTORY', BASE_FILE.'cache', __('directoryNotWritable'));
                 } else {
@@ -104,7 +104,7 @@ class NavigationAdmin_Controller extends Controller{
             break;
             case 'cache-all':
                 $this->checkLoginAdmin();
-                File::createDirectory(BASE_FILE.'cache');
+                File::createDirectory(BASE_FILE.'cache', false);
                 if (!is_writable(BASE_FILE.'cache')) {
                     $this->titlePage = __('cache');
                     $this->messageError = str_replace('#DIRECTORY', BASE_FILE.'cache', __('directoryNotWritable'));
@@ -119,8 +119,8 @@ class NavigationAdmin_Controller extends Controller{
                 $this->checkLoginAdmin();
                 $this->mode = 'ajax';
                 if (class_exists($this->id.'_Ui')) {
-                    File::createDirectory(BASE_FILE.'cache');
-                    File::createDirectory(BASE_FILE.'cache/'.$this->id);
+                    File::createDirectory(BASE_FILE.'cache', false);
+                    File::createDirectory(BASE_FILE.'cache/'.$this->id, false);
                     if (!is_writable(BASE_FILE.'cache/'.$this->id)) {
                         $this->titlePage = __('cache');
                         $this->messageError = str_replace('#DIRECTORY', BASE_FILE.'cache', __('directoryNotWritable'));

@@ -70,8 +70,8 @@ class Cache {
             $documentation = $reflection->getMethod($classMethod)->getDocComment();
             preg_match_all('#@(.*?)\n#s', $documentation, $annotations);
             if (isset($annotations[1]) && (in_array('cache', $annotations[1]))) {
-                File::createDirectory(BASE_FILE.'cache');
-                File::createDirectory(BASE_FILE.'cache/'.$className);
+                File::createDirectory(BASE_FILE.'cache', false);
+                File::createDirectory(BASE_FILE.'cache/'.$className, false);
                 if (!$method->isStatic()) {
                     foreach ($items as $item) {
                         $itemUi = new $uiClassName($item);

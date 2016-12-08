@@ -787,7 +787,7 @@ class Db_Sql {
     public function deleteFiles() {
         foreach($this->info->attributes->attribute as $item) {
             if ((string)$item->type == "file") {
-                $name = Text::simpleUrlFileBase();
+                $name = Text::simpleUrlFileBase((string)$item->name);
                 if ((string)$item->mode == 'image') {
                     Image_File::deleteImage($this->className, $this->id().'-'.$name);
                 } else {

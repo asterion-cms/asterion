@@ -149,10 +149,12 @@ class File {
     /**
     * Create a directory in the server.
     */
-    static public function createDirectory($dirname) {
+    static public function createDirectory($dirname, $exception=true) {
         if (!is_dir($dirname)) {
             if (!mkdir($dirname)) {
-                throw new Exception('Could not create folder '.$dirname);
+                if ($exception) {
+                    throw new Exception('Could not create folder '.$dirname);
+                }
             }
         }
         @chmod($dirname, 0755);

@@ -60,8 +60,8 @@ class Backup {
     static public function backupJson($className='') {
     	if ($className=='') {
     		$objectNames = File::scanDirectoryObjects();
-            File::createDirectory(BASE_FILE.'data');
-            File::createDirectory(BASE_FILE.'data/backup');
+            File::createDirectory(BASE_FILE.'data', false);
+            File::createDirectory(BASE_FILE.'data/backup', false);
             foreach ($objectNames as $objectName) {
                 $object = new $objectName();
                 $fileJson = BASE_FILE.'data/backup/'.$objectName.'.json';

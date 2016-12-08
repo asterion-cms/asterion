@@ -38,7 +38,7 @@ class User_Form extends Form{
 
     public function updatePassword() {
         $fields = $this->field('email').'
-                '.$this->field('password');
+                '.FormField_Password::create(array('label'=>__('password'), 'name'=>'password', 'error'=>$this->errors['oldPassword'], 'value'=>''));
         return '<div class="simpleForm">
                     <p>'.__('passwordTempMessage').'</p>
                     '.Form::createForm($fields, array('action'=>url('User/updatePassword', true), 'class'=>'formAdmin', 'submit'=>__('send'))).'
@@ -48,7 +48,7 @@ class User_Form extends Form{
     public function changePassword() {
         $this->errors['oldPassword'] = isset($this->errors['oldPassword']) ? $this->errors['oldPassword'] : '';
         $fields = FormField_Password::create(array('label'=>__('oldPassword'), 'name'=>'oldPassword', 'error'=>$this->errors['oldPassword'])).'
-                '.$this->field('password');
+                '.FormField_Password::create(array('label'=>__('password'), 'name'=>'password', 'error'=>$this->errors['oldPassword'], 'value'=>''));
         return '<div class="simpleForm">
                     <p>'.__('changePasswordMessage').'</p>
                     '.Form::createForm($fields, array('action'=>url('User/myAccountPassword', true), 'class'=>'formAdmin', 'submit'=>__('save'))).'

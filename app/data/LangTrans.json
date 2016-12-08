@@ -1248,10 +1248,16 @@
 		"translation_es": "Exportar JSON"
 	},
 	{
-		"code": "cacheBackup",
-		"translation_en": "Cache / Backup",
-		"translation_fr": "Cache / Backup",
-		"translation_es": "Cache / Backup"
+		"code": "cache",
+		"translation_en": "Cache",
+		"translation_fr": "Cache",
+		"translation_es": "Cache"
+	},
+	{
+		"code": "backup",
+		"translation_en": "Backup",
+		"translation_fr": "Backup",
+		"translation_es": "Backup"
 	},
 	{
 		"code": "exportInformation",
@@ -1314,7 +1320,7 @@
 		"translation_es": "Recargar el objeto"
 	},
 	{
-		"code": "js_reloadObjectMessage",
+		"code": "js_resetObjectMessage",
 		"translation_en": "Resetting or reloading the object will delete the data you have saved and load the default values. There is no way to undo this action.",
 		"translation_fr": "La réinitialisation o recharge de l'objet supprime les données que vous avez enregistrées et charge les valeurs par défaut. Il n'est pas possible d'annuler cette action.",
 		"translation_es": "Reinicializar o recargar el objeto eliminará los datos que ha guardado y cargará los valores predeterminados. No hay manera de deshacer esta acción."
@@ -1324,5 +1330,95 @@
 		"translation_en": "Reset",
 		"translation_fr": "Réinitialisation",
 		"translation_es": "Reinicializar"
+	},
+	{
+		"code": "directoryNotWritable",
+		"translation_en": "The directory #DIRECTORY is not writable",
+		"translation_fr": "Le répertoire #DIRECTORY n'est pas accessible en écriture",
+		"translation_es": "El directorio #DIRECTORY no se puede escribir"
+	},
+	{
+		"code": "backupJson",
+		"translation_en": "Backup JSON",
+		"translation_fr": "Backup JSON",
+		"translation_es": "Backup JSON"
+	},
+	{
+		"code": "backupSql",
+		"translation_en": "Backup SQL",
+		"translation_fr": "Backup SQL",
+		"translation_es": "Backup SQL"
+	},
+	{
+		"code": "staticMethod",
+		"translation_en": "Static method",
+		"translation_fr": "Méthode statique",
+		"translation_es": "Método estático"
+	},
+	{
+		"code": "objectsToCache",
+		"translation_en": "Methods of the objects to store in the cache",
+		"translation_fr": "Méthodes des objets à stocker dans le cache",
+		"translation_es": "Métodos de los objetos para almacenar en la caché"
+	},
+	{
+		"code": "objectsToCacheInfo",
+		"translation_en": "To cache objects you have to add the @cache annotation in the methods of the Ui classes.",
+		"translation_fr": "Pour mettre en cache des objets, vous devez ajouter l'annotation @cache dans les méthodes des classes Ui.",
+		"translation_es": "Para almacenar objetos en caché hay que añadir la anotación @cache en los métodos de las clases Ui."
+	},
+	{
+		"code": "noObjectsToCache",
+		"translation_en": "There are no objects to store in the cache. Use the @cache annotation in the Ui classes.",
+		"translation_fr": "Il n'y a aucun objet à stocker dans le cache. Utilisez l'annotation @cache dans les classes Ui.",
+		"translation_es": "No hay objetos para almacenar en la memoria caché. Utilice la anotación @cache en las clases Ui."
+	},
+	{
+		"code": "objectCached",
+		"translation_en": "The methods of the object are successfully cached.",
+		"translation_fr": "Les méthodes de l'objet ont été mises en cache avec succès.",
+		"translation_es": "Los métodos del objeto se almacenaron correctamente en caché."
+	},
+	{
+		"code": "objectsCached",
+		"translation_en": "The methods of the objects are successfully cached.",
+		"translation_fr": "Les méthodes des objets ont été mises en cache avec succès.",
+		"translation_es": "Los métodos de los objectos se almacenaron correctamente en caché."
+	},
+	{
+		"code": "cacheAll",
+		"translation_en": "Cache all objects",
+		"translation_fr": "Enregister tous les objets",
+		"translation_es": "Guardar todos los objetos"
+	},
+	{
+		"code": "brands",
+		"translation_en": "Brands",
+		"translation_fr": "Marques",
+		"translation_es": "Marcas"
+	},
+	{
+		"code": "readMore",
+		"translation_en": "Read more",
+		"translation_fr": "Plus d'infos",
+		"translation_es": "Leer más"
+	},
+	{
+		"code": "thanksMessage",
+		"translation_en": "Thanks for the message.",
+		"translation_fr": "Merci pour le message.",
+		"translation_es": "Gracias por el mensaje."
+	},
+	{
+		"code": "examples",
+		"translation_en": "Examples",
+		"translation_fr": "Exemples",
+		"translation_es": "Ejemplos"
+	},
+	{
+		"code": "github",
+		"translation_en": "GitHub",
+		"translation_fr": "GitHub",
+		"translation_es": "GitHub"
 	}
 ]
