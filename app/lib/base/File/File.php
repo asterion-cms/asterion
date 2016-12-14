@@ -150,8 +150,8 @@ class File {
     * Create a directory in the server.
     */
     static public function createDirectory($dirname, $exception=true) {
-        if (!is_dir($dirname)) {
-            if (!mkdir($dirname)) {
+        if (!@is_dir($dirname)) {
+            if (!@mkdir($dirname)) {
                 if ($exception) {
                     throw new Exception('Could not create folder '.$dirname);
                 }

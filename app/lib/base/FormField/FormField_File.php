@@ -93,6 +93,8 @@ class FormField_File {
             break;
             case 'image':
                 $file = STOCK_FILE.$options['className'].'/'.$valueFile.'/'.$valueFile.'_thumb.jpg';
+                $file = (!is_file($file)) ? STOCK_FILE.$options['className'].'/'.$valueFile.'/'.$valueFile.'_small.jpg' : $file;
+                $file = (!is_file($file)) ? STOCK_FILE.$options['className'].'/'.$valueFile.'/'.$valueFile.'_web.jpg' : $file;
                 if (is_file($file)) {
                     $htmlShowImage = '<div class="formFieldsImage">
                                         <div class="formFieldsImageIns">
@@ -103,6 +105,8 @@ class FormField_File {
             break;
             case 'adaptable':
                 $file = STOCK_FILE.$options['className'].'/'.$valueFile.'/'.$valueFile.'_thumb.jpg';
+                $file = (!is_file($file)) ? STOCK_FILE.$options['className'].'/'.$valueFile.'/'.$valueFile.'_small.jpg' : $file;
+                $file = (!is_file($file)) ? STOCK_FILE.$options['className'].'/'.$valueFile.'/'.$valueFile.'_web.jpg' : $file;
                 if (is_file($file)) {
                     $htmlShowImage = '<div class="formFieldsImage">
                                         <div class="formFieldsImageIns">

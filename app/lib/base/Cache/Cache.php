@@ -28,10 +28,13 @@ class Cache {
                 $method = new ReflectionMethod($className, $classMethod);
                 $documentation = $reflection->getMethod($classMethod)->getDocComment();
                 preg_match_all('#@(.*?)\n#s', $documentation, $annotations);
-                if (isset($annotations[1]) && (in_array('cache', $annotations[1]))) {
-                    $staticLabel = ($method->isStatic()) ? ' <span>('.__('staticMethod').')</span>' : '';
-                    $infoClass .= '<div class="blockCacheMethod">'.$classMethod.$staticLabel.'</div>';
+                if (isset($annotations[0]) && isset($annotations[0][0])) {
+                    if (trim($annotations[0][0])=="@cache") {
+                        $staticLabel = ($method->isStatic()) ? ' <span>('.__('staticMethod').')</span>' : '';
+                        $infoClass .= '<div class="blockCacheMethod">'.$classMethod.$staticLabel.'</div>';
+                    }
                 }
+                unset($annotations);
             }
             $info .= ($infoClass!='') ? '<div class="blockCache">
                                             <a href="'.url('NavigationAdmin/cache-object/'.$classObjectName, true).'">'.__('cache').'</a>
@@ -65,24 +68,29 @@ class Cache {
         $reflection = new ReflectionClass($uiClassName);
         $classMethods = get_class_methods($uiClassName);
         $items = $object->readListObject();
+        $cacheUrl = Params::param('cache-url');
         foreach ($classMethods as $classMethod) {
             $method = new ReflectionMethod($uiClassName, $classMethod);
             $documentation = $reflection->getMethod($classMethod)->getDocComment();
             preg_match_all('#@(.*?)\n#s', $documentation, $annotations);
-            if (isset($annotations[1]) && (in_array('cache', $annotations[1]))) {
-                File::createDirectory(BASE_FILE.'cache', false);
-                File::createDirectory(BASE_FILE.'cache/'.$className, false);
-                if (!$method->isStatic()) {
-                    foreach ($items as $item) {
-                        $itemUi = new $uiClassName($item);
-                        $file = BASE_FILE.'cache/'.$className.'/'.$classMethod.'_'.$item->id().'.htm';
-                        $content = $itemUi->$classMethod();
+            if (isset($annotations[0]) && isset($annotations[0][0])) {
+                if (trim($annotations[0][0])=="@cache") {
+                    File::createDirectory(BASE_FILE.'cache', false);
+                    File::createDirectory(BASE_FILE.'cache/'.$className, false);
+                    if (!$method->isStatic()) {
+                        foreach ($items as $item) {
+                            $itemUi = new $uiClassName($item);
+                            $file = BASE_FILE.'cache/'.$className.'/'.$classMethod.'_'.$item->id().'.htm';
+                            $content = $itemUi->$classMethod();
+                            $content = ($cacheUrl!='') ? str_replace(LOCAL_URL, $cacheUrl, $content) : $content;
+                            File::saveFile($file, $content);
+                        }
+                    } else {
+                        $file = BASE_FILE.'cache/'.$className.'/'.$classMethod.'.htm';
+                        $content = $ui->$classMethod();
+                        $content = ($cacheUrl!='') ? str_replace(LOCAL_URL, $cacheUrl, $content) : $content;
                         File::saveFile($file, $content);
                     }
-                } else {
-                    $file = BASE_FILE.'cache/'.$className.'/'.$classMethod.'.htm';
-                    $content = $ui->$classMethod();
-                    File::saveFile($file, $content);
                 }
             }
         }

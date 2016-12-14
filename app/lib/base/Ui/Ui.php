@@ -201,7 +201,7 @@ class Ui {
                     break;
                     case 'file':
                         if ((string)$info->mode == 'image') {
-                            $labelAttribute = $this->object->getImage($attribute, 'thumb');
+                            $labelAttribute = $this->object->getImageIcon($attribute);
                         } else {
                             $labelAttribute = $this->object->getFileLink($attribute);
                         }
@@ -286,6 +286,20 @@ class Ui {
     public function order() {
         return '<div class="iconSide iconHandle">
                     <span>'.__('move').'</span>
+                </div>';
+    }
+
+    /**
+    * Return a div with the share and print elements.
+    */
+    public function share($options=array()) {
+        $facebook = (isset($options['facebook'])) ? '<a href="http://www.facebook.com/sharer/sharer.php?u='.urlencode($this->object->url()).'" target="_blank" class="optionFacebook">Compartir en Facebook</a>' : '';
+        $twitter = (isset($options['twitter'])) ? '<a href="http://www.twitter.com/share?text='.urlencode($this->object->getBasicInfo()).'&url='.urlencode($this->object->url()).'" target="_blank" class="optionTwitter">Compartir en Twitter</a>' : '';
+        $print = (isset($options['print'])) ? '<a href="javascript:window.print()" class="optionPrint">Imprimir</a>' : '';
+        return '<div class="shareOptions">
+                    '.$facebook.'
+                    '.$twitter.'
+                    '.$print.'
                 </div>';
     }
 

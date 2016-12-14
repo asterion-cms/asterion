@@ -438,6 +438,26 @@ class Db_Object extends Db_Sql {
     }
 
     /**
+    * Gets the HTML image that exists and fits to an icon.
+    */
+    public function getImageIcon($attributeName) {
+        $imageUrl = $this->getImage($attributeName, 'thumb');
+        if ($imageUrl!='') {
+            return $imageUrl;
+        } else {
+            $imageUrl = $this->getImage($attributeName, 'small');
+            if ($imageUrl!='') {
+                return $imageUrl;
+            } else {
+                $imageUrl = $this->getImage($attributeName, 'web');
+                if ($imageUrl!='') {
+                    return $imageUrl;
+                }
+            }
+        }
+    }
+
+    /**
     * Gets the url of an image that the attribute points.
     */
     public function getImageUrl($attributeName, $version='') {
@@ -510,9 +530,17 @@ class Db_Object extends Db_Sql {
     * Creates an instance of the UI object and returns a function to render.
     */
     public function showUi($functionName='Public', $params=array()) {
+        $render = 'render'.ucwords($functionName);
+        $fileHtml = BASE_FILE.'cache/'.$this->className.'/'.$render.'_'.$this->id().'.htm';
+        if (is_file($fileHtml)) {
+            return file_get_contents($fileHtml);
+        }
+        $fileHtml = BASE_FILE.'cache/'.$this->className.'/'.$render.'.htm';
+        if (is_file($fileHtml)) {
+            return file_get_contents($fileHtml);
+        }
         $uiObjectName = $this->className.'_Ui';
         $uiObject = new $uiObjectName($this);
-        $render = 'render'.ucwords($functionName);
         return $uiObject->$render($params);
     }
     

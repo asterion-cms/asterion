@@ -900,6 +900,12 @@
 		"translation_es": "Ver"
 	},
 	{
+		"code": "viewAllItems",
+		"translation_en": "Show all items",
+		"translation_fr": "Voir toutes les enregistrements",
+		"translation_es": "Ver todos los registros"
+	},
+	{
 		"code": "viewFile",
 		"translation_en": "View the file",
 		"translation_fr": "Voir le fichier",
@@ -1420,5 +1426,41 @@
 		"translation_en": "GitHub",
 		"translation_fr": "GitHub",
 		"translation_es": "GitHub"
+	},
+	{
+		"code": "recipes",
+		"translation_en": "Recipes",
+		"translation_fr": "Recettes",
+		"translation_es": "Recetas"
+	},
+	{
+		"code": "ingredients",
+		"translation_en": "Ingredients",
+		"translation_fr": "Ingredients",
+		"translation_es": "Ingredientes"
+	},
+	{
+		"code": "ingredient",
+		"translation_en": "Ingredient",
+		"translation_fr": "Ingredient",
+		"translation_es": "Ingrediente"
+	},
+	{
+		"code": "rating",
+		"translation_en": "Rating",
+		"translation_fr": "Rating",
+		"translation_es": "Puntuación"
+	},
+	{
+		"code": "numPersons",
+		"translation_en": "Number of people",
+		"translation_fr": "Nombre des personnes",
+		"translation_es": "Número de personas"
+	},
+	{
+		"code": "preparation",
+		"translation_en": "Preparation",
+		"translation_fr": "Preparation",
+		"translation_es": "Preparación"
 	}
 ]

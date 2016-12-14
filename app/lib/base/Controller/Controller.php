@@ -412,9 +412,10 @@ abstract class Controller{
         if ($orderAttribute!='') {
             $orderAttribute = explode(',', $orderAttribute);
             $orderAttribute = explode(' ', $orderAttribute[0]);
+            $orderType = (isset($orderAttribute[1]) && $orderAttribute[1]=='DESC') ? 'DESC' : 'ASC';
             $orderAttribute = $orderAttribute[0];
             $orderInfo = $this->object->attributeInfo($orderAttribute);
-            return (is_object($orderInfo) && (string)$orderInfo->lang == "true") ? $orderAttribute.'_'.Lang::active() : $orderAttribute;
+            return (is_object($orderInfo) && (string)$orderInfo->lang == "true") ? $orderAttribute.'_'.Lang::active().' '.$orderType : $orderAttribute.' '.$orderType;
         }
     }
 
@@ -586,6 +587,7 @@ abstract class Controller{
         $action = ($action!='') ? $action : $this->action;
         switch ($action) {
             case 'listAdmin':
+            case 'search':
                 if (Permission::canInsert($this->type)) {
                     $items = '<div class="menuSimpleItem menuSimpleItemInsert">
                                 <a href="'.url($this->type.'/insertView', true).'">'.__('insertNew').'</a>

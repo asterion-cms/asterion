@@ -184,35 +184,49 @@
     }
 }
 //Form search
-.formAdminSearch {
-    padding-bottom: 10px;
-    width: 400px;
-    .formField {
-        float: left;
-        width: 70%;
-        input {
-            width: 100%;
-            padding: 2px 5px;
-            border: 1px solid $colorTextAlt;
-            font-family: $fontFamily;
+.formAdminSearchWrapper {
+    .formAdminSearch {
+        padding: 0 0 5px 0;
+        width: 400px;
+        .formField {
+            float: left;
+            width: 70%;
+            input {
+                width: 100%;
+                padding: 4px 5px;
+                border: 1px solid darken($colorTextAlt, 20%);
+                font-family: $fontFamily;
+            }
+        }
+        .formSubmitWrapper {
+            width: 28%;
+            float: right;
+            input {
+                width: 100%;
+                display: block;
+                background: darken($colorAccent, 10%);
+                color: $white;
+                text-align: center;
+                font-family: $fontFamily;
+                padding: 4px;
+                border: 0px;
+                font-weight: bold;
+                cursor: pointer;
+                @include borderRadius(3px);
+                &:hover {
+                    background: $colorAccent;
+                }
+            }
         }
     }
-    .formSubmitWrapper {
-        width: 27%;
-        float: right;
-        input {
-            width: 100%;
-            display: block;
-            background: $colorAccept;
-            color: $white;
-            text-align: center;
-            font-family: $fontFamily;
-            padding: 2px;
-            border: 0px;
-            font-weight: bold;
-            cursor: pointer;
+    .buttonBack {
+        a {
+            font-size: $fontSizeTiny;
+            font-weight: normal;
+            color: lighten($colorAccent, 20%);
             &:hover {
-                background: $colorAccent;
+                color: lighten($colorAccent, 10%);
+                text-decoration: underline;
             }
         }
     }
@@ -324,7 +338,7 @@
                 }
             }
         }
-        }
+    }
     .nestedFormFieldAdd {
         border: 0px;
         display: block;
@@ -347,44 +361,43 @@
     }
 }
 
-.contentWrapper-UserType {
-    .nestedFormField-idUserTypeMenu {
-        position: relative;
-        .nestedFormFieldOptions {
-            padding: 5px;
-            background: rgba($white, 0.7);
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            text-align: right;
-            .nestedFormFieldDelete,
-            .nestedFormFieldOrder {
+.contentWrapper-UserType .nestedFormField-idUserTypeMenu,
+.contentWrapper-Recipe .nestedFormField-ingredients  {
+    position: relative;
+    .nestedFormFieldOptions {
+        padding: 5px;
+        background: rgba($white, 0.7);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        text-align: right;
+        .nestedFormFieldDelete,
+        .nestedFormFieldOrder {
+            position: static;
+            margin: 0 0 0 10px;
+            padding: 0;
+            display: inline-block;
+            &:after {
                 position: static;
-                margin: 0 0 0 10px;
-                padding: 0;
-                display: inline-block;
-                &:after {
-                    position: static;
-                }
             }
         }
-        .nestedFormFieldContent {
-            padding-top: 25px;
+    }
+    .nestedFormFieldContent {
+        padding-top: 25px;
+    }
+    .nestedFormFieldObject {
+        width: 32%;
+        margin: 0 2% 20px 0;
+        float: left;
+        @include borderBox();
+        &:nth-child(3n+3) {
+            margin: 0 0 10px 0;
         }
-        .nestedFormFieldObject {
-            width: 32%;
-            margin: 0 2% 20px 0;
-            float: left;
-            @include borderBox();
-            &:nth-child(3n+3) {
-                margin: 0 0 10px 0;
-            }
-            input,
-            select,
-            textarea {
-                width: 100%;
-            }
+        input,
+        select,
+        textarea {
+            width: 100%;
         }
     }
 }

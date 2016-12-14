@@ -105,6 +105,16 @@ define("PDO_DSN","mysql:host=".DB_SERVER.";port=".DB_PORT.";dbname=".DB_NAME);
 define('LOGO', BASE_URL.'visual/img/logo.jpg');
 
 /**
+* The following values tell Asterion what sizes of images it should store.
+*/
+define('SAVE_IMAGE_ORIGINAL', true);
+define('SAVE_IMAGE_HUGE', true);
+define('SAVE_IMAGE_WEB', true);
+define('SAVE_IMAGE_SMALL', true);
+define('SAVE_IMAGE_THUMB', true);
+define('SAVE_IMAGE_SQUARE', true);
+
+/**
 * The following dimension constants are used to create the different
 * versions of the images in Asterion.
 */
