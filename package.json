@@ -18,8 +18,11 @@
     "gulp-download": "0.0.1"
   },
   "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-compass": "^2.1.0",
     "gulp-debug": "^3.0.0",
     "gulp-debug-streams": "^3.0.0",
+    "gulp-sass": "^3.0.0",
     "yargs": "^6.5.0"
   }
 }
