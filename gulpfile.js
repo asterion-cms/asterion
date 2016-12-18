@@ -60,6 +60,7 @@ var checkArgumentsFtp = function() {
     }
 }
 
+
 /**
 * Optimization tasks
 **/
@@ -111,7 +112,11 @@ gulp.task('optimize-html', function() {
     }
 });
 
-gulp.task('optimize', ['optimize-css', 'optimize-html', 'optimize-images']);
+gulp.task('optimize', function(callback) {
+    if (checkArguments()) {
+        runSequence('optimize-css', 'optimize-html', 'optimize-images');
+    }
+});
 
 /**
 * SASS compilation
@@ -183,7 +188,8 @@ gulp.task('ftp-zip', function(callback) {
 
 gulp.task('unzip-server', function(callback) {
     if (checkArgumentsFtp()) {
-        return request(argv.host + '/unzip.php?file=' + argv.site)
+        var remoteZipHost = (argv.remoteZipHost) ? remoteZipHost : argv.host;
+        return request('http://' + remoteZipHost + '/unzip.php?file=' + argv.site)
             .pipe(debug({title: 'Server Unzip: ', minimal: true}));
     }
 });
@@ -203,6 +209,6 @@ gulp.task('package', function(callback) {
 
 gulp.task('package-ftp', function(callback) {
     if (checkArgumentsFtp()) {
-        runSequence('package', 'ftp-zip', 'unzip-server', 'delete-files');
+        runSequence('copy-config', 'copy-unzip', 'zip-all', 'ftp-zip', 'unzip-server', 'delete-files');
     }
 });
