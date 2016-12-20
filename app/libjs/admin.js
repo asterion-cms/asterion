@@ -5,6 +5,7 @@ $(document).ready(function() {
     activateCK();
     activateStock();
     activateMaps();
+    $('form').areYouSure();
 });
 
 $(window).load(function() {

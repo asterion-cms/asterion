@@ -137,18 +137,44 @@ gulp.task('sass', function(callback) {
     }
 });
 
-gulp.task('copy-config', function(callback) {
+
+/**
+* Production tasks
+**/
+gulp.task('copy-config-old', function(callback) {
     if (checkArguments()) {
-        return gulp.src(argv.site + '/config/config_prod.php')
+        return gulp.src(argv.site + '/config/config.php')
+                .pipe(rename(argv.site + '/config/config_old.php'))
+                .pipe(gulp.dest('./'))
+                .pipe(debug({title: 'Copying: ', minimal: true}));
+    }
+});
+
+gulp.task('copy-config-prod', function(callback) {
+    if (checkArguments()) {
+        var typeConfig = (argv.typeConfig) ? argv.typeConfig : 'old';
+        return gulp.src(argv.site + '/config/config_' + typeConfig + '.php')
                 .pipe(rename(argv.site + '/config/config.php'))
                 .pipe(gulp.dest('./'))
                 .pipe(debug({title: 'Copying: ', minimal: true}));
     }
 });
-7
-/**
-* Production tasks
-**/
+
+gulp.task('copy-config-old-back', function(callback) {
+    if (checkArguments()) {
+        return gulp.src(argv.site + '/config/config_old.php')
+                .pipe(rename(argv.site + '/config/config.php'))
+                .pipe(gulp.dest('./'))
+                .pipe(debug({title: 'Copying: ', minimal: true}));
+    }
+});
+
+gulp.task('copy-config-old-back', function(callback) {
+    if (checkArguments()) {
+        runSequence('copy-config-old', 'copy-config-prod', 'copy-config-old-back');
+    }
+});
+
 gulp.task('copy-unzip', function(callback) {
     if (checkArguments()) {
         return gulp.src('unzip.task')

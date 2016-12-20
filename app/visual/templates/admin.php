@@ -15,6 +15,7 @@
     <script type="text/javascript" src="<?php echo APP_URL; ?>libjs/jquery/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="<?php echo APP_URL; ?>libjs/jquery/jquery-ui-1.10.3.custom.min.js"></script>
     <script type="text/javascript" src="<?php echo APP_URL; ?>libjs/jquery/jquery.form.js"></script>
+    <script type="text/javascript" src="<?php echo APP_URL; ?>libjs/jquery/jquery.are-you-sure.js"></script>
     <script type="text/javascript" src="<?php echo APP_URL; ?>helpers/ckeditor/ckeditor.js"></script>
     <script type="text/javascript" src="<?php echo APP_URL; ?>libjs/admin.js"></script>
 
