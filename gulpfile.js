@@ -121,6 +121,16 @@ gulp.task('optimize', function(callback) {
 /**
 * SASS compilation
 **/
+gulp.task('sass-compile-phonegap', function(callback) {
+    if (checkArguments()) {
+        return gulp.src([argv.site+'/phonegap/www/visual/css/sass/*.scss'])
+            .pipe(sass({outputStyle: 'compressed'})
+                .on('error', sass.logError))
+            .pipe(debug({title: 'Info:'}))
+            .pipe(gulp.dest(argv.site + '/phonegap/www/visual/css/stylesheets/'));
+    }
+});
+
 gulp.task('sass-compile', function(callback) {
     if (checkArguments()) {
         return gulp.src([argv.site+'/visual/css/sass/*.scss'])
@@ -133,7 +143,10 @@ gulp.task('sass-compile', function(callback) {
 
 gulp.task('sass', function(callback) {
     if (checkArguments()) {
-        gulp.watch(argv.site + '/visual/**/*.scss', ['sass-compile']);
+        gulp.watch([
+                        argv.site + '/visual/**/*.scss',
+                        argv.site + '/phonegap/www/visual/**/*.scss'
+                    ], ['sass-compile', 'sass-compile-phonegap']);
     }
 });
 
@@ -152,7 +165,7 @@ gulp.task('copy-config-old', function(callback) {
 
 gulp.task('copy-config-prod', function(callback) {
     if (checkArguments()) {
-        var typeConfig = (argv.typeConfig) ? argv.typeConfig : 'old';
+        var typeConfig = (argv.typeConfig) ? argv.typeConfig : 'prod';
         return gulp.src(argv.site + '/config/config_' + typeConfig + '.php')
                 .pipe(rename(argv.site + '/config/config.php'))
                 .pipe(gulp.dest('./'))
@@ -169,12 +182,6 @@ gulp.task('copy-config-old-back', function(callback) {
     }
 });
 
-gulp.task('copy-config-old-back', function(callback) {
-    if (checkArguments()) {
-        runSequence('copy-config-old', 'copy-config-prod', 'copy-config-old-back');
-    }
-});
-
 gulp.task('copy-unzip', function(callback) {
     if (checkArguments()) {
         return gulp.src('unzip.task')
@@ -188,7 +195,8 @@ gulp.task('zip-all', function(callback) {
     if (checkArguments()) {
         return gulp.src(['index.php', '.htaccess', 'robots.txt', 'app/**/*',
                     argv.site + '/**/*',
-                    '!' + argv.site + '/**/config_*.php'
+                    '!' + argv.site + '/**/config_*.php',
+                    '!' + argv.site + '/phonegap'
                     ], {base: "./"})
             .pipe(gulpZip(argv.site + '.zip'))
             .pipe(gulp.dest('./'))
@@ -214,7 +222,7 @@ gulp.task('ftp-zip', function(callback) {
 
 gulp.task('unzip-server', function(callback) {
     if (checkArgumentsFtp()) {
-        var remoteZipHost = (argv.remoteZipHost) ? remoteZipHost : argv.host;
+        var remoteZipHost = (argv.remoteZipHost) ? argv.remoteZipHost : argv.host;
         return request('http://' + remoteZipHost + '/unzip.php?file=' + argv.site)
             .pipe(debug({title: 'Server Unzip: ', minimal: true}));
     }
@@ -222,7 +230,10 @@ gulp.task('unzip-server', function(callback) {
 
 gulp.task('delete-files', function(callback) {
     if (checkArguments()) {
-        del(['unzip.php', argv.site + '.zip']);
+        del([
+                'unzip.php', argv.site + '.zip',
+                argv.site + '/config/config_old.php'
+            ]);
         return true;
     }
 });
@@ -235,6 +246,6 @@ gulp.task('package', function(callback) {
 
 gulp.task('package-ftp', function(callback) {
     if (checkArgumentsFtp()) {
-        runSequence('copy-config', 'copy-unzip', 'zip-all', 'ftp-zip', 'unzip-server', 'delete-files');
+        runSequence('copy-config-old', 'copy-config-prod', 'copy-unzip', 'zip-all', 'ftp-zip', 'unzip-server', 'delete-files', 'copy-config-old-back');
     }
 });

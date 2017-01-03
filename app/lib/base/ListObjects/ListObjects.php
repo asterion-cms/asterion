@@ -83,26 +83,24 @@ class ListObjects {
     * Show the list using the Ui object.
     */
     public function showList($options=array(), $params=array()) {
+        $sizeList = count($this->list);
         $message = (isset($options['message'])) ? $options['message'] : $this->message;
         $function = (isset($this->options['function'])) ? $this->options['function'] : 'Public';
         $function = (isset($options['function'])) ? $options['function'] : $function;
         $middle = (isset($options['middle'])) ? $options['middle'] : '';
+        $middleRepetitions = (isset($options['middleRepetitions'])) ? $options['middleRepetitions'] : 2;
         $html = '';
-        if (count($this->list)>0) {
-            $center = floor(count($this->list)/2)-1;
+        if ($sizeList > 0) {
+            $middleRepetitions = floor($sizeList/$middleRepetitions)-1;
             $counter = 0;
             foreach($this->list as $item) {
-                $params['counter'] = $counter + 1;
                 $itemUiName = $this->objectName.'_Ui';
                 $functionName = 'render'.ucwords($function);
                 $itemUi = new $itemUiName($item);
-                if ($counter == 0) $params['class'] = 'first';
-                if ($counter == count($this->list)-1) $params['class'] = 'last';
                 $html .= $itemUi->$functionName($params);
-                if ($middle!='' && $counter == $center) {
+                if ($counter>0 && $middleRepetitions>0 && $middle!='' && $sizeList>$middleRepetitions && $counter%$middleRepetitions==0) {
                     $html .= $middle;
                 }
-                $params['class'] = '';
                 $counter++;
             }
         } else {
