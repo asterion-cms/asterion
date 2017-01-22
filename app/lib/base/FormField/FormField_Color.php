@@ -1,28 +1,26 @@
 <?php
 /**
-* @class FormFieldTextCode
+* @class FormFieldColor
 *
-* This is a helper class to generate a double text form field.
+* This is a helper class to generate a color text form field.
 *
 * @author Leano Martinet <info@asterion-cms.com>
 * @package Asterion
 * @version 3.0.1
 */
-class FormField_TextCode extends FormField_Text {
+class FormField_Color extends FormField_Default {
 
     /**
     * The constructor of the object.
     */
     public function __construct($options) {
         parent::__construct($options);
-        $this->options['size'] = '30';
     }
 
     /**
     * Render the element with an static function.
     */
     static public function create($options) {
-        $options['size'] = '30';
         return FormField_Default::create($options);
     }
     

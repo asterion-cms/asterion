@@ -159,9 +159,11 @@ class Date {
     public static function sqlText($date, $withHour=false) {
         if ($date!='') {
             $dateArray = Date::sqlArray($date);
-            $html = $dateArray['day'].' '.Date::textMonth($dateArray['month']).', '.$dateArray['year'];
-            $html .= ($withHour) ? ' '.str_pad($dateArray['hour'], 2, "0", STR_PAD_LEFT).':'.str_pad($dateArray['minutes'], 2, "0", STR_PAD_LEFT) : '';
-            return $html;
+            if ($dateArray['day']!='') {
+                $html = $dateArray['day'].' '.Date::textMonth($dateArray['month']).', '.$dateArray['year'];
+                $html .= ($withHour) ? ' '.str_pad($dateArray['hour'], 2, "0", STR_PAD_LEFT).':'.str_pad($dateArray['minutes'], 2, "0", STR_PAD_LEFT) : '';
+                return $html;
+            }
         }
     }
 

@@ -59,7 +59,7 @@ class FormField_Default {
     */
     static public function create($options) {
         $type = (isset($options['typeField'])) ? $options['typeField'] : 'text';
-        $typeField = (isset($options['typeField'])) ? 'type="'.$options['typeField'].'"' : 'type="text"';
+        $typeField = 'type="'.$type.'"';
         $name = (isset($options['name'])) ? 'name="'.$options['name'].'" ' : '';
         $id = (isset($options['id'])) ? 'id="'.$options['id'].'"' : '';
         $labelLang = (isset($options['labelLang']) && $options['labelLang']!='') ? ' <span>('.$options['labelLang'].')</span>' : '';
