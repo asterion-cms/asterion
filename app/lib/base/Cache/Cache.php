@@ -83,6 +83,7 @@ class Cache {
                             $file = BASE_FILE.'cache/'.$className.'/'.$classMethod.'_'.$item->id().'.htm';
                             $content = $itemUi->$classMethod();
                             $content = ($cacheUrl!='') ? str_replace(LOCAL_URL, $cacheUrl, $content) : $content;
+                            $content = ($cacheUrl!='') ? str_replace(urlencode(LOCAL_URL), $cacheUrl, $content) : $content;
                             File::saveFile($file, $content);
                         }
                     } else {

@@ -18,7 +18,7 @@ class FormField_TextareaCk extends FormField_DefaultTextarea {
         $this->options['cols'] = '70';
         $this->options['rows'] = '10';
         $this->options['class'] = 'ckeditorArea';
-        $this->options['value'] = (isset($this->options['value'])) ? htmlspecialchars($this->options['value']) : '';
+        $this->options['value'] = (isset($this->options['value'])) ? Text::decodeText($this->options['value']) : '';
     }
 
     /**
@@ -28,7 +28,7 @@ class FormField_TextareaCk extends FormField_DefaultTextarea {
         $options['cols'] = '70';
         $options['rows'] = '10';
         $options['class'] = 'ckeditorArea';
-        $options['value'] = (isset($options['value'])) ? htmlspecialchars($options['value']) : '';
+        $options['value'] = (isset($options['value'])) ? Text::decodeText($options['value']) : '';
         return FormField_DefaultTextarea::create($options);
     }
     

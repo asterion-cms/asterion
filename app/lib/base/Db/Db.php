@@ -31,33 +31,51 @@ class Db {
     * Return a single element
     */
     static public function returnSingle($query) {
-        $query = str_replace('\"', '"', $query);
-        $db = Db_Connection::getInstance();
-        $prepare_execute = $db->getPDOStatement($query);
-        $prepare_execute->execute();
-        return $prepare_execute->fetch(PDO::FETCH_ASSOC);
+        try {
+            $query = str_replace('\"', '"', $query);
+            $db = Db_Connection::getInstance();
+            $prepare_execute = $db->getPDOStatement($query);
+            $prepare_execute->execute();
+            return $prepare_execute->fetch(PDO::FETCH_ASSOC);
+        } catch(Exception $error){
+            if (DEBUG) {
+                throw new Exception('<pre>'.$error->getMessage().'</pre>');
+            }
+        }
     }
 
     /**
     * Return a list of elements
     */
     static public function returnAll($query) {
-        $query = str_replace('\"', '"', $query);
-        $db = Db_Connection::getInstance();
-        $prepare_execute = $db->getPDOStatement($query);
-        $prepare_execute->execute();
-        return $prepare_execute->fetchAll(PDO::FETCH_ASSOC);
+        try {
+            $query = str_replace('\"', '"', $query);
+            $db = Db_Connection::getInstance();
+            $prepare_execute = $db->getPDOStatement($query);
+            $prepare_execute->execute();
+            return $prepare_execute->fetchAll(PDO::FETCH_ASSOC);
+        } catch(Exception $error){
+            if (DEBUG) {
+                throw new Exception('<pre>'.$error->getMessage().'</pre>');
+            }
+        }
     }
 
     /**
     * Return a list of columns
     */
     static public function returnAllColumn($query) {
-        $query = str_replace('\"', '"', $query);
-        $db = Db_Connection::getInstance();
-        $prepare_execute = $db->getPDOStatement($query);
-        $prepare_execute->execute();
-        return $prepare_execute->fetchAll(PDO::FETCH_COLUMN);
+        try {
+            $query = str_replace('\"', '"', $query);
+            $db = Db_Connection::getInstance();
+            $prepare_execute = $db->getPDOStatement($query);
+            $prepare_execute->execute();
+            return $prepare_execute->fetchAll(PDO::FETCH_COLUMN);
+        } catch(Exception $error){
+            if (DEBUG) {
+                throw new Exception('<pre>'.$error->getMessage().'</pre>');
+            }
+        }
     }
 
     /**

@@ -18,6 +18,8 @@ abstract class Controller{
     * $FILES : Array with the loaded $_FILES values.
     */
     public function __construct($GET, $POST, $FILES) {
+        Text::recodeTab($GET);
+        Text::recodeTab($POST);
         $this->type = isset($GET['type']) ? $GET['type'] : '';
         $this->action = isset($GET['action']) ? $GET['action'] : 'list';
         $this->id = isset($GET['id']) ? $GET['id'] : '';
@@ -66,7 +68,14 @@ abstract class Controller{
     * By default it uses the LOGO defined in the configuration file.
     */
     public function getMetaImage() {
-        return (isset($this->metaImage) && $this->metaImage!='') ? $this->metaImage : LOGO;
+        $image = (isset($this->metaImage) && $this->metaImage!='') ? $this->metaImage : LOGO;
+        $imageFile = str_replace(BASE_URL, BASE_FILE, $image);
+        if (is_file($imageFile)) {
+            $imageSize = getimagesize($imageFile);
+            return '<meta property="og:image" content="'.$image.'" />
+                    <meta property="og:image:width" content="'.$imageSize[0].'" />
+                    <meta property="og:image:height" content="'.$imageSize[1].'" />';
+        }
     }
 
     /**

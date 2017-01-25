@@ -16,7 +16,7 @@
 * It can be used to load different versions of it like test, develop or production.
 * Then, Asterion loads the proper configuration depending on that version.
 */
-define('APP_FOLDER', 'recipes_per');
+define('APP_FOLDER', 'recipes_bol');
 require_once(APP_FOLDER.'/config/config.php');
 
 try {
