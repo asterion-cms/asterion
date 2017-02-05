@@ -76,13 +76,19 @@ class User_Login {
     * If so, it saves the user values in the session.
     */
     public function checklogin($options) {
-        $email = (isset($options['email'])) ? $options['email'] : '';
-        $password = (isset($options['password'])) ? $options['password'] : '';
-        $user = User::readFirst(array('where'=>'email="'.$email.'" AND (password="'.md5($password).'" OR passwordTemp="'.$password.'") AND active="1"'));
-        if ($user->id()!='') {
-            $this->autoLogin($user);
-            $this->sessionAdjust($this->info);
-            return true;
+        $values = array();
+        $values['email'] = (isset($options['email'])) ? $options['email'] : '';
+        $values['password'] = (isset($options['password'])) ? $options['password'] : '';
+        $values['md5password'] = md5($values['password']);
+        if ($values['email']!='' && $values['password']!='') {            
+            $user = User::readFirst(array('where'=>'email=:email AND (password=:md5password OR passwordTemp=:password) AND active="1"'), $values);
+            if ($user->id()!='') {
+                $this->autoLogin($user);
+                $this->sessionAdjust($this->info);
+                return true;
+            } else {
+                return false;
+            }
         } else {
             return false;
         }

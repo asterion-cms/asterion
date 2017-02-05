@@ -3,7 +3,6 @@ var loadingDiv = false;
 $(document).ready(function() {
     ajaxAdmin();
     activateCK();
-    activateStock();
     activateMaps();
     $('form').areYouSure();
 });
@@ -319,42 +318,4 @@ function equalHeights(elements) {
 
 function randomString() {
     return Math.random().toString(36).substring(7);
-}
-
-
-function activateStock() {
-
-    $('.adminTableStockAdd').unbind('click');
-    $('.adminTableStockAdd').click(function(evt){
-        evt.preventDefault();
-        evt.stopImmediatePropagation();
-        var newLine = $('.stockFormEmpty').clone().removeClass('stockFormEmpty');
-        newLine.insertAfter($('.stockFormEmpty'));
-        activateStock();
-    });
-
-    $('.stockFormSave').unbind('click');
-    $('.stockFormSave').click(function(evt){
-        evt.preventDefault();
-        evt.stopImmediatePropagation();
-        var formLine = $(this).parents('.stockForm').first();
-        var formLineData = formLine.find(':input').serialize();
-        $.post(formLine.attr('rel'), formLineData)
-            .done(function(data) {
-                console.log(formLine);
-                console.log(data);
-                formLine.replaceWith(data);
-                activateStock();
-            });
-    });
-
-    $('.stockFormEdit').unbind('click');
-    $('.stockFormEdit').click(function(evt){
-        evt.preventDefault();
-        evt.stopImmediatePropagation();
-        var formLine = $(this).parents('.stockForm').first();
-        formLine.find('.adminTableRowInfoEdit').show();
-        formLine.find('.adminTableRowInfo').hide();
-    });
-
 }
