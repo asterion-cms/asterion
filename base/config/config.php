@@ -54,7 +54,8 @@ define('LANGS', 'en:es:fr');
 * The system starts a session with a proper name for the website.
 */
 define('SESSION_NAME', 'asterion');
-session_start(SESSION_NAME);
+session_name(SESSION_NAME);
+session_start();
 
 /**
 * The COOKIE_TIME constant defines the duration of cookies in the site.
@@ -138,6 +139,11 @@ define('EMAIL', 'info@asterion-cms.com');
 * Asterion defines UTF8 for the internal encoding of the website.
 */
 mb_internal_encoding('UTF-8');
+
+/**
+* Define a date timezone
+*/
+date_default_timezone_set('America/Los_Angeles');
 
 /**
 * The framework loads the autoload.php and phpHelper.php files.

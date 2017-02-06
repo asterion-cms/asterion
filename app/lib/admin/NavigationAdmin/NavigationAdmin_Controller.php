@@ -59,8 +59,7 @@ class NavigationAdmin_Controller extends Controller{
             case 'backup':
                 $this->checkLoginAdmin();
                 $this->titlePage = __('backup');
-                File::createDirectory(BASE_FILE.'data', false);
-                File::createDirectory(BASE_FILE.'data/backup', false);
+                File::createDirectory(BASE_FILE.'data/backup');
                 if (!is_writable(BASE_FILE.'data/backup')) {
                     $this->messageError = str_replace('#DIRECTORY', BASE_FILE.'data/backup', __('directoryNotWritable'));
                 } else {

@@ -28,22 +28,23 @@ class Db_Sql {
     /**
     * Counts the number of objects in the DB (static function).
     */
-    static public function countResults($options=array()) {
+    static public function countResults($options=array(), $values=array()) {
+        $values = (isset($options['values'])) ? $options['values'] : $values;
         $table = (isset($options['table'])) ? $options['table'] : get_called_class();
         $where = (isset($options['where']) && $options['where']!='') ? $options['where'] : '1=1';
         $query = 'SELECT COUNT(*) AS numElements 
                         FROM '.Db::prefixTable($table).'
                         WHERE '.$where;
-        $result = Db::returnSingle($query);
+        $result = Db::returnSingle($query, $values);
         return $result['numElements'];
     }
 
     /**
     * Counts the number of objects in the DB.
     */
-    public function countResultsObject($options=array()) {
+    public function countResultsObject($options=array(), $values=array()) {
         $options['table'] = (isset($options['table']) && $options['table']!='') ? $options['table'] : $this->className;
-        return Db_Sql::countResults($options);
+        return Db_Sql::countResults($options, $values);
     }
 
     /**
@@ -55,8 +56,8 @@ class Db_Sql {
         $object = new $table();
         $query = 'SELECT '.$fields.$object->fieldPoints().'
                     FROM '.Db::prefixTable($table).'
-                    WHERE '.$object->primary.'="'.$id.'"';
-        return Db::returnSingle($query);
+                    WHERE '.$object->primary.'=:idObject';
+        return Db::returnSingle($query, array('idObject' => $id));
     }
 
     /**
@@ -88,7 +89,8 @@ class Db_Sql {
     /**
     * Returns a single object (static function).
     */
-    public static function readFirst($options=array()) {
+    public static function readFirst($options=array(), $values=array()) {
+        $values = (isset($options['values'])) ? $options['values'] : $values;
         $table = (isset($options['table'])) ? $options['table'] : get_called_class();
         $fields = (isset($options['fields'])) ? $options['fields'] : '*';
         $where = (isset($options['where']) && $options['where']!='') ? $options['where'] : '1=1';
@@ -100,21 +102,22 @@ class Db_Sql {
                     WHERE '.$where.'
                     '.$order.'
                     '.$limit;
-        return new $table(Db::returnSingle($query));
+        return new $table(Db::returnSingle($query, $values));
     }
 
     /**
     * Returns a single object.
     */
-    public function readFirstObject($options=array()) {
+    public function readFirstObject($options=array(), $values=array()) {
         $options['table'] = $this->className;
-        return Db_Sql::readFirst($options);
+        return Db_Sql::readFirst($options, $values);
     }
     
     /**
     * Returns a list of objects (static function).
     */
-    public static function readList($options=array()) {
+    public static function readList($options=array(), $values=array()) {
+        $values = (isset($options['values'])) ? $options['values'] : $values;
         $table = (isset($options['table'])) ? $options['table'] : get_called_class();
         $fields = (isset($options['fields'])) ? $options['fields'] : '*';
         $where = (isset($options['where']) && $options['where']!='') ? $options['where'] : '1=1';
@@ -127,7 +130,7 @@ class Db_Sql {
                     WHERE '.$where.'
                     '.$order.'
                     '.$limit;
-        $result = Db::returnAll($query);
+        $result = Db::returnAll($query, $values);
         $list = array();
         $completeList = (isset($options['completeList'])) ? $options['completeList'] : true;
         foreach ($result as $item) {
@@ -144,18 +147,18 @@ class Db_Sql {
     /**
     * Returns a list of objects.
     */
-    public function readListObject($options=array()) {
+    public function readListObject($options=array(), $values=array()) {
         $options['table'] = (isset($options['table']) && $options['table']!='') ? $options['table'] : $this->className;
-        return Db_Sql::readList($options);
+        return Db_Sql::readList($options, $values);
     }
 
     /**
     * Returns a list using a query.
     */
-    public function readListQuery($query) {
+    public function readListQuery($query, $values=array()) {
         $objectType = $this->className;
         $query = str_replace('##', DB_PREFIX, $query);
-        $result = Db::returnAll($query);
+        $result = Db::returnAll($query, $values);
         $list = array();
         foreach ($result as $name) {
             $list[] = new $objectType($name);
@@ -217,7 +220,7 @@ class Db_Sql {
     }
 
     /**
-    * Update the values of an object.
+    * Modify the values of an object.
     */
     public function modify($values, $options=array()) {
         if (count($values)>0 && $this->id()!='') {
@@ -249,7 +252,15 @@ class Db_Sql {
     }
 
     /**
-    * Update a single attribute.
+    * Update the values of an object.
+    */
+    public function update($values, $options=array()) {
+        $options['complete'] = false;
+        return $this->modify($values, $options);
+    }
+
+    /**
+    * Modify a single attribute.
     */
     public function modifySimple($attribute, $value) {
         Db::execute('UPDATE '.$this->tableName.'

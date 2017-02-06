@@ -267,54 +267,6 @@
         }
     }
 }
-#adminTableStock {
-    .formField {
-        label {
-            display: none;
-        }
-    }
-    .stockForm {
-        .adminTableRowInfoEdit {
-            display: none;
-        }
-        .stockFormEdit,
-        .stockFormSave {
-            text-align: center;
-            display: inline-block;
-            padding: 3px 10px;
-            background: $colorText;
-            color: $white;
-            font-size: 0.9em;
-            font-weight: bold;
-            cursor: pointer;
-            @include borderRadius(3px);
-            &:hover {
-                background: $colorMain;
-            }
-        }
-        .stockFormSave {
-            background: $colorAccept;
-        }
-    }
-    .stockFormEmpty {
-        display: none;
-    }
-}
-.adminTableStockOptions {
-    padding-top: 20px;
-    .adminTableStockAdd {
-        display: inline-block;
-        padding: 10px 20px;
-        background: $colorAccept;
-        font-weight: bold;
-        color: $white;
-        cursor: pointer;
-        @include borderRadius(3px);
-        &:hover {
-            background: $colorText;
-        }
-    }
-}
 .orderState {
     padding-left: 20px;
     position: relative;

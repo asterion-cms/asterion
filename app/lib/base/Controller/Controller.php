@@ -18,8 +18,6 @@ abstract class Controller{
     * $FILES : Array with the loaded $_FILES values.
     */
     public function __construct($GET, $POST, $FILES) {
-        Text::recodeTab($GET);
-        Text::recodeTab($POST);
         $this->type = isset($GET['type']) ? $GET['type'] : '';
         $this->action = isset($GET['action']) ? $GET['action'] : 'list';
         $this->id = isset($GET['id']) ? $GET['id'] : '';

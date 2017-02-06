@@ -30,12 +30,12 @@ class Db {
     /**
     * Return a single element
     */
-    static public function returnSingle($query) {
+    static public function returnSingle($query, $values=array()) {
         try {
             $query = str_replace('\"', '"', $query);
             $db = Db_Connection::getInstance();
             $prepare_execute = $db->getPDOStatement($query);
-            $prepare_execute->execute();
+            $prepare_execute->execute($values);
             return $prepare_execute->fetch(PDO::FETCH_ASSOC);
         } catch(Exception $error){
             if (DEBUG) {
@@ -47,12 +47,12 @@ class Db {
     /**
     * Return a list of elements
     */
-    static public function returnAll($query) {
+    static public function returnAll($query, $values=array()) {
         try {
             $query = str_replace('\"', '"', $query);
             $db = Db_Connection::getInstance();
             $prepare_execute = $db->getPDOStatement($query);
-            $prepare_execute->execute();
+            $prepare_execute->execute($values);
             return $prepare_execute->fetchAll(PDO::FETCH_ASSOC);
         } catch(Exception $error){
             if (DEBUG) {
