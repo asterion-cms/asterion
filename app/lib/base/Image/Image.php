@@ -115,7 +115,7 @@ class Image {
         $widthImage = imagesx($image);
         $heightImage = imagesy($image);     
         if ($widthImage < $newWidth) {
-            if (!copy($fileOrigin, $fileDestination)) {
+            if (!copy($fileOrigin, $fileDestination)  && DEBUG) {
                 throw new Exception('Cannot copy from '.$fileOrigin.' to '.$fileDestination);
             }
         } else {

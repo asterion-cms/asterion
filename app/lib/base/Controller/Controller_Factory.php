@@ -25,7 +25,12 @@ class Controller_Factory {
                 return new $objectController($GET, $POST, $FILES);
             }    
         }
-        throw new Exception('The controller "'.$type.'" does not exist.');
+        if (DEBUG) {
+            throw new Exception('The controller "'.$type.'" does not exist.');
+        } else {
+            header('Location: '.LOCAL_URL);
+            exit();
+        }
     }
 
 }

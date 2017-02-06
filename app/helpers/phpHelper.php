@@ -20,10 +20,10 @@ if (!function_exists('get_called_class')) {
         if (!$flag) {
         	$flag = debug_backtrace();
         }
-        if (!isset($flag[$indexFlag])) {
+        if (!isset($flag[$indexFlag]) && DEBUG) {
         	throw new Exception("Cannot find called class. Stack level too deep.");
         }
-        if (!isset($flag[$indexFlag]['type'])) {
+        if (!isset($flag[$indexFlag]['type']) && DEBUG) {
             throw new Exception ('type not set');
         }
         else switch ($flag[$indexFlag]['type']) {
@@ -38,7 +38,7 @@ if (!function_exists('get_called_class')) {
                 preg_match('/([a-zA-Z0-9\_]+)::'.$flag[$indexFlag]['function'].'/',
                             $callerLine,
                             $matches);
-                if (!isset($matches[1])) {
+                if (!isset($matches[1]) && DEBUG) {
                     throw new Exception ("Could not find caller class: originating method call is obscured.");
                 }
                 switch ($matches[1]) {
@@ -54,7 +54,11 @@ if (!function_exists('get_called_class')) {
                         return get_class($flag[$indexFlag]['object']);
                     default: return $flag[$indexFlag]['class'];
                 }
-            default: throw new Exception ("Unknown backtrace method type.");
+            default: 
+                if (DEBUG) {
+                    throw new Exception ("Unknown backtrace method type.");
+                }
+            break;
         }
     } 
 }

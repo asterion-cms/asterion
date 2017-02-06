@@ -23,6 +23,8 @@ spl_autoload_register(function ($className) {
             return true;
         }
     }
-    throw new Exception('Error on Autoload: The file for '.$className.' does not exist');
+    if (DEBUG) {
+        throw new Exception('Error on Autoload: The file for '.$className.' does not exist');
+    }
 });
 ?>

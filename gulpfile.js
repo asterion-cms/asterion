@@ -30,7 +30,7 @@ var imageminMozjpeg = require('imagemin-mozjpeg');
 var gulpCopy = require('gulp-copy');
 var rename = require('gulp-rename');
 var gulpZip = require('gulp-zip');
-var gulpFtp = require('gulp-ftp');
+var vinylFtp = require('vinyl-ftp');
 var fs = require('fs');
 var del = require('del');
 var runSequence = require('run-sequence');
@@ -208,14 +208,49 @@ gulp.task('ftp-zip', function(callback) {
     if (checkArgumentsFtp()) {
         var ftpPort = (argv.port) ? argv.port : '21';
         var ftpRemotePath = (argv.remotePath) ? argv.remotePath : '/public_html';
+        var conn = vinylFtp.create( {
+            host:     argv.host,
+            user:     argv.user,
+            password: argv.pass,
+            port:     ftpPort,
+            parallel: 1
+        });
         return gulp.src([argv.site+'.zip', 'unzip.php'])
-            .pipe(gulpFtp({
-                host: argv.host,
-                user: argv.user,
-                pass: argv.pass,
-                port: ftpPort,
-                remotePath: ftpRemotePath
-            }))
+            .pipe(conn.dest( ftpRemotePath))
+            .pipe(debug({title: 'Sending: ', minimal: true}));
+    }
+});
+
+gulp.task('ftp-app', function(callback) {
+    if (checkArgumentsFtp()) {
+        var ftpPort = (argv.port) ? argv.port : '21';
+        var ftpRemotePath = (argv.remotePath) ? argv.remotePath : '/public_html';
+        var conn = vinylFtp.create( {
+            host:     argv.host,
+            user:     argv.user,
+            password: argv.pass,
+            port:     ftpPort,
+            parallel: 1
+        });
+        return gulp.src(['app/**/*', '!app/helpers/**/*'])
+            .pipe(conn.dest( ftpRemotePath + '/app' ))
+            .pipe(debug({title: 'Sending: ', minimal: true}));
+    }
+});
+
+gulp.task('ftp-file', function(callback) {
+    if (checkArgumentsFtp()) {
+        var ftpPort = (argv.port) ? argv.port : '21';
+        var ftpRemotePath = (argv.remotePath) ? argv.remotePath : '/public_html';
+        var conn = vinylFtp.create( {
+            host:     argv.host,
+            user:     argv.user,
+            password: argv.pass,
+            port:     ftpPort,
+            parallel: 1
+        });
+        return gulp.src([argv.fileFtp])
+            .pipe(conn.dest( ftpRemotePath + '/' + argv.fileFtp.substring(0, argv.fileFtp.lastIndexOf('/')) ))
             .pipe(debug({title: 'Sending: ', minimal: true}));
     }
 });

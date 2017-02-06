@@ -33,11 +33,14 @@ class NavigationAdmin_Controller extends Controller{
             break;
             case 'base-info':
                 $this->mode = 'js';
-                $info = array('base_url'=>LOCAL_URL,
+                $info = array(
+                            'base_url'=>LOCAL_URL,
+                            'base_file'=>LOCAL_FILE,
                             'app_url'=>APP_URL,
                             'app_folder'=>APP_FOLDER,
                             'site_url'=>url(''),
-                            'lang'=>Lang::active());
+                            'lang'=>Lang::active()
+                            );
                 return 'var info_site = '.json_encode($info).';';
             break;
             case 'js-translations':

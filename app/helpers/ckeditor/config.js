@@ -4,22 +4,18 @@
  */
 
 CKEDITOR.editorConfig = function( config ) {
-	var appUrl = info_site.base_url;
-	var siteUrl = info_site.app_folder;
-	config.filebrowserBrowseUrl = appUrl + 'app/helpers/kcfinder/browse.php?type=files&site='+siteUrl;
-	config.filebrowserImageBrowseUrl = appUrl + 'app/helpers/kcfinder/browse.php?type=images&site='+siteUrl;
-	config.filebrowserFlashBrowseUrl = appUrl + 'app/helpers/kcfinder/browse.php?type=flash&site='+siteUrl;
-	config.filebrowserUploadUrl = appUrl + 'app/helpers/kcfinder/upload.php?type=files&site='+siteUrl;
-	config.filebrowserImageUploadUrl = appUrl + 'app/helpers/kcfinder/upload.php?type=images&site='+siteUrl;
-	config.filebrowserFlashUploadUrl = appUrl + 'app/helpers/kcfinder/upload.php?type=flash&site='+siteUrl;
+	var appUrl = info_site.app_url;
+	var siteFile = encodeURIComponent(info_site.base_file + '/' + info_site.app_folder);
+	var siteUrl = encodeURIComponent(info_site.base_url + '/' + info_site.app_folder);
+	var sites = '&siteFile='+siteFile+'&siteUrl='+siteUrl;
+	config.filebrowserBrowseUrl = appUrl + 'helpers/kcfinder/browse.php?type=files'+sites;
+	config.filebrowserImageBrowseUrl = appUrl + 'helpers/kcfinder/browse.php?type=images'+sites;
+	config.filebrowserFlashBrowseUrl = appUrl + 'helpers/kcfinder/browse.php?type=flash'+sites;
+	config.filebrowserUploadUrl = appUrl + 'helpers/kcfinder/upload.php?type=files'+sites;
+	config.filebrowserImageUploadUrl = appUrl + 'helpers/kcfinder/upload.php?type=images'+sites;
+	config.filebrowserFlashUploadUrl = appUrl + 'helpers/kcfinder/upload.php?type=flash'+sites;
 	config.height = 450;
 	config.allowedContent = true;
 	config.resize_enabled = false;
-	/*
-	config.entities_latin = false;
-	config.entities_greek = false;
-	config.entities = false;
-	config.basicEntities = false;
-	*/
 	config.extraPlugins = 'widget,lineutils,codesnippet';
 };

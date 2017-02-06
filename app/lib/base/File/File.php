@@ -152,7 +152,7 @@ class File {
     static public function createDirectory($dirname, $exception=true) {
         if (!@is_dir($dirname)) {
             if (!@mkdir($dirname)) {
-                if ($exception) {
+                if ($exception && DEBUG) {
                     throw new Exception('Could not create folder '.$dirname);
                 }
             }

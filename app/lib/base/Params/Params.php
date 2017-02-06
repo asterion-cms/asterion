@@ -20,7 +20,7 @@ class Params extends Db_Object {
         $result = Db::returnAll($query);
         foreach ($result as $item) {
             $code = $item['code'];
-            $items[$code] = $item['information'];
+            $items[$code] = Text::decodeText($item['information']);
             if (strpos($code, 'email-')!==false || strpos($code, 'metainfo-')!==false || strpos($code, 'linksocial-')!==false) {
                 $code = str_replace('email-', '', $code);
                 $code = str_replace('metainfo-', '', $code);

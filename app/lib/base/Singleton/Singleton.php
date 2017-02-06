@@ -14,7 +14,7 @@ abstract class Singleton {
     
     final private function __construct() {
         $class = get_called_class();
-        if (array_key_exists($class, self::$instances)) {
+        if (array_key_exists($class, self::$instances) && DEBUG) {
             throw new Exception('An instance of '. $calledClass .' already exists !');
         }
         $this->initialize(); 

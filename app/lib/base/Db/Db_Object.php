@@ -46,6 +46,9 @@ class Db_Object extends Db_Sql {
                 }
             } else {
                 $this->values[$name] = isset($values[$name]) ? $values[$name] : '';
+                if ((string)$item->type == 'textarea-ck') {
+                    $this->values[$name] = Text::decodeText($this->values[$name]);
+                }
                 if ((string)$item->type == 'point') {
                     if (isset($values[$name]) && $values[$name]!='') {
                         $infoPoint = explode(':', $values[$name]);
