@@ -198,7 +198,7 @@ gulp.task('zip-all', function(callback) {
                     '!' + argv.site + '/**/config_*.php',
                     '!' + argv.site + '/phonegap'
                     ], {base: "./"})
-            .pipe(gulpZip(argv.site + '.zip'))
+            .pipe(gulpZip('site.zip'))
             .pipe(gulp.dest('./'))
             .pipe(debug({title: 'Zipping: ', minimal: true}));
     }
@@ -215,7 +215,7 @@ gulp.task('ftp-zip', function(callback) {
             port:     ftpPort,
             parallel: 1
         });
-        return gulp.src([argv.site+'.zip', 'unzip.php'])
+        return gulp.src(['site.zip', 'unzip.php'])
             .pipe(conn.dest( ftpRemotePath))
             .pipe(debug({title: 'Sending: ', minimal: true}));
     }
@@ -266,7 +266,7 @@ gulp.task('unzip-server', function(callback) {
 gulp.task('delete-files', function(callback) {
     if (checkArguments()) {
         del([
-                'unzip.php', argv.site + '.zip',
+                'unzip.php', 'site.zip',
                 argv.site + '/config/config_old.php'
             ]);
         return true;

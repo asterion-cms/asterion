@@ -403,19 +403,18 @@ class Form {
             break;
             case 'unique':
                 $error = array_merge($error, $this->isValidField($item, 'notEmpty'));
-                if ($this->object->id()) {
-                    if ((string)$item->lang == 'true') {
-                        foreach (Lang::langs() as $lang) {
-                            $existingObject = $this->object->readFirst(array('where'=>$this->object->primary.'!="'.$this->object->id().'" AND '.$name.'_'.$lang.'="'.$this->values[$name.'_'.$lang].'"'));
-                            if ($existingObject->id()!='') {
-                                $error[$name.'_'.$lang] = __('errorExisting');
-                            }
-                        }
-                    } else {
-                        $existingObject = $this->object->readFirst(array('where'=>$this->object->primary.'!="'.$this->object->id().'" AND '.$name.'="'.$this->values[$name].'"'));
+                $whereId = ($this->object->id()!='') ? $this->object->primary.'!="'.$this->object->id().'" AND ' : '';
+                if ((string)$item->lang == 'true') {
+                    foreach (Lang::langs() as $lang) {
+                        $existingObject = $this->object->readFirst(array('where'=>$whereId.$name.'_'.$lang.'="'.$this->values[$name.'_'.$lang].'"'));
                         if ($existingObject->id()!='') {
-                            $error[$name] = __('errorExisting');
+                            $error[$name.'_'.$lang] = __('errorExisting');
                         }
+                    }
+                } else {
+                    $existingObject = $this->object->readFirst(array('where'=>$whereId.$name.'="'.$this->values[$name].'"'));
+                    if ($existingObject->id()!='') {
+                        $error[$name] = __('errorExisting');
                     }
                 }
             break;
