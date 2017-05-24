@@ -258,7 +258,7 @@ gulp.task('ftp-file', function(callback) {
 gulp.task('unzip-server', function(callback) {
     if (checkArgumentsFtp()) {
         var remoteZipHost = (argv.remoteZipHost) ? argv.remoteZipHost : argv.host;
-        return request('http://' + remoteZipHost + '/unzip.php?file=' + argv.site)
+        return request('http://' + remoteZipHost + '/unzip.php')
             .pipe(debug({title: 'Server Unzip: ', minimal: true}));
     }
 });

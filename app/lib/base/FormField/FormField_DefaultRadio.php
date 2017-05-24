@@ -75,9 +75,10 @@ class FormField_DefaultRadio {
         if (is_array($value)) {
             foreach ($value as $key=>$item) {
                 $isSelected = ($key==$selected || (is_array($selected) && in_array($key, $selected))) ? 'checked="checked"' : '';
+                $labelId = $nameRadio.'_'.$key;
                 $htmlOptions .= '<div class="radioValue">
-                                    <input type="radio" '.$name.' class="radioItem_'.$key.'" value="'.$key.'" '.$isSelected.'/>
-                                    <label for="'.$key.'">'.__($item).'</label>
+                                    <input type="radio" '.$name.' class="radioItem_'.$key.'" value="'.$key.'" '.$isSelected.' id="'.$labelId.'"/>
+                                    <label for="'.$labelId.'">'.__($item).'</label>
                                 </div>';
             }
         }

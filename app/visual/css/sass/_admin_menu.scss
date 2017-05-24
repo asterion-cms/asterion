@@ -163,3 +163,11 @@
         }
     }
 }
+.menuSideWrapper {
+    padding: 5px 0;
+    .menuSideTitle {
+        font-size: $fontSizeTiny;
+        padding: 0 0 5px;
+        text-transform: uppercase;
+    }
+}

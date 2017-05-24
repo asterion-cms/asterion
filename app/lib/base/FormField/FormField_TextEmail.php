@@ -16,6 +16,7 @@ class FormField_TextEmail extends FormField_Text {
     public function __construct($options) {
         parent::__construct($options);
         $this->options['size'] = '30';
+        $this->options['typeField'] = 'email';
     }
 
     /**
@@ -23,6 +24,7 @@ class FormField_TextEmail extends FormField_Text {
     */
     static public function create($options) {
         $options['size'] = '30';
+        $options['typeField'] = 'email';
         return FormField_Default::create($options);
     }
 

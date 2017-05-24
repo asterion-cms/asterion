@@ -181,6 +181,14 @@ class Ui {
                     default:
                         $labelAttribute = $this->object->get($attribute);
                     break;
+                    case 'linkid-autoincrement':
+                        $refObjectName = (string)$info->refObject;
+                        if ($refObjectName!='') {
+                            $refObject = new $refObjectName;
+                            $refObject = $refObject->readObject($this->object->get($attribute));
+                            $labelAttribute = $refObject->getBasicInfoAdmin();
+                        }
+                    break;
                     case 'textarea-code':
                         $labelAttribute = htmlentities($this->object->get($attribute));
                     break;

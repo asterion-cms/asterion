@@ -91,6 +91,11 @@ class Url {
             $_GET['id'] = (isset($info[1])) ? $info[1] : '';
             $_GET['extraId'] = (isset($info[2])) ? $info[2] : '';
             $_GET['addId'] = (isset($info[3])) ? $info[3] : '';
+            //Check if there are routes
+            $routes = Url::routerControllers();
+            if (count($routes)>0) {
+                $_GET['type'] = (array_key_exists($_GET['action'], $routes)) ? $routes[$_GET['action']] : $_GET['type'];
+            }
         }
         $_GET['lang'] = LANGS;
         $_GET['action'] = (isset($_GET['action']) && $_GET['action']!='') ? $_GET['action'] : 'intro';
@@ -147,7 +152,7 @@ class Url {
     /**
     * Get the contents from an URL address using CURL.
     */
-    static function getContents($url) {
+    static public function getContents($url) {
         $ch = curl_init();
         curl_setopt($ch,CURLOPT_URL,$url);
         curl_setopt($ch,CURLOPT_RETURNTRANSFER,1); 
@@ -156,6 +161,13 @@ class Url {
         $content = curl_exec($ch);
         curl_close($ch);
         return $content;
+    }
+
+    /**
+    * Get the array for the route controllers
+    */
+    static public function routerControllers() {
+        return (defined('ROUTER_CONTROLLERS')) ? unserialize(ROUTER_CONTROLLERS) : array();
     }
 
 }

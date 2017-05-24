@@ -17,24 +17,40 @@
     }
     .formField {
         padding-bottom: 10px;
-    }
-    .formField input,
-    .formField textarea,
-    .formField select {
-        background: $white;
-        color: $colorText;
-        border: 1px solid lighten($colorText, 40%);
-        padding: 3px;
-        font-size: $fontSizeSmall;
-        font-family: $fontFamily;
-        @include borderBox();
-        &:focus {
-            border: 1px solid lighten($colorText, 20%);
+        &.radio {
+            .radioValue {
+                padding: 5px 0 0 0;
+                label {
+                    display: inline-block;
+                    font-weight: normal;
+                    vertical-align: middle;
+                }
+                input {
+                    width: auto;
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin: 0 10px 0 10px;
+                }
+            }
         }
-        &:disabled {
-            background: $colorTextAlt;
-            border: 1px solid $colorTextAlt;
+        input,
+        textarea,
+        select {
+            background: $white;
             color: $colorText;
+            border: 1px solid lighten($colorText, 40%);
+            padding: 3px;
+            font-size: $fontSizeSmall;
+            font-family: $fontFamily;
+            @include borderBox();
+            &:focus {
+                border: 1px solid lighten($colorText, 20%);
+            }
+            &:disabled {
+                background: $colorTextAlt;
+                border: 1px solid $colorTextAlt;
+                color: $colorText;
+            }
         }
     }
     .text-unchangeable {
@@ -484,7 +500,9 @@
 }
 
 .formWrapper {
+    @include clearer();
     .formLine {
+        @include clearer();
         &.formLine4,
         &.formLine3,
         &.formLine2 {
