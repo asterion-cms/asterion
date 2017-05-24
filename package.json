@@ -1,4 +1,20 @@
 {
+  "name": "asterion",
+  "version": "1.0.0",
+  "description": "Asterion is a simple multilingual web framework designed for developers.",
+  "main": "gulpfile.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asterion-cms/asterion.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asterion-cms/asterion/issues"
+  },
+  "homepage": "https://www.asterion-cms.com",
   "private": true,
   "dependencies": {
     "gulp": "^3.8.11",
