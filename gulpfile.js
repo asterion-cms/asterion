@@ -9,6 +9,25 @@
 */
 
 /**
+
+optimize-images             Optimize the JPG, GIF and PNG images in the argv.site visual and stock folders
+optimize-css                Minimise the CSS files in the argv.site/visual folder
+optimize-html               Minimise the HTML files in the argv.site/cache folder
+optimize                    Combine the optimize-css, optimize-html, optimize-images tasks
+
+sass-compile-phonegap       Compile the SASS files in the argv.site/phonegap folder
+sass-compile                Compile the SASS files in the argv.site/visual folder
+sass                        Combine the sass-compile and sass-compile-phonegap
+
+zip-all                     Zip the app and site files
+ftp-zip                     Connect to an FTP server and send the site.zip and unzip.php files
+unzip-server                Script to unzip a file in the server
+package                     Package the whole site
+package-ftp                 Package the site and send it to the server
+
+*/
+
+/**
 * Variables
 */
 'use strict';
@@ -37,37 +56,6 @@ var runSequence = require('run-sequence');
 var argv = require('yargs').argv;
 var request = require('request');
 var merge = require('merge-stream');
-
-/**
-* General functions
-*/
-var checkArguments = function() {
-    if (argv.site) {
-        argv.site = (argv.site[argv.site.length - 1] == '/') ? argv.site.substr(0, (argv.site.length - 1)) : argv.site;
-        return true;
-    } else {
-        console.log('You should specify a site to perform the task.');
-        console.log('For ex.: gulp [task_name] --site asterion');
-        return false;
-    }
-}
-
-var checkArgumentsFtp = function() {
-    if (argv.site && argv.host && argv.user && argv.pass) {
-        return true;
-    } else {
-        console.log('You should specify a site, ftp-host, ftp-user and ftp-password to perform this task.');
-        console.log('For ex.: gulp [task_name] --site asterion --host www.asterion.com --user asterion --pass password_asterion');
-        return false;
-    }
-}
-
-var baseName = function(str) {
-    var base = new String(str).substring(str.lastIndexOf('/') + 1); 
-    if(base.lastIndexOf(".") != -1)       
-        base = base.substring(0, base.lastIndexOf("."));
-    return base;
-}
 
 /**
 * Optimization tasks
@@ -199,34 +187,14 @@ gulp.task('copy-unzip', function(callback) {
     }
 });
 
-gulp.task('zip-site', function(callback) {
-    if (checkArguments()) {
-        return gulp.src([argv.site + '/**/*', '!' + argv.site + '/**/config_*.php', '!' + argv.site + '/phonegap'])
-            .pipe(gulpZip('site.zip'))
-            .pipe(gulp.dest('./'))
-            .pipe(debug({title: 'Zipping site: ', minimal: true}));
-    }
-});
-
-gulp.task('zip-app', function(callback) {
-    if (checkArguments()) {
-        return gulp.src(['index.php', '.htaccess', 'robots.txt', 'app/**/*'], {base: "./"})
-            .pipe(gulpZip('app.zip'))
-            .pipe(gulp.dest('./'))
-            .pipe(debug({title: 'Zipping app: ', minimal: true}));
-    }
-});
-
 gulp.task('zip-all', function(callback) {
     if (checkArguments()) {
-        var siteFiles = gulp.src([argv.site + '/**/*', '!' + argv.site + '/**/config_*.php', '!' + argv.site + '/phonegap']);
+        var siteFiles = gulp.src([argv.site + '/**/*', '!' + argv.site + '/**/config_*.php', '!' + argv.site + '/phonegap'], {base: "../fbapps"});
         var appFiles = gulp.src(['index.php', '.htaccess', 'robots.txt', 'app/**/*'], {base: "./"});
-        return merge(siteFiles, appFiles);
-        return gulp.src([argv.site + '/**/*', '!' + argv.site + '/**/config_*.php', '!' + argv.site + '/phonegap'])
-            .gulp.src(['index.php', '.htaccess', 'robots.txt', 'app/**/*'], {base: "./"})
-            .pipe(gulpZip('complete.zip'))
-            .pipe(gulp.dest('./'))
-            .pipe(debug({title: 'Zipping app: ', minimal: true}));
+        return merge(siteFiles, appFiles)
+                .pipe(gulpZip('complete.zip'))
+                .pipe(gulp.dest('./'))
+                .pipe(debug({title: 'Zipping app: ', minimal: true}));
     }
 });
 
@@ -243,40 +211,6 @@ gulp.task('ftp-zip', function(callback) {
         });
         return gulp.src(['site.zip', 'unzip.php'])
             .pipe(conn.dest( ftpRemotePath))
-            .pipe(debug({title: 'Sending: ', minimal: true}));
-    }
-});
-
-gulp.task('ftp-app', function(callback) {
-    if (checkArgumentsFtp()) {
-        var ftpPort = (argv.port) ? argv.port : '21';
-        var ftpRemotePath = (argv.remotePath) ? argv.remotePath : '/public_html';
-        var conn = vinylFtp.create( {
-            host:     argv.host,
-            user:     argv.user,
-            password: argv.pass,
-            port:     ftpPort,
-            parallel: 1
-        });
-        return gulp.src(['app/**/*', '!app/helpers/**/*'])
-            .pipe(conn.dest( ftpRemotePath + '/app' ))
-            .pipe(debug({title: 'Sending: ', minimal: true}));
-    }
-});
-
-gulp.task('ftp-file', function(callback) {
-    if (checkArgumentsFtp()) {
-        var ftpPort = (argv.port) ? argv.port : '21';
-        var ftpRemotePath = (argv.remotePath) ? argv.remotePath : '/public_html';
-        var conn = vinylFtp.create( {
-            host:     argv.host,
-            user:     argv.user,
-            password: argv.pass,
-            port:     ftpPort,
-            parallel: 1
-        });
-        return gulp.src([argv.fileFtp])
-            .pipe(conn.dest( ftpRemotePath + '/' + argv.fileFtp.substring(0, argv.fileFtp.lastIndexOf('/')) ))
             .pipe(debug({title: 'Sending: ', minimal: true}));
     }
 });
@@ -310,3 +244,27 @@ gulp.task('package-ftp', function(callback) {
         runSequence('copy-config-old', 'copy-config-prod', 'copy-unzip', 'zip-all', 'ftp-zip', 'unzip-server', 'delete-files', 'copy-config-old-back');
     }
 });
+
+/**
+* General functions
+*/
+var checkArguments = function() {
+    if (argv.site) {
+        argv.site = (argv.site[argv.site.length - 1] == '/') ? argv.site.substr(0, (argv.site.length - 1)) : argv.site;
+        return true;
+    } else {
+        console.log('You should specify a site to perform the task.');
+        console.log('For ex.: gulp [task_name] --site asterion');
+        return false;
+    }
+}
+
+var checkArgumentsFtp = function() {
+    if (argv.site && argv.host && argv.user && argv.pass) {
+        return true;
+    } else {
+        console.log('You should specify a site, ftp-host, ftp-user and ftp-password to perform this task.');
+        console.log('For ex.: gulp [task_name] --site asterion --host www.asterion.com --user asterion --pass password_asterion');
+        return false;
+    }
+}
