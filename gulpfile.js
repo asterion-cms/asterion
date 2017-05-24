@@ -36,12 +36,14 @@ var del = require('del');
 var runSequence = require('run-sequence');
 var argv = require('yargs').argv;
 var request = require('request');
+var merge = require('merge-stream');
 
 /**
 * General functions
 */
 var checkArguments = function() {
     if (argv.site) {
+        argv.site = (argv.site[argv.site.length - 1] == '/') ? argv.site.substr(0, (argv.site.length - 1)) : argv.site;
         return true;
     } else {
         console.log('You should specify a site to perform the task.');
@@ -60,6 +62,12 @@ var checkArgumentsFtp = function() {
     }
 }
 
+var baseName = function(str) {
+    var base = new String(str).substring(str.lastIndexOf('/') + 1); 
+    if(base.lastIndexOf(".") != -1)       
+        base = base.substring(0, base.lastIndexOf("."));
+    return base;
+}
 
 /**
 * Optimization tasks
@@ -191,16 +199,34 @@ gulp.task('copy-unzip', function(callback) {
     }
 });
 
-gulp.task('zip-all', function(callback) {
+gulp.task('zip-site', function(callback) {
     if (checkArguments()) {
-        return gulp.src(['index.php', '.htaccess', 'robots.txt', 'app/**/*',
-                    argv.site + '/**/*',
-                    '!' + argv.site + '/**/config_*.php',
-                    '!' + argv.site + '/phonegap'
-                    ], {base: "./"})
+        return gulp.src([argv.site + '/**/*', '!' + argv.site + '/**/config_*.php', '!' + argv.site + '/phonegap'])
             .pipe(gulpZip('site.zip'))
             .pipe(gulp.dest('./'))
-            .pipe(debug({title: 'Zipping: ', minimal: true}));
+            .pipe(debug({title: 'Zipping site: ', minimal: true}));
+    }
+});
+
+gulp.task('zip-app', function(callback) {
+    if (checkArguments()) {
+        return gulp.src(['index.php', '.htaccess', 'robots.txt', 'app/**/*'], {base: "./"})
+            .pipe(gulpZip('app.zip'))
+            .pipe(gulp.dest('./'))
+            .pipe(debug({title: 'Zipping app: ', minimal: true}));
+    }
+});
+
+gulp.task('zip-all', function(callback) {
+    if (checkArguments()) {
+        var siteFiles = gulp.src([argv.site + '/**/*', '!' + argv.site + '/**/config_*.php', '!' + argv.site + '/phonegap']);
+        var appFiles = gulp.src(['index.php', '.htaccess', 'robots.txt', 'app/**/*'], {base: "./"});
+        return merge(siteFiles, appFiles);
+        return gulp.src([argv.site + '/**/*', '!' + argv.site + '/**/config_*.php', '!' + argv.site + '/phonegap'])
+            .gulp.src(['index.php', '.htaccess', 'robots.txt', 'app/**/*'], {base: "./"})
+            .pipe(gulpZip('complete.zip'))
+            .pipe(gulp.dest('./'))
+            .pipe(debug({title: 'Zipping app: ', minimal: true}));
     }
 });
 
