@@ -288,6 +288,17 @@ function activateMaps() {
                 inputLat.val(newPosition.latLng.lat());
                 inputLng.val(newPosition.latLng.lng());
             });
+            $(this).siblings('.checkbox').find('input[type=checkbox]').click(function(){
+                if ($(this).is(':checked')) {
+                    $('.map').hide();
+                    inputLat.val('');
+                    inputLng.val('');
+                } else {
+                    $('.map').show();
+                    inputLat.val(mapLat);
+                    inputLng.val(mapLng);
+                }
+            });
         });
     }
 }

@@ -346,10 +346,17 @@ class Db_Object extends Db_Sql {
     }
 
     /**
-    * Reload the object
+    * Get the search query
     */
     public function infoSearchQuery() {
         return (string)$this->info->info->form->searchQuery;
+    }
+
+    /**
+    * Get the search query count
+    */
+    public function infoSearchQueryCount() {
+        return (string)$this->info->info->form->searchQueryCount;
     }
     
     /**

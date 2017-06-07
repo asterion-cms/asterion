@@ -698,3 +698,16 @@
         }
     }
 }
+
+.map {
+    width: 100%;
+    height: 300px;
+    .mapIns {
+        height: 300px;
+    }
+}
+.textPoint .checkbox {
+    label {
+        font-weight: normal;
+    }
+}

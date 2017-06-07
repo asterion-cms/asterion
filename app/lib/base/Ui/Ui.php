@@ -301,13 +301,19 @@ class Ui {
     * Return a div with the share and print elements.
     */
     public function share($options=array()) {
-        $facebook = (isset($options['facebook'])) ? '<a href="http://www.facebook.com/sharer/sharer.php?u='.urlencode($this->object->url()).'" target="_blank" class="optionFacebook">Compartir en Facebook</a>' : '';
-        $twitter = (isset($options['twitter'])) ? '<a href="http://www.twitter.com/share?text='.urlencode($this->object->getBasicInfo()).'&url='.urlencode($this->object->url()).'" target="_blank" class="optionTwitter">Compartir en Twitter</a>' : '';
-        $print = (isset($options['print'])) ? '<a href="javascript:window.print()" class="optionPrint">Imprimir</a>' : '';
+        $title = (isset($options['title'])) ? '<div class="shareOptionsTitle">'.$options['title'].'</div>' : '';
+        $facebook = (isset($options['facebook'])) ? '<a href="http://www.facebook.com/sharer/sharer.php?u='.urlencode($this->object->url()).'" target="_blank" class="optionFacebook"><i class="icon icon-facebook"></i><span>Facebook</span></a>' : '';
+        $twitter = (isset($options['twitter'])) ? '<a href="http://www.twitter.com/share?text='.urlencode($this->object->getBasicInfo()).'&url='.urlencode($this->object->url()).'" target="_blank" class="optionTwitter"><i class="icon icon-twitter"></i><span>Twitter</span></a>' : '';
+        $linkedin = (isset($options['linkedin'])) ? '<a href="https://www.linkedin.com/cws/share?url='.urlencode($this->object->url()).'" target="_blank" class="optionLinkedin"><i class="icon icon-linkedin"></i><span>LinkedIn</span></a>' : '';
+        $print = (isset($options['print'])) ? '<a href="javascript:window.print()" class="optionPrint"><i class="icon icon-print"></i>Imprimir</a>' : '';
         return '<div class="shareOptions">
-                    '.$facebook.'
-                    '.$twitter.'
-                    '.$print.'
+                    '.$title.'
+                    <div class="shareOptionsIns">
+                        '.$facebook.'
+                        '.$twitter.'
+                        '.$linkedin.'
+                        '.$print.'
+                    </div>
                 </div>';
     }
 

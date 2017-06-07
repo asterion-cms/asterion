@@ -32,6 +32,7 @@ class FormField_Point {
         $this->options['placeholder'] = (string)$this->item->placeholder;
         $this->options['lang'] = (string)$this->item->lang;
         $this->options['layout'] = (string)$this->item->layout;
+        $this->options['showHideMap'] = (string)$this->item->showHideMap;
         $this->options['typeField'] = (isset($options['typeField'])) ? $options['typeField'] : 'point';
     }
 
@@ -70,12 +71,14 @@ class FormField_Point {
                         </div>';
             break;
             case 'map':
-                $valueLat = ($valueLat!='') ? $valueLat : Params::param('initLat');
-                $valueLng = ($valueLng!='') ? $valueLng : Params::param('initLng');
+                $valueLat = ($valueLat!='' && $valueLat!='0') ? $valueLat : Params::param('initLat');
+                $valueLng = ($valueLng!='' && $valueLng!='0') ? $valueLng : Params::param('initLng');
                 $valueZoom = Params::param('initZoom');
                 $idMap = substr(md5(rand()*rand()*rand()), 0, 6);
+                $showHideMap = (isset($options['showHideMap']) && $options['showHideMap']=='true') ? FormField::create('checkbox', array('label'=>__('showHideMap'))) : '';
                 return '<div class="text textPoint formField '.$class.' '.$errorClass.'">
                             <label>'.$label.'</label>
+                            '.$showHideMap.'
                             <div class="map">
                                 <div class="mapInfo" style="display:none;">
                                     <div class="lat">'.$valueLat.'</div>

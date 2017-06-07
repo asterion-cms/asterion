@@ -359,6 +359,7 @@ abstract class Controller{
         }
         $search = $this->object->infoSearch();
         $searchQuery = $this->object->infoSearchQuery();
+        $searchQueryCount = $this->object->infoSearchQueryCount();
         $searchValue = urldecode($this->id);
         $sortableListClass = ($this->object->hasOrd()) ? 'sortableList' : '';
         $ordObject = explode('_', Session::get('ord_'.$this->type));
@@ -372,6 +373,7 @@ abstract class Controller{
         $options['results'] = (int)$this->object->info->info->form->pager;
         $options['where'] = ($search!='' && $searchValue!='') ? str_replace('#SEARCH', $searchValue, $search) : '';
         $options['query'] = ($searchQuery!='' && $searchValue!='') ? str_replace('#SEARCH', $searchValue, $searchQuery) : '';
+        $options['queryCount'] = ($searchQueryCount!='' && $searchValue!='') ? str_replace('#SEARCH', $searchValue, $searchQueryCount) : '';
         $list = new ListObjects($this->type, $options);
         $multipleChoice = (count((array)$this->object->info->info->form->multipleActions->action) > 0);
         $controlsTop = $this->multipleActionsControl().$this->orderControl();

@@ -43,8 +43,8 @@ class FormField_Checkbox {
     */
     static public function create($options) {
         $name = (isset($options['name'])) ? 'name="'.$options['name'].'"' : '';
-        $id = (isset($options['id'])) ? 'id="'.$options['id'].'" ' : '';
-        $label = (isset($options['label'])) ? '<label>'.__($options['label']).'</label>' : '';
+        $id = (isset($options['id'])) ? $options['id'] : substr(md5(rand()), 0, 5);
+        $label = (isset($options['label'])) ? '<label for="'.$id.'">'.__($options['label']).'</label>' : '';
         $value = (isset($options['value']) && $options['value']=="1") ? 'checked="checked" ' : '';
         $disabled = (isset($options['disabled'])) ? 'disabled="disabled"' : '';
         $error = (isset($options['error']) && $options['error']!='') ? '<div class="error">'.$options['error'].'</div>' : '';
@@ -58,13 +58,13 @@ class FormField_Checkbox {
                 return '<div class="checkbox formField '.$class.'">
                             '.$error.'
                             <div class="checkboxIns">
-                                <input type="checkbox" '.$name.' '.$value.' '.$id.' '.$disabled.'/>
+                                <input type="checkbox" id="'.$id.'" '.$name.' '.$value.' '.$disabled.'/>
                                 '.$label.'
                             </div>
                         </div>';
             break;
             case 'simple':
-                return '<input type="checkbox" '.$name.' '.$value.' '.$id.' '.$disabled.'/>';
+                return '<input type="checkbox" id="'.$id.'" '.$name.' '.$value.' '.$disabled.'/>';
             break;
         }
     }
