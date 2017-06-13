@@ -266,39 +266,60 @@ function activateCK() {
 }
 
 function activateMaps() {
-    if ($('.map').length > 0) {
-        $('.map').each(function(index, ele){
-            var mapLat = $(ele).find('.lat').html() * 1;
-            var mapLng = $(ele).find('.lng').html() * 1;
-            var mapZoom = $(ele).find('.zoom').html() * 1;
+    if ($('.pointMap').length > 0) {
+        $('.pointMap').each(function(index, ele){
+            var initLat = $(ele).data('initlat') * 1;
+            var initLng = $(ele).data('initlng') * 1;
+            var initZoom = $(ele).data('initzoom') * 1;
+            var mapLat = $(ele).find('.map').data('lat') * 1;
+            var mapLng = $(ele).find('.map').data('lng') * 1;
+            var mapZoom = $(ele).find('.map').data('zoom') * 1;
             var mapIns = $(ele).find('.mapIns');
             var inputLat = $(ele).find('.inputLat');
             var inputLng = $(ele).find('.inputLng');
-            var mapOptions = {
-                zoom: mapZoom,
-                center: new google.maps.LatLng(mapLat, mapLng)
-            };
-            var mapEle = new google.maps.Map(document.getElementById(mapIns.attr('id')), mapOptions);
-            markerPort = new google.maps.Marker({
-                position: new google.maps.LatLng(mapLat, mapLng),
-                map: mapEle
-            });
-            google.maps.event.addListener(mapEle, 'click', function(newPosition) {
-                markerPort.setPosition(newPosition.latLng);
-                inputLat.val(newPosition.latLng.lat());
-                inputLng.val(newPosition.latLng.lng());
-            });
-            $(this).siblings('.checkbox').find('input[type=checkbox]').click(function(){
-                if ($(this).is(':checked')) {
+            var checkboxShowHide = $(ele).find('.showHide input[type=checkbox]');
+            var activateSingleMap = function() {
+                mapLat = (mapLat!=0) ? mapLat : initLat;
+                mapLng = (mapLng!=0) ? mapLng : initLng;
+                mapZoom = (mapZoom!=0) ? mapZoom : initZoom;
+                inputLat.val(mapLat);
+                inputLng.val(mapLng);
+                var mapOptions = {
+                    zoom: mapZoom,
+                    center: new google.maps.LatLng(mapLat, mapLng)
+                };
+                var mapEle = new google.maps.Map(document.getElementById(mapIns.attr('id')), mapOptions);
+                markerPort = new google.maps.Marker({
+                    position: new google.maps.LatLng(mapLat, mapLng),
+                    map: mapEle
+                });
+                google.maps.event.addListener(mapEle, 'click', function(newPosition) {
+                    markerPort.setPosition(newPosition.latLng);
+                    inputLat.val(newPosition.latLng.lat());
+                    inputLng.val(newPosition.latLng.lng());
+                });
+            }
+            if (checkboxShowHide.length > 0) {
+                if (mapLat=='' || mapLng=='') {
+                    checkboxShowHide.attr('checked', false);
                     $('.map').hide();
-                    inputLat.val('');
-                    inputLng.val('');
                 } else {
-                    $('.map').show();
-                    inputLat.val(mapLat);
-                    inputLng.val(mapLng);
+                    checkboxShowHide.attr('checked', true);
+                    activateSingleMap();
                 }
-            });
+                checkboxShowHide.click(function(){
+                    if ($(this).is(':checked')) {
+                        $('.map').show();
+                        activateSingleMap();
+                    } else {
+                        $('.map').hide();
+                        inputLat.val('');
+                        inputLng.val('');
+                    }
+                });
+            } else {
+                activateSingleMap();
+            }
         });
     }
 }

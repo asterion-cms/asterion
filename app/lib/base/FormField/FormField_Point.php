@@ -61,7 +61,7 @@ class FormField_Point {
         $layout = (isset($options['layout'])) ? $options['layout'] : '';
         switch ($layout) {
             default:
-                return '<div class="text textPoint formField '.$class.' '.$errorClass.'">
+                return '<div class="point formField '.$class.' '.$errorClass.'">
                             '.$label.'
                             '.$error.'
                             <label><span>'.__('latitude').'</span></label>
@@ -71,20 +71,15 @@ class FormField_Point {
                         </div>';
             break;
             case 'map':
-                $valueLat = ($valueLat!='' && $valueLat!='0') ? $valueLat : Params::param('initLat');
-                $valueLng = ($valueLng!='' && $valueLng!='0') ? $valueLng : Params::param('initLng');
+                $valueLat = ($valueLat!='' && $valueLat!='0') ? $valueLat : '';
+                $valueLng = ($valueLng!='' && $valueLng!='0') ? $valueLng : '';
                 $valueZoom = Params::param('initZoom');
                 $idMap = substr(md5(rand()*rand()*rand()), 0, 6);
-                $showHideMap = (isset($options['showHideMap']) && $options['showHideMap']=='true') ? FormField::create('checkbox', array('label'=>__('showHideMap'))) : '';
-                return '<div class="text textPoint formField '.$class.' '.$errorClass.'">
-                            <label>'.$label.'</label>
+                $showHideMap = (isset($options['showHideMap']) && $options['showHideMap']=='true') ? FormField::create('checkbox', array('label'=>__('showHideMap'), 'class'=>'showHide')) : '';
+                return '<div class="point pointMap formField '.$class.' '.$errorClass.'" data-initlat="'.Params::param('initLat').'" data-initlng="'.Params::param('initLng').'" data-initlng="'.Params::param('initZoom').'">
+                            '.$label.'
                             '.$showHideMap.'
-                            <div class="map">
-                                <div class="mapInfo" style="display:none;">
-                                    <div class="lat">'.$valueLat.'</div>
-                                    <div class="lng">'.$valueLng.'</div>
-                                    <div class="zoom">'.$valueZoom.'</div>
-                                </div>
+                            <div class="map" data-lat="'.$valueLat.'" data-lng="'.$valueLng.'" data-zoom="'.$valueZoom.'">
                                 <div class="mapIns" id="'.$idMap.'"></div>
                                 <input type="hidden" name="'.$name.'_lat" value="'.$valueLat.'" class="inputLat" '.$disabled.'/>
                                 <input type="hidden" name="'.$name.'_lng" value="'.$valueLng.'" class="inputLng" '.$disabled.'/>

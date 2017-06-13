@@ -52,6 +52,11 @@
                 color: $colorText;
             }
         }
+        &.point .checkbox {
+            label {
+                font-weight: normal;
+            }
+        }
     }
     .text-unchangeable {
         input[disabled] {
@@ -704,10 +709,5 @@
     height: 300px;
     .mapIns {
         height: 300px;
-    }
-}
-.textPoint .checkbox {
-    label {
-        font-weight: normal;
     }
 }

@@ -29,6 +29,7 @@ class FormField_DefaultTextarea {
         $this->options['placeholder'] = (string)$this->item->placeholder;
         $this->options['required'] = ((string)$this->item->required!='') ? true : false;
         $this->options['typeField'] = (isset($options['typeField'])) ? $options['typeField'] : 'textarea';
+        $this->options['maxlength'] = (string)$this->item->maxlength;
     }
 
     /**
@@ -72,18 +73,19 @@ class FormField_DefaultTextarea {
         $placeholder = (isset($options['placeholder'])) ? 'placeholder="'.__($options['placeholder']).'"' : '';
         $required = (isset($options['required']) && $options['required']) ? 'required' : '';
         $layout = (isset($options['layout'])) ? $options['layout'] : '';
+        $maxlength = (isset($options['maxlength']) && $options['maxlength']!='') ? 'maxlength="'.$options['maxlength'].'" ' : '';
         switch ($layout) {
             default:
                 return '<div class="'.$type.' formField '.$class.' '.$required.' '.$classError.'">
                             <div class="formFieldIns">
                                 '.$label.'
                                 '.$error.'
-                                <textarea '.$name.' '.$cols.' '.$rows.' '.$id.' '.$placeholder.' '.$required.'>'.$value.'</textarea>
+                                <textarea '.$name.' '.$cols.' '.$rows.' '.$id.' '.$placeholder.' '.$required.' '.$maxlength.'>'.$value.'</textarea>
                             </div>
                         </div>';
             break;
             case 'simple':
-                return '<textarea '.$name.' '.$cols.' '.$rows.' '.$id.' '.$placeholder.'>'.$value.'</textarea>';
+                return '<textarea '.$name.' '.$cols.' '.$rows.' '.$id.' '.$placeholder.' '.$maxlength.'>'.$value.'</textarea>';
             break;
         }
     }
