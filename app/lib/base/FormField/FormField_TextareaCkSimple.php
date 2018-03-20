@@ -31,6 +31,6 @@ class FormField_TextareaCkSimple extends FormField_DefaultTextarea {
         $options['value'] = (isset($options['value'])) ? htmlspecialchars($options['value']) : '';
         return FormField_DefaultTextarea::create($options);
     }
-    
+
 }
 ?>

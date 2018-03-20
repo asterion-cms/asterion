@@ -37,7 +37,7 @@ class Lang extends Db_Object {
             $_ENV['lang'] = $items;
         }
     }
-    
+
     /**
     * Get the languages.
     */
@@ -69,7 +69,7 @@ class Lang extends Db_Object {
             $langIds[] = $item['idLang'];
         }
         $_ENV['langs'] = $langIds;
-        $_ENV['langLabels'] = $result;        
+        $_ENV['langLabels'] = $result;
     }
 
     /**
@@ -78,7 +78,7 @@ class Lang extends Db_Object {
     static public function active() {
         return Session::get('lang');
     }
-    
+
     /**
     * Get the label of a language.
     */
@@ -201,6 +201,6 @@ class Lang extends Db_Object {
             }
         }
     }
-    
+
 }
 ?>

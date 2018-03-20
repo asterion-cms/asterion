@@ -52,7 +52,7 @@ class ListObjects {
         }
         return $this->countTotal;
     }
-    
+
     /**
     * Check if the list is empty.
     */
@@ -71,7 +71,7 @@ class ListObjects {
                 $this->options['query'] .= ' LIMIT '.($page*$this->results).', '.$this->results;
             }
             $this->list = $this->object->readListQuery($this->options['query']);
-        } else {        
+        } else {
             if ($this->results!='') {
                 $this->options['limit'] = ($page*$this->results).', '.$this->results;
             }
@@ -146,8 +146,8 @@ class ListObjects {
                             $listFrom = $page - $midDelta;
                             $listTo = $page + $midDelta;
                             $listStart = true;
-                            $listEnd = true;                        
-                        }                    
+                            $listEnd = true;
+                        }
                     }
                 }
                 $html = '';

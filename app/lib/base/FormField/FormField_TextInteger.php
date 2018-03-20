@@ -25,6 +25,6 @@ class FormField_TextInteger extends FormField_Text {
         $options['size'] = '10';
         return FormField_Default::create($options);
     }
-    
+
 }
 ?>

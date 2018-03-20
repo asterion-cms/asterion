@@ -27,6 +27,6 @@ class FormField_TextareaLong extends FormField_DefaultTextarea {
         $options['rows'] = '3';
         return FormField_DefaultTextarea::create($options);
     }
-    
+
 }
 ?>

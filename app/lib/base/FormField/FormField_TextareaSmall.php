@@ -18,7 +18,7 @@ class FormField_TextareaSmall extends FormField_DefaultTextarea {
         $this->options['cols'] = '70';
         $this->options['rows'] = '2';
     }
-    
+
     /**
     * Render the element with an static function.
     */

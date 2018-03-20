@@ -9,7 +9,7 @@
 * @version 3.0.1
 */
 class Permission extends Db_Object {
-    
+
     /**
     * Function to check if the logged user has an specific permission on an object.
     */

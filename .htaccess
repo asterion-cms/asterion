@@ -4,7 +4,7 @@
 # The .htaccess file is used to configure the Apache server.
 # It is crucial to Asterion since it uses the rewrite conditions
 # to load the proper variables of the requested URL.
-# 
+#
 # @author Leano Martinet <info@asterion-cms.com>
 # @package Asterion
 # @version 3.0.1

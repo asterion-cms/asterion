@@ -29,6 +29,6 @@ class HtmlMailTemplate_Controller extends Controller {
         $this->menuInside = '';
         return parent::modifyView();
     }
-    
+
 }
 ?>

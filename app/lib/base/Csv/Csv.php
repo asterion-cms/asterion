@@ -27,14 +27,14 @@ class Csv {
                 $arrayIns = array();
                 $arrayInsCounter = 0;
                 foreach ($headers as $headersItem) {
-                    if (isset($info[$arrayInsCounter])) {                    
+                    if (isset($info[$arrayInsCounter])) {
                         $arrayIns[$headersItem] = $info[$arrayInsCounter];
                         $arrayInsCounter++;
                     }
                 }
                 array_push($arrays, $arrayIns);
             }
-        } 
+        }
         return $arrays;
     }
 

@@ -9,6 +9,6 @@
 * @version 3.0.1
 */
 class HtmlSectionAdmin_Controller extends Controller {
-    
+
 }
 ?>

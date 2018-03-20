@@ -37,7 +37,7 @@ class FormField_Checkbox {
     public function show() {
         return FormField_Checkbox::create($this->options);
     }
-    
+
     /**
     * Render the element with an static function.
     */

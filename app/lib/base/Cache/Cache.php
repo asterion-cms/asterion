@@ -9,7 +9,7 @@
 * @version 3.0.1
 */
 class Cache {
-    
+
     /**
     * Show the intro screen of the cache page.
     */

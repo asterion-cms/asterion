@@ -9,7 +9,7 @@
 * @version 3.0.1
 */
 class Db {
-    
+
     /**
     * Execute a query
     */
@@ -120,6 +120,6 @@ class Db {
         }
         return implode(',',$result) ;
     }
-    
+
 }
 ?>

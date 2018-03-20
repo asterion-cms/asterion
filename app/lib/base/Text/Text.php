@@ -32,7 +32,7 @@ class Text {
         }
         return $html;
     }
-    
+
     /**
     * Cut a string by the number of words.
     */
@@ -103,14 +103,14 @@ class Text {
     static public function booleanText($text) {
         return ($text==1 || $text==true) ? __('yes') : __('no');
     }
-    
+
     /**
     * Format a date number.
     */
     static public function dateNumber($number) {
         return str_pad($number, 2, "0", STR_PAD_LEFT);
     }
-    
+
     /**
     * Format a value into money.
     */
@@ -131,7 +131,7 @@ class Text {
     static public function moneyEuros($number) {
         return Text::money($number).' <span>&euro;</span>';
     }
-    
+
     /**
     * Convert a CSV into an array.
     */
@@ -145,14 +145,14 @@ class Text {
         }
         return $result;
     }
-    
+
     /**
     * Normalize a text string.
     */
     static public function normal($text) {
         return utf8_encode(html_entity_decode($text));
     }
-    
+
     /**
     * Compress a text string.
     */
@@ -198,7 +198,7 @@ class Text {
         $text = str_replace("&gt;", ">", $text);
         return $text;
     }
- 
+
     /**
     * Recode an entire array.
     */
@@ -210,13 +210,13 @@ class Text {
                 } elseif (in_array($k, $mce)) {
                 } else {
                     $tab[$k] = Text::recodeText($tab[$k]);
-                }    
+                }
             } else {
                 if (in_array($k, $sqOnly)) {
-                    $exc = array_merge($sqOnly, array_keys($tab[$k])); 
+                    $exc = array_merge($sqOnly, array_keys($tab[$k]));
                     Text::recodeTab($tab[$k], $exc, $mce);
                 } elseif (in_array($k, $mce)) {
-                    $exc = array_merge($mce, array_keys($tab[$k])); 
+                    $exc = array_merge($mce, array_keys($tab[$k]));
                     Text::recodeTab($tab[$k], $sqOnly, $exc);
                 } else {
                     Text::recodeTab($tab[$k], $sqOnly);
@@ -246,6 +246,6 @@ class Text {
         preg_match_all('/(?<!\w)'.$character.'\w+/', $string, $matches);
         return (isset($matches[0])) ? $matches[0] : array();
     }
-    
+
 }
 ?>

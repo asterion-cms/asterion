@@ -12,7 +12,7 @@ class User_Ui extends Ui{
 
     static public function infoHtml() {
         $login = User_Login::getInstance();
-        if ($login->isConnected()) {        
+        if ($login->isConnected()) {
             return '<div class="infoUser">
                         <div class="infoUserItem infoUserMyAccount">
                             <a href="'.url('User/myAccount', true).'">'.__('myAccount').'</a>
@@ -23,7 +23,7 @@ class User_Ui extends Ui{
                     </div>';
         }
     }
-    
+
 }
 
 ?>

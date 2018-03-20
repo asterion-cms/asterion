@@ -25,6 +25,6 @@ class FormField_TextSmall extends FormField_Text {
         $options['size'] = '5';
         return FormField_Default::create($options);
     }
-    
+
 }
 ?>

@@ -59,7 +59,7 @@ class User_Form extends Form{
         $errors = array();
         if (!isset($this->values['oldPassword']) || trim($this->values['oldPassword'])=='') {
             $errors['oldPassword'] = __('oldPasswordError');
-        } else {        
+        } else {
             if ($user->get('passwordTemp')!='' && $this->values['oldPassword']!=$user->get('passwordTemp')) {
                 $errors['oldPassword'] = __('oldPasswordError');
             } else {
@@ -91,10 +91,10 @@ class User_Form extends Form{
             $error = $this->isValidField($this->object->attributeInfo($item));
             if (count($error)>0) {
                 $errors = array_merge($error, $errors);
-            }            
+            }
         }
         return $errors;
     }
-    
+
 }
 ?>

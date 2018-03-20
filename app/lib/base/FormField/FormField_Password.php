@@ -29,6 +29,6 @@ class FormField_Password extends FormField_Default {
         $options['autocomplete'] = 'off';
         return FormField_Default::create($options);
     }
-    
+
 }
 ?>

@@ -233,7 +233,7 @@ As stated in the first installation step, the most important thing to configure 
 define('LOCAL_URL', SERVER_URL.BASE_STRING);
 define('LOCAL_FILE', $_SERVER['DOCUMENT_ROOT'].BASE_STRING);
 ```
- 
+
 Both must point to the public and local work directory. If you get some errors you can force the configuration of these variables like:
 
 ```php

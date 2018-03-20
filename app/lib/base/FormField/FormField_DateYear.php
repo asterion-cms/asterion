@@ -25,6 +25,6 @@ class FormField_DateYear extends FormField_DefaultDate {
         $options['view'] = 'year';
         return FormField_DefaultDate::create($options);
     }
-    
+
 }
 ?>

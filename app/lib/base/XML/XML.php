@@ -9,7 +9,7 @@
 * @version 3.0.1
 */
 class XML {
-    
+
     /**
     * Write an XML file.
     */
@@ -83,8 +83,8 @@ class XML {
                         <title>'.$title.'</title>
                         <link>'.$link.'</link>
                         <description>'.$description.'</description>
-                        <language>'.Lang::active().'</language> 
-                        <lastBuildDate>'.date('l jS \of F Y h:i:s A').'</lastBuildDate> 
+                        <language>'.Lang::active().'</language>
+                        <lastBuildDate>'.date('l jS \of F Y h:i:s A').'</lastBuildDate>
                         <administrator>'.Params::param('metainfo-titlePage').'</administrator>
                         <image>
                             <title>'.Params::param('metainfo-titlePage').'</title>
@@ -106,6 +106,6 @@ class XML {
                     '.$content.'
                 </urlset>';
     }
-    
+
 }
 ?>

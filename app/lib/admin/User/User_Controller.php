@@ -27,7 +27,7 @@ class User_Controller extends Controller {
                         $this->messageError = __('errorConnection');
                         $this->content = $form->loginAdmin();
                     }
-                } else {                
+                } else {
                     $form = new User_Form();
                     $this->content = $form->loginAdmin();
                 }
@@ -117,6 +117,6 @@ class User_Controller extends Controller {
             break;
         }
         return parent::controlActions();
-    }    
+    }
 }
 ?>

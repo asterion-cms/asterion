@@ -27,6 +27,6 @@ class FormField_Hidden extends FormField_Default {
         $options['typeField'] = 'hidden';
         return FormField_Default::create($options);
     }
-    
+
 }
 ?>

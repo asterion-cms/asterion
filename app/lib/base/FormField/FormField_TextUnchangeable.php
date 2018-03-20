@@ -31,6 +31,6 @@ class FormField_TextUnchangeable extends FormField_Text {
         }
         return FormField_Default::create($options);
     }
-    
+
 }
 ?>

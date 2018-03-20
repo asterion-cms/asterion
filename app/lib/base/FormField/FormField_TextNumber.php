@@ -17,7 +17,7 @@ class FormField_TextNumber extends FormField_Text {
         parent::__construct($options);
         $this->options['size'] = '6';
     }
-    
+
     /**
     * Render the element with an static function.
     */

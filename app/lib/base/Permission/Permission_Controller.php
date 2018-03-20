@@ -16,9 +16,9 @@ class Permission_Controller extends Controller {
     public function listAdmin() {
 		$html = '';
 		$this->menuInside = '';
-		$objectNames = File::scanDirectoryObjectsBase(); 
+		$objectNames = File::scanDirectoryObjectsBase();
 		$html .= $this->listObjects($objectNames, 'formPermissionBase');
-		$objectNames = File::scanDirectoryObjectsApp(); 
+		$objectNames = File::scanDirectoryObjectsApp();
 		$html .= $this->listObjects($objectNames, 'formPermissionApp');
 		return '<div class="formPermissions">
 					'.Form::createForm($html, array('action'=>url('Permission/insert', true), 'submit'=>__('save'))).'
@@ -62,7 +62,7 @@ class Permission_Controller extends Controller {
     * Overwrite the insert function of this controller.
     */
 	public function insert() {
-		$objectNames = File::scanDirectoryObjects(); 
+		$objectNames = File::scanDirectoryObjects();
 		$userTypes = UserType::readList();
 		Db::execute('TRUNCATE '.Db::prefixTable('Permission'));
 		foreach ($objectNames as $objectName) {

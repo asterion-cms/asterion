@@ -88,6 +88,6 @@ class FormField_Point {
             break;
         }
     }
-    
+
 }
 ?>

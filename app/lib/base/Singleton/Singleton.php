@@ -9,20 +9,20 @@
 * @version 3.0.1
 */
 abstract class Singleton {
-    
+
     private static $instances = array();
-    
+
     final private function __construct() {
         $class = get_called_class();
         if (array_key_exists($class, self::$instances) && DEBUG) {
             throw new Exception('An instance of '. $calledClass .' already exists !');
         }
-        $this->initialize(); 
+        $this->initialize();
     }
     final private function __clone() { }
-    
+
     abstract protected function initialize();
-    
+
     /**
     * Static function to retrieve an instance of the object.
     */

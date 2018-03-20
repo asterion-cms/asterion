@@ -28,6 +28,6 @@ class FormField_DateText extends FormField_Default {
         $options['class'] = 'dateText';
         return FormField_Default::create($options);
     }
-    
+
 }
 ?>

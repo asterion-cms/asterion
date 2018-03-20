@@ -19,6 +19,6 @@ class UserTypeMenu_Ui extends Ui{
                     '.$content.'
                 </div>';
     }
-    
+
 }
 ?>

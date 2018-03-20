@@ -73,7 +73,7 @@ class Ui {
         }
         return '<p>'.$content.'</p>';
     }
-    
+
     /**
     * Render the object for the admin area.
     */
@@ -112,7 +112,7 @@ class Ui {
                     <div class="modifySpace"></div>
                 </div>';
     }
-    
+
     /**
     * Render the object as a sitemap url.
     */
@@ -269,7 +269,7 @@ class Ui {
                     <a href="'.$this->linkDelete().'">'.__('delete').'</a>
                 </div>';
     }
-    
+
     /**
     * Return a div with the modify link.
     */
@@ -278,7 +278,7 @@ class Ui {
                     <a href="'.$this->linkModify($nested).'">'.__('modify').'</a>
                 </div>';
     }
-    
+
     /**
     * Return a div with the view public link.
     */

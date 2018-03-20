@@ -36,6 +36,6 @@ class Lang_Ui extends Ui{
     static public function showLangsSimple() {
         return Lang::showLangs(true);
     }
-    
+
 }
 ?>

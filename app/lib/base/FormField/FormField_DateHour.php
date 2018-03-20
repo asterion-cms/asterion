@@ -17,7 +17,7 @@ class FormField_DateHour extends FormField_DefaultDate {
         parent::__construct($options);
         $this->options['view'] = 'hour';
     }
-    
+
     /**
     * Render the element with an static function.
     */
@@ -25,6 +25,6 @@ class FormField_DateHour extends FormField_DefaultDate {
         $options['view'] = 'hour';
         return FormField_DefaultDate::create($options);
     }
-    
+
 }
 ?>

@@ -32,7 +32,7 @@ class FormField_DefaultDate {
         $this->options['typeField'] = (isset($options['typeField'])) ? $options['typeField'] : 'date';
         $this->options['value'] = (isset($this->values[$this->name]) && $this->values[$this->name]!='') ? $this->values[$this->name] : date('Y-m-d h:i');
     }
-    
+
     /**
     * Render a date element using selectboxes.
     */
@@ -113,7 +113,7 @@ class FormField_DefaultDate {
         }
         return $result;
     }
-    
+
     public static function createTime($options) {
         $date = Date::sqlArray($options['value']);
         $options['selected'] = $date['hour'];
@@ -122,24 +122,24 @@ class FormField_DefaultDate {
         $result .= FormField_Date::createMinutes($options);
         return $result;
     }
-    
+
     public static function createDay($options) {
         $options['value'] = array_fillkeys(range(1, 31), range(1, 31));
         if ($options['nameMultiple']) {
             $options['name'] = (isset($options['name'])) ? substr($options['name'], 0, -1).'day]' : 'day';
-        } else {        
+        } else {
             $options['name'] = (isset($options['name'])) ? $options['name'].'day' : 'day';
             $options['name'] = str_replace('[]day', 'day[]', $options['name']);
         }
         return FormField_DefaultSelect::create($options);
     }
-    
+
     public static function createMonth($options){
         $options['value'] = array_fillkeys(range(1, 12), range(1, 12));
         $options['value'] = Date::textMonthArray();
         if ($options['nameMultiple']) {
             $options['name'] = (isset($options['name'])) ? substr($options['name'], 0, -1).'mon]' : 'mon';
-        } else {        
+        } else {
             $options['name'] = (isset($options['name'])) ? $options['name'].'mon' : 'mon';
             $options['name'] = str_replace('[]mon', 'mon[]', $options['name']);
         }
@@ -151,26 +151,26 @@ class FormField_DefaultDate {
         $options['value'] = Date::textMonthArraySimple();
         if ($options['nameMultiple']) {
             $options['name'] = (isset($options['name'])) ? substr($options['name'], 0, -1).'mon]' : 'mon';
-        } else {        
+        } else {
             $options['name'] = (isset($options['name'])) ? $options['name'].'mon' : 'mon';
             $options['name'] = str_replace('[]mon', 'mon[]', $options['name']);
         }
         return FormField_DefaultSelect::create($options);
     }
-    
+
     public static function createYear($options){
         $fromYear = isset($options['fromYear']) ? $options['fromYear'] : date('Y')-90;
         $toYear = isset($options['toYear']) ? $options['toYear'] : date('Y')+20;
         $options['value'] = array_fillkeys(range($fromYear, $toYear), range($fromYear, $toYear));
         if ($options['nameMultiple']) {
             $options['name'] = (isset($options['name'])) ? substr($options['name'], 0, -1).'yea]' : 'yea';
-        } else {        
+        } else {
             $options['name'] = (isset($options['name'])) ? $options['name'].'yea' : 'yea';
             $options['name'] = str_replace('[]yea', 'yea[]', $options['name']);
         }
         return FormField_DefaultSelect::create($options);
     }
-    
+
     public static function createHour($options){
         $options['value'] = array_fillkeys(range(0, 23), range(0, 23));
         foreach ($options['value'] as $key=>$value) {
@@ -178,13 +178,13 @@ class FormField_DefaultDate {
         }
         if ($options['nameMultiple']) {
             $options['name'] = (isset($options['name'])) ? substr($options['name'], 0, -1).'hou]' : 'hou';
-        } else {        
+        } else {
             $options['name'] = (isset($options['name'])) ? $options['name'].'hou' : 'hou';
             $options['name'] = str_replace('[]hou', 'hou[]', $options['name']);
         }
         return FormField_DefaultSelect::create($options);
     }
-    
+
     public static function createMinutes($options){
         $options['value'] = array_fillkeys(range(0, 59), range(0, 59));
         foreach ($options['value'] as $key=>$value) {
@@ -192,7 +192,7 @@ class FormField_DefaultDate {
         }
         if ($options['nameMultiple']) {
             $options['name'] = (isset($options['name'])) ? substr($options['name'], 0, -1).'min]' : 'min';
-        } else {        
+        } else {
             $options['name'] = (isset($options['name'])) ? $options['name'].'min' : 'min';
             $options['name'] = str_replace('[]min', 'min[]', $options['name']);
         }

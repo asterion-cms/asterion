@@ -16,7 +16,7 @@ class FormField_Submit {
     public function __construct($options) {
         $this->options = $options;
     }
-    
+
     /**
     * Render a submit input element.
     */
@@ -37,6 +37,6 @@ class FormField_Submit {
                     <input type="submit" '.$name.' '.$value.' class="'.$class.'" '.$id.' '.$disabled.'/>
                 </div>';
     }
-    
+
 }
 ?>

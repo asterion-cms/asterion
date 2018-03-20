@@ -32,7 +32,7 @@ class Db_Sql {
         $values = (isset($options['values'])) ? $options['values'] : $values;
         $table = (isset($options['table'])) ? $options['table'] : get_called_class();
         $where = (isset($options['where']) && $options['where']!='') ? $options['where'] : '1=1';
-        $query = 'SELECT COUNT(*) AS numElements 
+        $query = 'SELECT COUNT(*) AS numElements
                         FROM '.Db::prefixTable($table).'
                         WHERE '.$where;
         $result = Db::returnSingle($query, $values);
@@ -112,7 +112,7 @@ class Db_Sql {
         $options['table'] = $this->className;
         return Db_Sql::readFirst($options, $values);
     }
-    
+
     /**
     * Returns a list of objects (static function).
     */
@@ -216,7 +216,7 @@ class Db_Sql {
                     }
                 }
             }
-        }    
+        }
     }
 
     /**
@@ -236,7 +236,7 @@ class Db_Sql {
                 $primary = $this->primary;
                 $idItem = (isset($values[$primary.'_oldId'])) ? $values[$primary.'_oldId'] : $this->id();
                 $query = 'UPDATE '.$this->tableName.'
-                            SET 
+                            SET
                             '.$queryModified.'
                             '.$createSet['query'].'
                             WHERE '.$this->primary.'="'.$idItem.'"';
@@ -265,7 +265,7 @@ class Db_Sql {
     public function modifySimple($attribute, $value) {
         Db::execute('UPDATE '.$this->tableName.'
                         SET '.$attribute.' = :'.$attribute.'
-                        WHERE '.$this->primary.' = :'.$this->primary, 
+                        WHERE '.$this->primary.' = :'.$this->primary,
                     array($attribute=>$value, $this->primary=>$this->id()));
     }
 
@@ -337,7 +337,7 @@ class Db_Sql {
                                 if ($lnkObjectIns->get($this->primary)=='') {
                                     $lnkObjectIns->insert(array($this->primary=>$this->id(),
                                                                 $refObjectIns->primary=>$autocompleteObject->id()),
-                                                                array('simpleQuery'=>true));                                        
+                                                                array('simpleQuery'=>true));
                                 }
                             }
                         }
@@ -362,7 +362,7 @@ class Db_Sql {
                                     if ($objectExists->get($this->primary)=='') {
                                         $lnkObjectIns->insert(array($this->primary=>$this->id(),
                                                                 $refObjectIns->primary=>$itemMultiple->id()),
-                                                                array('simpleQuery'=>true));                                        
+                                                                array('simpleQuery'=>true));
                                     }
                                 } else if (is_array($itemMultiple)) {
                                     //If it's an array
@@ -444,7 +444,7 @@ class Db_Sql {
         }
         return $fields;
     }
-    
+
     /**
     * Update the order of a list of objects.
     */
@@ -499,7 +499,7 @@ class Db_Sql {
     * Creates the table indexes defined in the class XML file.
     */
     public function createTableIndexes($rewrite=false) {
-        if (isset($this->info->indexes)) {        
+        if (isset($this->info->indexes)) {
             foreach($this->info->indexes->index as $item) {
                 $name = (string)$item->name;
                 $type = (string)$item->type;
@@ -514,7 +514,7 @@ class Db_Sql {
                             Db::execute($query);
                         }
                     }
-                } else {                
+                } else {
                     $query = 'SHOW INDEX FROM '.$this->tableName.' WHERE KEY_NAME="'.$name.'"';
                     if (count(Db::returnAll($query))==0) {
                         $query = 'CREATE '.$type.' INDEX `'.$name.'` ON '.$this->tableName.' ('.$fields.')';
@@ -572,12 +572,12 @@ class Db_Sql {
                 break;
                 case 'password':
                     if (isset($values[$name])) {
-                        $password = md5($values[$name]);            
+                        $password = md5($values[$name]);
                         $setValues[$name] = $password;
                         $query .= '`'.$name.'` = :'.$name.', ';
                     }
                     if (isset($values[$name.'_new']) && $values[$name.'_new']!='') {
-                        $password = md5($values[$name.'_new']);            
+                        $password = md5($values[$name.'_new']);
                         $setValues[$name] = $password;
                         $query .= '`'.$name.'` = :'.$name.'", ';
                     }
@@ -677,7 +677,7 @@ class Db_Sql {
                     }
                 break;
                 case 'checkbox':
-                    if ($complete) {                    
+                    if ($complete) {
                         $values[$name] = (isset($values[$name])) ? $values[$name] : 0;
                         $values[$name] = ($values[$name]==="on") ? 1 : $values[$name];
                         $query .= isset($values[$name]) ? '`'.$name.'`="'.$values[$name].'", ' : '`'.$name.'`=NULL, ';
@@ -703,7 +703,7 @@ class Db_Sql {
         $query = ($query!='') ? substr($query, 0, -2) : $query;
         return array('query'=>$query, 'setValues'=>$setValues);
     }
-    
+
     /**
     * Upload the files of an object according the its attributes.
     */

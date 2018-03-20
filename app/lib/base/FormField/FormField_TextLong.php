@@ -25,6 +25,6 @@ class FormField_TextLong extends FormField_Text {
         $options['size'] = '100';
         return FormField_Default::create($options);
     }
-    
+
 }
 ?>

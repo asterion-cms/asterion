@@ -9,7 +9,7 @@
 * @version 3.0.1
 */
 class Session {
-    
+
     /**
     * Get a session element.
     */
@@ -30,7 +30,7 @@ class Session {
     static public function set($name, $value) {
         $_SESSION[SESSION_NAME][$name] = $value;
     }
-    
+
     /**
     * Delete a session element.
     */
@@ -40,6 +40,6 @@ class Session {
             unset($_SESSION[SESSION_NAME][$name]);
         }
     }
-    
+
 }
 ?>

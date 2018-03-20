@@ -16,7 +16,7 @@ class Form {
     public function __construct($values=array(), $errors=array(), $object='') {
         if (!is_object($object)) {
             $this->className = str_replace('_Form', '', get_class($this));
-            $this->object = new $this->className($values);            
+            $this->object = new $this->className($values);
         } else {
             $this->object = $object;
             $this->className = $object->className;
@@ -100,7 +100,7 @@ class Form {
             }
         }
     }
-    
+
     /**
     * Create the form fields.
     */
@@ -129,11 +129,11 @@ class Form {
         $name = (string)$item->name;
         $label = (string)$item->label;
         $type = (string)$item->type;
-        $options = array_merge($options, 
-                                array('item'=>$item, 
-                                        'values'=>$this->values, 
-                                        'errors'=>$this->errors, 
-                                        'typeField'=>$type, 
+        $options = array_merge($options,
+                                array('item'=>$item,
+                                        'values'=>$this->values,
+                                        'errors'=>$this->errors,
+                                        'typeField'=>$type,
                                         'object'=>$this->object));
         switch (Db_ObjectType::baseType($type)) {
             default:
@@ -370,16 +370,16 @@ class Form {
                         }
                     }
                 } else {
-                    if (!isset($this->values[$name]) || strlen(trim($this->values[$name])) == 0) { 
+                    if (!isset($this->values[$name]) || strlen(trim($this->values[$name])) == 0) {
                         $error[$name] = __('notEmpty');
                     }
                 }
             break;
             case 'notEmptyPoint':
-                if (!isset($this->values[$name.'_lat']) || strlen(trim($this->values[$name.'_lat'])) == 0) { 
+                if (!isset($this->values[$name.'_lat']) || strlen(trim($this->values[$name.'_lat'])) == 0) {
                     $error[$name] = __('notEmpty');
                 }
-                if (!isset($this->values[$name.'_lng']) || strlen(trim($this->values[$name.'_lng'])) == 0) { 
+                if (!isset($this->values[$name.'_lng']) || strlen(trim($this->values[$name.'_lng'])) == 0) {
                     $error[$name] = __('notEmpty');
                 }
             break;
@@ -390,10 +390,10 @@ class Form {
                 }
             break;
             case 'password':
-                if (!isset($this->values[$name]) || strlen(trim($this->values[$name])) == 0) { 
+                if (!isset($this->values[$name]) || strlen(trim($this->values[$name])) == 0) {
                     $error[$name] = __('notEmpty');
                 } else {
-                    if (strlen($this->values[$name]) < 6) { 
+                    if (strlen($this->values[$name]) < 6) {
                         $error[$name] = __('errorPasswordSize');
                     }
                     if (preg_match('/^[a-z0-9]+$/i', $this->values[$name])==false) {
@@ -430,7 +430,7 @@ class Form {
     * Check if a value is empty.
     */
     public function isValidEmpty($field, &$errors) {
-        if (!isset($this->values[$field]) || strlen(trim($this->values[$field])) == 0) { 
+        if (!isset($this->values[$field]) || strlen(trim($this->values[$field])) == 0) {
             $errors[$field] = __('notEmpty');
         }
     }

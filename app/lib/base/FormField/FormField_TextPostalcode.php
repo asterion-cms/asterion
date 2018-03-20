@@ -25,6 +25,6 @@ class FormField_TextPostalcode extends FormField_Text {
         $options['size'] = '6';
         return FormField_Default::create($options);
     }
-    
+
 }
 ?>

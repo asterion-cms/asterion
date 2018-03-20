@@ -25,6 +25,6 @@ class FormField_TextTelephone extends FormField_Text {
         $options['size'] = '10';
         return FormField_Default::create($options);
     }
-    
+
 }
 ?>

@@ -97,6 +97,6 @@ class FormField_DefaultRadio {
             break;
         }
     }
-    
+
 }
 ?>

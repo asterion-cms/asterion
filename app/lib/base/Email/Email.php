@@ -22,6 +22,6 @@ class Email {
         $headers .= 'X-Mailer: PHP/'.phpversion();
         return @mail($mailTo, html_entity_decode($subject), utf8_decode($htmlMail), $headers);
     }
-    
+
 }
 ?>

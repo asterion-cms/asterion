@@ -25,6 +25,6 @@ class FormField_DateComplete extends FormField_DefaultDate {
         $options['view'] = 'complete';
         return FormField_DefaultDate::create($options);
     }
-    
+
 }
 ?>

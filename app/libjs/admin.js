@@ -42,7 +42,7 @@ function ajaxAdmin() {
         var actionDelete = $(this).attr('rel');
         if (actionDelete==undefined || actionDelete=='') {
             container.remove();
-        } else {        
+        } else {
             if (confirm(info_translations.js_messageDelete)) {
                 $.ajax(actionDelete)
                 .done(function(htmlResponse) {
@@ -145,7 +145,7 @@ function ajaxAdmin() {
         $(ele).datepicker({
             'firstDay': 1,
             'dateFormat': dateFormatView
-        });    
+        });
     })
 
     //SELECT CHECKBOX
@@ -191,10 +191,10 @@ function ajaxAdmin() {
                 container.replaceWith(response);
                 activateAnnotations();
             });
-        });    
+        });
     }
     activateAnnotations();
-    
+
     //ACCORDION
     var accordionSelectSetup = function(ele) {
         var eleSelect = $(ele).find('.accordionTrigger select').first();

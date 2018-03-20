@@ -9,6 +9,6 @@
 * @version 3.0.1
 */
 class Permission_Ui extends Ui{
-   
+
 }
 ?>

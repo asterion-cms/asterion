@@ -17,7 +17,7 @@ class FormField_TextLarge extends FormField_Text {
         parent::__construct($options);
         $this->options['size'] = '80';
     }
-    
+
     /**
     * Render the element with an static function.
     */

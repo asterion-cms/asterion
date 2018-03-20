@@ -10,7 +10,7 @@
 * @version 3.0.1
 */
 class User_Login {
-    
+
     /**
     * Singleton pattern.
     * To instantiate this object we use the getInstance() static function.
@@ -22,7 +22,7 @@ class User_Login {
         $this->info = Session::get('infoUser');
         $this->info = ($this->info=='') ? array() : $this->info;
     }
-    
+
     private function __clone() {}
 
     public static function getInstance() {
@@ -31,7 +31,7 @@ class User_Login {
         }
         return self::$login;
     }
-    
+
     /**
     * Get the id of the logged user.
     */
@@ -56,7 +56,7 @@ class User_Login {
         $this->user = User::read($this->id());
         return $this->user;
     }
-    
+
     /**
     * Update the session array.
     */
@@ -70,7 +70,7 @@ class User_Login {
     public function isConnected() {
         return (isset($this->info['idUser']) && $this->info['idUser']!='') ? true : false;
     }
-    
+
     /**
     * Check the user login using it's email and password.
     * If so, it saves the user values in the session.
@@ -80,7 +80,7 @@ class User_Login {
         $values['email'] = (isset($options['email'])) ? $options['email'] : '';
         $values['password'] = (isset($options['password'])) ? $options['password'] : '';
         $values['md5password'] = md5($values['password']);
-        if ($values['email']!='' && $values['password']!='') {            
+        if ($values['email']!='' && $values['password']!='') {
             $user = User::readFirst(array('where'=>'email=:email AND (password=:md5password OR passwordTemp=:password) AND active="1"'), $values);
             if ($user->id()!='') {
                 $this->autoLogin($user);

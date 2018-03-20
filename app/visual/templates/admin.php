@@ -7,9 +7,9 @@
     <link rel="shortcut icon" href="<?php echo APP_URL;?>visual/img/favicon.ico" />
 
 	<title><?php echo $title;?></title>
-    
+
     <link href="<?php echo APP_URL;?>visual/css/stylesheets/admin.css" rel="stylesheet">
-    
+
     <script type="text/javascript" src="<?php echo url('NavigationAdmin/base-info', true); ?>"></script>
     <script type="text/javascript" src="<?php echo url('NavigationAdmin/js-translations', true); ?>"></script>
     <script type="text/javascript" src="<?php echo APP_URL; ?>libjs/jquery/jquery-1.10.2.min.js"></script>

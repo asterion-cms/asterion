@@ -27,7 +27,7 @@ class Image_File{
         }
         return false;
     }
-    
+
     /**
     * Save the image and create versions of itself.
     */

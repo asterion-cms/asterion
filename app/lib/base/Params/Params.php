@@ -71,7 +71,7 @@ class Params extends Db_Object {
             $items[] = array('code'=>'email-contact', 'name'=>'Emails sent in the contact section', 'information'=>EMAIL);
             foreach ($items as $item) {
                 $itemOld = Params::readFirst(array('where'=>'code="'.$item['code'].'"'));
-                if ($itemOld->id()=='') {                    
+                if ($itemOld->id()=='') {
                     $itemSave = new Params();
                     $itemSave->insert($item);
                 }

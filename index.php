@@ -30,7 +30,7 @@ try {
         ini_set('display_errors', '1');
         Init::initSite();
     }
-    
+
     /**
     * Asterion initializes the common services.
     * The Url::init() function parses the URL of the request.

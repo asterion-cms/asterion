@@ -23,7 +23,7 @@ class Controller_Factory {
         foreach ($_ENV['locations'] as $location) {
             if (is_file($location.$addLocation)) {
                 return new $objectController($GET, $POST, $FILES);
-            }    
+            }
         }
         if (DEBUG) {
             throw new Exception('The controller "'.$type.'" does not exist.');

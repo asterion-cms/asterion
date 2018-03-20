@@ -9,7 +9,7 @@
 * @version 3.0.1
 */
 class Cookie {
-    
+
     /**
     * Get a cookie value
     */
@@ -24,7 +24,7 @@ class Cookie {
         $domain = ($_SERVER['HTTP_HOST'] != 'localhost') ? $_SERVER['HTTP_HOST'] : false;
         setcookie($name, $value, time() + COOKIE_TIME, '/', $domain, false);
     }
-    
+
     /**
     * Delete a cookie
     */
@@ -33,6 +33,6 @@ class Cookie {
         setcookie($name, '', time() - COOKIE_TIME, '/', $domain, false);
         unset($_COOKIE[$name]);
     }
-    
+
 }
 ?>

@@ -25,6 +25,6 @@ class FormField_TextCode extends FormField_Text {
         $options['size'] = '30';
         return FormField_Default::create($options);
     }
-    
+
 }
 ?>

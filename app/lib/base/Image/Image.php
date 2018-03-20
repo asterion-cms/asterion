@@ -10,7 +10,7 @@
 */
 class Image {
 
-    public $url; 
+    public $url;
     public $mime;
     public $width;
     public $height;
@@ -34,7 +34,7 @@ class Image {
     public function get($item) {
         return (isset($this->$item)) ? $this->$item : false;
     }
-    
+
     /**
     * Return the public url of the image.
     */
@@ -89,10 +89,10 @@ class Image {
             $extension = $this->getExtension();
             if ($extension != '') {
                 $function = 'imagecreatefrom'.$extension;
-                $image = $function($this->get('url')); 
+                $image = $function($this->get('url'));
                 $fileDestinationArray = explode('.',$this->get('url'));
                 $fileDestination = $fileDestinationArray[0].'.jpg';
-                imagejpeg($image, $fileDestination, 100);         
+                imagejpeg($image, $fileDestination, 100);
                 imagedestroy($image);
                 unlink($this->get('url'));
                 $this->url = $fileDestination;
@@ -111,21 +111,21 @@ class Image {
         $fileOrigin = $this->get('url');
         $type = $this->getType($mime);
         $function = 'imagecreatefrom'.$type;
-        $image = $function($fileOrigin); 
+        $image = $function($fileOrigin);
         $widthImage = imagesx($image);
-        $heightImage = imagesy($image);     
+        $heightImage = imagesy($image);
         if ($widthImage < $newWidth) {
             if (!copy($fileOrigin, $fileDestination)  && DEBUG) {
                 throw new Exception('Cannot copy from '.$fileOrigin.' to '.$fileDestination);
             }
         } else {
-            $newHeight = ceil( ( $newWidth*$heightImage ) / $widthImage );             
+            $newHeight = ceil( ( $newWidth*$heightImage ) / $widthImage );
             if ($newHeight > $maxHeight) {
                 $newHeight = $maxHeight;
                 $newWidth = ceil(($newHeight * $widthImage) / $heightImage);
             }
             $newImage    = imagecreatetruecolor($newWidth, $newHeight);
-            imagecopyresampled ($newImage, $image, 0, 0, 0, 0, $newWidth, $newHeight, $widthImage, $heightImage);         
+            imagecopyresampled ($newImage, $image, 0, 0, 0, 0, $newWidth, $newHeight, $widthImage, $heightImage);
             $function = 'image'.$type;
             $function($newImage, $fileDestination, 100);
             imagedestroy($newImage);
@@ -164,7 +164,7 @@ class Image {
         $fileOrigin = $this->get('url');
         $type = $this->getType($mime);
         $function = "imagecreatefrom".$type;
-        $image = $function($fileOrigin); 
+        $image = $function($fileOrigin);
         $widthImage = imagesx($image);
         $heightImage = imagesy($image);
         if ($widthImage > $heightImage) {

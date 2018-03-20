@@ -23,6 +23,6 @@ class FormField_Date extends FormField_DefaultDate {
     static public function create($options) {
         return FormField_DefaultDate::create($options);
     }
-    
+
 }
 ?>

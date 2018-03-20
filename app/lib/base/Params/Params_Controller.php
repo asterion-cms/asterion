@@ -9,7 +9,7 @@
 * @version 3.0.1
 */
 class Params_Controller extends Controller {
-    
+
 	public function listAdmin() {
 		$html = '';
 		$items = Params::readList(array('order'=>'code'));

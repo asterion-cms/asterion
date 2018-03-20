@@ -18,7 +18,7 @@ class FormField_TextareaCode extends FormField_DefaultTextarea {
         $this->options['cols'] = '70';
         $this->options['rows'] = '4';
     }
-    
+
     /**
     * Render the element with an static function.
     */

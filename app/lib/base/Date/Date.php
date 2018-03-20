@@ -80,7 +80,7 @@ class Date {
         $result['minutes'] = intval(substr($date, 14, 2));
         return $result;
     }
-    
+
     /**
     * Return an SQL date into a URL usable string.
     */
@@ -207,7 +207,7 @@ class Date {
     public static function postFormat($postValue) {
         return str_pad($_POST[$postValue.'yea'], 2, "0", STR_PAD_LEFT).'-'.str_pad($_POST[$postValue.'mon'], 2, "0", STR_PAD_LEFT).'-'.str_pad($_POST[$postValue.'day'], 2, "0", STR_PAD_LEFT);
     }
-    
+
     /**
     * Create a text label from a date array.
     */
@@ -229,7 +229,7 @@ class Date {
             return $html;
         }
     }
-    
+
     /**
     * Calculate the minutes using hours.
     */
@@ -257,7 +257,7 @@ class Date {
         $result['days'] = $difference/86400;
         return $result;
     }
-    
+
     /**
     * Format a publication date for RSS files.
     */
@@ -265,7 +265,7 @@ class Date {
         $values = Date::sqlArray($date);
         return date('D, d M Y H:i:s O', mktime($values['hour'], $values['minutes'], 0, $values['month'], $values['day'], $values['year']));
     }
-    
+
     /**
     * Format today's publication date for RSS files.
     */

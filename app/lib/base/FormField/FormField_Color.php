@@ -23,6 +23,6 @@ class FormField_Color extends FormField_Default {
     static public function create($options) {
         return FormField_Default::create($options);
     }
-    
+
 }
 ?>

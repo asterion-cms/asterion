@@ -10,6 +10,6 @@
 * @version 3.0.1
 */
 class UserType extends Db_Object {
-    
+
 }
 ?>
