@@ -15,19 +15,22 @@ class Lang_Ui extends Ui{
     */
     static public function showLangs($simple=false) {
         $langActive = Lang::active();
-        $html = '';
-        foreach (Lang::langLabels() as $lang) {
-            $html .= '<div class="lang lang_'.$lang['idLang'].'">';
-            $name = ($simple) ? $lang['idLang'] : $lang['name'];
-            if ($lang['idLang'] == $langActive) {
-                $html .= '<span title="'.$lang['name'].'">'.$name.'</span> ';
-            } else {
-                $linkLang = Url::urlLang($lang['idLang']);
-                $html .= '<a href="'.$linkLang.'" title="'.$lang['name'].'">'.$name.'</a> ';
+        $langs = Lang::langLabels();
+        if (count($langs) > 1) {
+            $html = '';
+            foreach ($langs as $lang) {
+                $html .= '<div class="lang lang_'.$lang['idLang'].'">';
+                $name = ($simple) ? $lang['idLang'] : $lang['name'];
+                if ($lang['idLang'] == $langActive) {
+                    $html .= '<span title="'.$lang['name'].'">'.$name.'</span> ';
+                } else {
+                    $linkLang = Url::urlLang($lang['idLang']);
+                    $html .= '<a href="'.$linkLang.'" title="'.$lang['name'].'">'.$name.'</a> ';
+                }
+                $html .= '</div>';
             }
-            $html .= '</div>';
+            return '<div class="langs">'.$html.'</div>';
         }
-        return '<div class="langs">'.$html.'</div>';
     }
 
     /**

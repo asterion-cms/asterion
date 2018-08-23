@@ -21,7 +21,7 @@
             <hiddenAdminMenu>true</hiddenAdminMenu>
             <templateItemAdmin>
                 <p class="accent"><strong>#name</strong></p>
-                <p class="tiny"><em>_code</em> : <span class="mainAlt">#idLang</span></p>
+                <p class="tiny"><em>_code</em> : <span class="accent">#idLang</span></p>
             </templateItemAdmin>
         </form>
     </info>

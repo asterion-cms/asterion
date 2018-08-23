@@ -18,8 +18,8 @@
             <label>#information</label>
             <templateItemAdmin>
                 <p class="accent"><strong>#name</strong></p>
-                <p class="tiny"><em>_code</em> : <span class="mainAlt">#code</span></p>
-                <p class="tiny"><em>_value</em> : <span class="mainAlt">#information</span></p>
+                <p class="tiny"><em>_code</em> : <span class="accent">#code</span></p>
+                <p class="tiny"><em>_value</em> : <span class="accent">#information</span></p>
             </templateItemAdmin>
         </form>
     </info>

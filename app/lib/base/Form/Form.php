@@ -255,10 +255,12 @@ class Form {
                         $multipleOptions = array('multiple'=>true, 'nameMultiple'=>$name, 'idMultipleJs'=>'#ID_MULTIPLE#');
                         $refObjectFormIns = new $refObjectForm();
                         $label = ((string)$item->label!='') ? '<label>'.__((string)$item->label).'</label>' : '';
-                        $orderNested = ($refObjectFormIns->object->hasOrd()) ? '<div class="nestedFormFieldOrder"></div>' : '';
+                        $orderNested = ($refObjectFormIns->object->hasOrd()) ? '<div class="nestedFormFieldOrder"><i class="icon icon-move"></i></div>' : '';
                         $nestedFormFieldEmpty = '<div class="nestedFormFieldEmpty">
                                                         <div class="nestedFormFieldOptions">
-                                                            <div class="nestedFormFieldDelete"></div>
+                                                            <div class="nestedFormFieldDelete">
+                                                                <i class="icon icon-trash"></i>
+                                                            </div>
                                                             '.$orderNested.'
                                                         </div>
                                                         <div class="nestedFormFieldContent">
@@ -269,10 +271,12 @@ class Form {
                             $refObjectIns = new $refObject($itemValues);
                             $refObjectFormIns = new $refObjectForm($itemValues, array(), $refObjectIns);
                             $multipleOptionsIns = array('multiple'=>true, 'nameMultiple'=>$name);
-                            $orderNested = ($refObjectFormIns->object->hasOrd()) ? '<div class="nestedFormFieldOrder"></div>' : '';
+                            $orderNested = ($refObjectFormIns->object->hasOrd()) ? '<div class="nestedFormFieldOrder"><i class="icon icon-move"></i></div>' : '';
                             $nestedFormField .= '<div class="nestedFormFieldObject" rel="'.$refObjectIns->id().'">
                                                         <div class="nestedFormFieldOptions">
-                                                            <div class="nestedFormFieldDelete" rel="'.url($refObject.'/delete/'.$refObjectIns->id(), true).'"></div>
+                                                            <div class="nestedFormFieldDelete" rel="'.url($refObject.'/delete/'.$refObjectIns->id(), true).'">
+                                                                <i class="icon icon-trash"></i>
+                                                            </div>
                                                             '.$orderNested.'
                                                         </div>
                                                         <div class="nestedFormFieldContent">

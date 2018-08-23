@@ -1,21 +1,29 @@
 .menuSide {
-    margin: 20px 0 0 0;
+    padding: 0 0 50px 0;
+    background: $colorAccent;
     .menuSideItem {
         a {
             display: block;
-            padding: 10px 10px 10px 30px;
-            margin: 0 0 2px 0;
+            padding: 10px;
             color: $white;
             background: $colorAccent;
             font-size: $fontSizeTiny;
-            @include iconBeforeAbsolute($icon-arrow-simple-right, $paddingLeft: 30px, $top: 10px, $left: 10px);
-            &:before {
-                opacity: 0.4;
+            font-weight: bold;
+            border-bottom: 1px solid rgba($white, 0.1);
+            @include animate();
+            &:last-child {
+                border: 0;
+            }
+            i {
+                display: inline-block;
+                padding: 0 5px 0 0;
+                color: rgba($white, 0.3);
+                @include animate();
             }
             &:hover {
-                background: darken($colorAccent, 5%);
-                &:before {
-                    opacity: 1;
+                background: darken($colorAccentAlt, 15%);
+                i {
+                    color: $white;
                 }
             }
         }
@@ -23,142 +31,63 @@
             a {
                 background: lighten($colorAccent, 10%);
                 &:hover {
-                    background: lighten($colorAccent, 5%);
+                    background: darken($colorAccentAlt, 15%);
                 }
             }
         }
-        span {
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            font-weight: bold;
-            padding: 3px 0;
-            margin-top: 10px;
-            border-top: 1px solid $colorTextAlt; 
-            color: $colorText;
-            display: block;
-        }
-        &.menuSideItem-User,
-        &.menuSideItem-UserType {
-            a {
-                &:before {
-                    content: $icon-user;
-                }
-            }
-        }
-        &.menuSideItem-Params {
-            a {
-                &:before {
-                    content: $icon-settings;
-                }
-            }
-        }
-        &.menuSideItem-Lang,
-        &.menuSideItem-LangTrans {
-            a {
-                &:before {
-                    content: $icon-bubbles;
-                }
-            }
-        }
-        &.menuSideItem-HtmlMail,
-        &.menuSideItem-HtmlMailTemplate {
-            a {
-                &:before {
-                    content: $icon-email;
-                }
-            }
-        }
-        &.menuSideItem-permissions,
-        &.menuSideItem-backup,
-        &.menuSideItem-cache,
-        &.menuSideItem-langs {
+        &.menuSideItemAdmin {
             a {
                 background: darken($colorAccent, 10%);
-                &:before {
-                    content: $icon-users;
-                }
                 &:hover {
-                    background: darken($colorAccent, 15%);
+                    background: darken($colorAccentAlt, 20%);
                 }
             }
         }
-        &.menuSideItem-langs {
-            a {
-                &:before {
-                    content: $icon-bubbles;
-                }
-            }
-        }
-        &.menuSideItem-backup {
-            a {
-                &:before {
-                    content: $icon-download;
-                }
-            }
-        }
-        &.menuSideItem-cache {
-            a {
-                &:before {
-                    content: $icon-file-text;
-                }
-            }
-        }
-        &.menuSideItem-logout {
+        &.menuSideItemLogout {
             a {
                 background: $colorNeutral;
-                &:before {
-                    content: $icon-exit;
-                }
                 &:hover {
-                    background: darken($colorNeutral, 5%);
+                    background: lighten($colorNeutral, 10%);
                 }
             }
         }
     }
 }
 .menuSimple {
+    text-align: right;
     @include clearer();
     .menuSimpleItem {
-        width: 120px;
-        float: right;
-        margin-left: 10px;
+        display: inline-block;
+        margin: 0 0 0 10px;
         a {
-            display: block;
-            background: $colorTextAlt;
-            border: 1px solid darken($colorTextAlt, 10%);
+            display: inline-block;
+            background: darken($white, 10%);
+            border: 1px solid darken($white, 15%);
+            color: darken($white, 60%);
             text-align: center;
-            font-size: $fontSizeTiny;
-            font-weight: normal;
-            @include iconBeforeAbsolute($icon-menu, $paddingLeft: 0, $top: 10px, $left: 0);
-            padding: 45px 5px 5px 5px;
-            @include borderRadius(3px);
-            @include textEllipsis();
-            &:before {
-                right: 0;
-                font-size: 25px;
-                line-height: 25px;
-                text-align: center;
-                opacity: 0.5;
+            font-size: $fontSizeSmall;
+            padding: 7px 10px;
+            @include borderRadius(20px);
+            @include animate();
+            i {
+                display: inline-block;
+                padding: 0 5px 0 0;
+                opacity: 0.8;
+                @include animate();
             }
             &:hover {
-                background: $colorAccentAlt;
-                border: 1px solid darken($colorAccentAlt, 5%);
-                color: $white;
+                background: darken($white, 15%);
+                i {
+                    opacity: 1;
+                }
             }
         }
         &.menuSimpleItemInsert a {
-            &:before {
-                content: $icon-plus;
-            }
-        }
-        &.menuSimpleItemExportJson a {
-            &:before {
-                content: $icon-download;
-            }
-        }
-        &.menuSimpleItemCancel a {
-            &:before {
-                content: $icon-cancel;
+            background: $colorPositive;
+            color: $white;
+            border: 1px solid darken($colorPositive, 10%);
+            &:hover {
+                background: darken($colorPositive, 10%);
             }
         }
     }

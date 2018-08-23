@@ -19,7 +19,7 @@
             <hiddenAdminMenu>true</hiddenAdminMenu>
             <templateItemAdmin>
                 <p class="accent"><strong>#title</strong></p>
-                <p class="tiny"><em>_code</em> : <span class="mainAlt">#code</span></p>
+                <p class="tiny"><em>_code</em> : <span class="accent">#code</span></p>
             </templateItemAdmin>
         </form>
     </info>

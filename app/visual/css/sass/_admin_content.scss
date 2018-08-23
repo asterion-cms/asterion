@@ -31,14 +31,25 @@
 .contentWrapper {
     position: relative;
     h1 {
-        font-size: 1.6em;
-        font-weight: normal;
-        color: lighten($colorAccent, 10%);
-        padding-bottom: 1em;
+        font-size: $fontSizeBig;
+        font-weight: bold;
+        color: $colorMain;
+        padding: 0 0 10px;
+        margin: 0 0 20px;
+        position: relative;
+        &:after {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 5px;
+            background: $colorAccentAlt;
+            content: '';
+        }
     }
     h2 {
-        font-size: 1.3em;
-        font-weight: normal;
+        font-size: $fontSizeBig * 8 / 10;
+        font-weight: bold;
         color: lighten($colorAccent, 10%);
         padding: 20px 0;
         &:first-child {
@@ -46,7 +57,7 @@
         }
     }
     h3 {
-        font-size: 1.2em;
+        font-size: $fontSizeBig * 8 / 10;
         font-weight: normal;
         color: lighten($colorAccent, 5%);
         padding: 10px 0;
@@ -57,13 +68,12 @@
 }
 .contentSimple {
     width: 400px;
-    margin: auto;
-    margin-top: 50px;
-    margin-bottom: 15px;
+    margin: 100px auto 20px auto;
     border: 1px solid $colorTextAlt;
     background: $white;
     padding: 15px;
     @include simpleShadow();
+    @include borderRadius(5px);
     p,a {
         color: $colorText;
         text-align: center;
@@ -98,49 +108,48 @@
     margin: 50px auto;
 }
 .contentIns {
-    width: $sizeDesktop;
-    margin: auto;
     position: relative;
+    padding: 40px 0 0 0;
     .contentTop {
-        padding-bottom: 10px;
+        padding: 0 0 5px;
         @include clearer();
         .contentTopLeft {
-            width: 40%;
+            width: 400px;
             float: left;
         }
         .contentTopRight {
-            width: 60%;
-            float: left;
+            width: calc(100% - 400px);
+            float: right;
         }
     }
     .contentMenu {
-        width: 18%;
-        float: left;
-        padding-bottom: 40px;
+        width: 230px;
+        top: 40px;
+        left: 0;
+        bottom: 0;
+        height: calc(100vh - 40px);
+        position: fixed;
+        overflow: auto;
     }
     .contentInsWrapper {
-        width: 82%;
-        float: right;
+        padding: 0 0 0 230px;
         background: $colorTextAlt;
     }
     .content {
         padding: 20px;
-        margin: 20px;
-        margin-right: 0px;
         background: $white;
         @include simpleShadow();
     }
     .listAdmin {
-        padding-bottom: 10px;
+        padding: 0 0 10px;
     }
     .sublistAdmin {
-        padding-bottom: 20px;
-    } 
+        padding: 0 0 20px;
+    }
     .sublistAdmin .listAdmin {
-        margin-left: 60px;
-        padding: 0px;
-        border: 0px;
-        margin-top: 0px;
+        margin: 0 60px 0 0;
+        padding: 0;
+        border: 0;
     }
     .formAdminInsert,
     .formAdminModify {
@@ -218,64 +227,40 @@
     .iconSide {
         display: inline-block;
         margin: 0 0 0 5px;
-        a,
-        span {
+        a {
             display: inline-block;
             padding: 7px 10px;
-            background: $colorMainAlt;
+            background: $colorMain;
             color: $white;
             font-weight: normal;
             font-size: $fontSizeTiny;
             cursor: pointer;
             @include borderRadius(3px);
-            @include iconBeforeAbsolute($icon-circle-right, $paddingLeft: 25px, $top: 7px, $left: 7px);
-            &:before {
-                opacity: 0.5;
+            i {
+                padding: 0 5px 0 0;
             }
             &:hover {
-                background: darken($colorMainAlt, 10%);
+                background: lighten($colorMain, 10%);
             }
         }
         &.iconDelete a {
             background: $colorError;
-            &:before {
-                content: $icon-cross;
-            }
             &:hover {
                 background: darken($colorError, 10%);
             }
         }
         &.iconModify a {
             background: $colorAccent;
-            &:before {
-                content: $icon-edit;
-            }
             &:hover {
                 background: darken($colorAccent, 10%);
             }
         }
         &.iconHandle {
             margin: 0 10px 0 0;
-            span {
-                background: transparent;
-                color: lighten($colorText, 20%);
-                padding: 0;
-                text-indent: -5000px;
-                overflow: hidden;
-                width: $fontSizeNormal;
-                height: $fontSizeNormal;
-                &:before {
-                    content: $icon-move;
-                    text-indent: 0;
-                    top: 0;
-                    left: 0;
-                    font-size: $fontSizeNormal;
-                    line-height: $fontSizeNormal;
-                }
-                &:hover {
-                    background: transparent;
-                    color: $colorText;
-                }
+            cursor: pointer;
+            color: lighten($colorText, 20%);
+            &:hover {
+                color: $colorText;
             }
         }
     }
@@ -292,14 +277,14 @@
             &:hover {
                 color: darken($colorAccent, 10%);
                 * {
-                   color: darken($colorAccent, 15%); 
+                   color: darken($colorAccent, 15%);
                 }
                 .image {
                     img {
                         border: 3px solid darken($colorAccent, 10%);
                     }
                 }
-            } 
+            }
         }
         .image {
             float: left;
@@ -329,7 +314,6 @@
             }
         }
         .active {
-            @include iconBeforeAbsolute($icon-cancel, $paddingLeft: 25px, $top: 0, $left: 0);
             &:before {
                 color: $colorNotActive;
                 opacity: 0.5;
@@ -337,7 +321,6 @@
             &.active-1 {
                 &:before {
                     opacity: 1;
-                    content: $icon-checkmark;
                     color: $colorActive;
                 }
             }
@@ -410,18 +393,19 @@
 }
 
 .lineAdminBlock {
-    padding-bottom: 30px;
-    margin-bottom: 30px;
-    border-bottom: 1px solid rgba($colorText, 0.3);
+    padding: 0 0 20px;
+    margin: 0 0 20px;
+    border-bottom: 1px solid rgba($black, 0.1);
     &:last-child {
-        padding-bottom: 0;
-        margin-bottom: 0;
-        border-bottom: 0;
+        padding: 0;
+        margin: 0;
+        border: 0;
     }
     .lineAdminTitle {
-        font-size: $fontSizeBig;
-        color: $colorAccent;
-        padding-bottom: 15px;
+        font-size: $fontSizeBig * 8 / 10;
+        color: lighten($colorMain, 20%);
+        font-weight: bold;
+        padding: 0 0 10px;
     }
 }
 
@@ -431,7 +415,9 @@
     margin: 20px 0px;
     text-align: center;
     color: $white;
-    background: $colorMessage;
+    background: rgba($colorMessage, 0.1);
+    border: 1px solid rgba($colorMessage, 0.2);
+    color: $colorMessage;
     font-weight: bold;
     white-space: normal;
     @include borderRadius(3px);
@@ -444,8 +430,12 @@
     }
 }
 .messageError {
-    background: $colorMessageError;
+    background: rgba($colorMessageError, 0.1);
+    border: 1px solid rgba($colorMessageError, 0.2);
+    color: $colorMessageError;
 }
 .messageAlert {
-    background: $colorMessageAlert;
+    background: rgba($colorMessageAlert, 0.1);
+    border: 1px solid rgba($colorMessageAlert, 0.2);
+    color: $colorMessageAlert;
 }

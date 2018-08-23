@@ -1,6 +1,8 @@
 .formAdmin {
-    font-size: 0.9em;
     display: block;
+    max-width: $sizeDesktop;
+    margin: auto;
+    @include borderRadius(5px);
     label {
         display: block;
         color: $colorAccent;
@@ -17,6 +19,14 @@
     }
     .formField {
         padding-bottom: 10px;
+        &.required {
+            label {
+                &:after {
+                    color: $colorError;
+                    content: ' *';
+                }
+            }
+        }
         &.radio {
             .radioValue {
                 padding: 5px 0 0 0;
@@ -33,16 +43,23 @@
                 }
             }
         }
+        &.select {
+            .selectIns {
+                @include clearer();
+            }
+        }
         input,
         textarea,
         select {
             background: $white;
             color: $colorText;
             border: 1px solid lighten($colorText, 40%);
-            padding: 3px;
+            padding: 5px;
             font-size: $fontSizeSmall;
             font-family: $fontFamily;
+            max-width: 100%;
             @include borderBox();
+            @include borderRadius(3px);
             &:focus {
                 border: 1px solid lighten($colorText, 20%);
             }
@@ -63,14 +80,6 @@
             padding: 0;
             opacity: 0.6;
         }
-    }
-    .text-large input,
-    .textarea-large textarea {
-        width: 100%;
-    }
-    .text-long input,
-    .textarea-long textarea {
-        width: 80%;
     }
     .dateText input {
         width: 200px;
@@ -135,8 +144,8 @@
     input.formSubmit {
         border: 0px;
         display: block;
-        width: 200px;
-        padding: 10px 15px;
+        min-width: 200px;
+        padding: 8px 15px;
         text-align: center;
         color: $white;
         background: $colorAccent;
@@ -144,7 +153,7 @@
         cursor: pointer;
         font-weight: bold;
         font-size: $fontSizeNormal;
-        @include borderRadius(3px);
+        @include borderRadius(20px);
         &:hover {
             background: $colorAccentAlt;
         }
@@ -340,23 +349,14 @@
                 top: 0px;
                 right: 0px;
                 cursor: pointer;
-                @include iconAfterAbsolute($icon-cross, $paddingRight: 0, $top: 0, $right: 0);
-                &:after {
-                    opacity: 0.6;
-                    color: $colorError;
-                }
+                color: $colorMain;
+                opacity: 0.6;
                 &:hover {
-                    &:after {
-                        opacity: 1;
-                    }
+                    opacity: 1;
                 }
             }
-            .nestedFormFieldOrder {
-                &:after {
-                    content: $icon-move;
-                    right: 25px;
-                    color: $colorMain;
-                }
+            .nestedFormFieldDelete {
+                color: $colorError;
             }
         }
     }
@@ -424,12 +424,11 @@
     }
 }
 
-//Controls top
+// Controls top
 .controlsTop {
     padding: 5px 10px;
-    margin-bottom: 10px;
-    background: $colorTextAlt;
-    @include borderRadius(3px);
+    height: 20px;
+    @include borderRadius(20px);
     @include clearer();
     .multipleActions {
         width: 65%;
@@ -450,7 +449,9 @@
             float: left;
             text-align: right;
             font-size: $fontSizeTiny;
-            padding: 5px 2% 0 0;
+            line-height: 20px;
+            color: darken($white, 60%);
+            padding: 0 2% 0 0;
         }
         select {
             width: 60%;
@@ -458,10 +459,11 @@
             font-size: $fontSizeTiny;
             background: lighten($colorTextAlt, 3%);
             border: 0;
-            padding: 3px;
+            padding: 0 5px;
             color: $colorText;
-            font-size: $fontSizeTiny;
-            @include borderRadius(3px);
+            line-height: 20px;
+            height: 20px;
+            @include borderRadius(20px);
             @include borderBox();
         }
     }
@@ -471,17 +473,20 @@
 .multipleActions {
     @include clearer();
     .multipleAction {
-        padding: 3px 10px;
+        padding: 0 10px;
         margin: 0 5px;
         display: inline-block;
-        background: darken($colorTextAlt, 10%);
+        background: rgba($black, 0.05);
+        color: rgba($black, 0.7);
         font-size: $fontSizeTiny;
-        line-height: $fontSizeNormal;
+        height: 20px;
+        line-height: 20px;
         cursor: pointer;
-        @include borderRadius(3px);
+        @include borderRadius(15px);
+        @include animate();
         &:hover {
             color: $white;
-            background: $colorMain;
+            background: rgba($black, 0.5);
         }
         &.multipleActionCheckAll {
             background: transparent !important;
@@ -493,6 +498,7 @@
                 input {
                     padding: 0;
                     margin: 0;
+                    line-height: 20px;
                 }
             }
         }
@@ -666,11 +672,11 @@
 .myAccount {
     @include clearer();
     .myAccountPersonal {
-        width: 48%;
+        width: calc(50% - 10px);
         float: left;
     }
     .myAccountPassword {
-        width: 48%;
+        width: calc(50% - 10px);
         float: right;
     }
     .simpleForm {
@@ -710,4 +716,9 @@
     .mapIns {
         height: 300px;
     }
+}
+
+.loginFormAction {
+    padding: 20px 0;
+    text-align: center;
 }

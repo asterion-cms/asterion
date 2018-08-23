@@ -18,7 +18,7 @@
             <label>#name</label>
             <templateItemAdmin>
                 <p class="accent"><strong>#name</strong></p>
-                <p class="tiny"><em>_code</em> : <span class="mainAlt">#code</span> | <em>_managesPermissions</em> : <span class="mainAlt">#managesPermissions</span></p>
+                <p class="tiny"><em>_code</em> : <span class="accent">#code</span> | <em>_managesPermissions</em> : <span class="accent">#managesPermissions</span></p>
             </templateItemAdmin>
         </form>
     </info>

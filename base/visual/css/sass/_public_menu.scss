@@ -1,0 +1,92 @@
+.contentTop {
+    .menu {
+        padding: 0;
+        margin: 0;
+        background: rgba(darken($colorAccent, 10%), 0.9);
+        z-index: $zIndexHigh;
+        .menuIns {
+            display: table;
+            width: $sizeDesktop;
+            margin: auto;
+            table-layout: fixed;
+            > .menuItem {
+                display: table-cell;
+                margin: 0;
+                vertical-align: middle;
+                position: relative;
+                > a {
+                    padding: 15px 10px 10px 10px;
+                    display: block;
+                    color: $white;
+                    font-weight: normal;
+                    text-transform: uppercase;
+                    font-size: $fontSizeSmall;
+                    text-align: center;
+                    border-bottom: 5px solid rgba(darken($colorAccent, 20%), 0.2);
+                    &:hover {
+                        background: rgba($colorAccentAlt, 0.7);
+                        border-bottom: 5px solid lighten($colorAccentAlt, 10%);
+                        color: $white;
+                    }
+                }
+                .submenu {
+                    position: absolute;
+                    display: none;
+                    width: 200px;
+                    background: rgba(darken($colorAccent, 20%), 0.6);
+                    z-index: $zIndexHighest;
+                    .menuItem {
+                        a {
+                            color: $white;
+                            padding: 10px;
+                            font-weight: normal;
+                            font-size: $fontSizeSmall;
+                            display: block;
+                            border-bottom: 1px solid rgba($colorAccent, 0.2);
+                            border-top: 1px solid rgba($colorAccent, 0.2);
+                            &:hover {
+                                background: rgba($colorAccentAlt, 0.7);
+                                border-top: 1px solid lighten($colorAccentAlt, 10%);
+                                border-bottom: 1px solid lighten($colorAccentAlt, 10%);
+                                color: $white;
+                            }
+                        }
+                    }
+                }
+                &:hover {
+                    .submenu {
+                        display: block;
+                    }   
+                }
+            }
+        }
+    }
+}
+
+.footer {
+    .menu {
+        padding: 0 0 30px 0;
+        margin: 0;
+        text-align: center;
+        .menuItem {
+            display: inline-block;
+            a {
+                display: inline-block;
+                padding: 10px 25px;
+                margin: 0 20px;
+                color: $colorText;
+                text-decoration: none;
+                font-size: $fontSizeSmall;
+                background: transparent;
+                font-weight: normal;
+                text-transform: uppercase;
+                @include borderRadius(3px);
+                @include animate();
+                &:hover {
+                    background: rgba($colorText, 0.7);
+                    color: $white;
+                }
+            }
+        }
+    }
+}

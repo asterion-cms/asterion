@@ -84,7 +84,7 @@ class Ui {
         $permissions = Permission::getAll($this->object->className);
         $label = ($permissions['permissionModify']=='1') ? $this->label(true, $nested) : $this->label(false, $nested);
         $canModify = ($permissions['permissionModify']=='1') ? $this->modify($nested) : '';
-        $canDelete = ($permissions['permissionDelete']=='1') ? $this->delete() : '';
+        $canDelete = ($permissions['permissionDelete']=='1') ? $this->delete(true) : '';
         $canOrder = ($permissions['permissionModify']=='1' && $this->object->hasOrd()) ? $this->order() : '';
         $relOrd = ($permissions['permissionModify']=='1') ? 'rel="'.$this->object->id().'"' : '';
         $viewPublic = ((string)$this->object->info->info->form->viewPublic == 'true') ? $this->view() : '';
@@ -257,16 +257,19 @@ class Ui {
     /**
     * Return the link for deletion, in an admin context.
     */
-    public function linkDelete() {
-        return url($this->object->className.'/delete/'.$this->object->id(), true);
+    public function linkDelete($ajax=false) {
+        return url($this->object->className.'/'.(($ajax) ? 'deleteAjax' : 'delete').'/'.$this->object->id(), true);
     }
 
     /**
     * Return a div with the delete link.
     */
-    public function delete() {
-        return '<div class="iconSide iconDelete">
-                    <a href="'.$this->linkDelete().'">'.__('delete').'</a>
+    public function delete($ajax=false) {
+        return '<div class="iconSide iconDelete '.(($ajax) ? 'iconDeleteAjax' : '').'">
+                    <a href="'.$this->linkDelete($ajax).'">
+                        <i class="icon icon-trash"></i>
+                        <span>'.__('delete').'</span>
+                    </a>
                 </div>';
     }
 
@@ -275,7 +278,10 @@ class Ui {
     */
     public function modify($nested=false) {
         return '<div class="iconSide iconModify">
-                    <a href="'.$this->linkModify($nested).'">'.__('modify').'</a>
+                    <a href="'.$this->linkModify($nested).'">
+                        <i class="icon icon-pencil"></i>
+                        <span>'.__('modify').'</span>
+                    </a>
                 </div>';
     }
 
@@ -284,7 +290,10 @@ class Ui {
     */
     public function view() {
         return '<div class="iconSide iconView">
-                    <a href="'.$this->object->url().'" target="_blank">'.__('view').'</a>
+                    <a href="'.$this->object->url().'" target="_blank">
+                        <i class="icon icon-view"></i>
+                        <span>'.__('view').'</span>
+                    </a>
                 </div>';
     }
 
@@ -293,7 +302,7 @@ class Ui {
     */
     public function order() {
         return '<div class="iconSide iconHandle">
-                    <span>'.__('move').'</span>
+                    <i class="icon icon-move"></i>
                 </div>';
     }
 

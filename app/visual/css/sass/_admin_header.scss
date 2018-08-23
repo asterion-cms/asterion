@@ -1,25 +1,26 @@
 .headerWrapper {
-    background: $colorAccent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background: $colorMain;
     color: $white;
-    padding:10px 0px;
-    z-index:$zIndexHigh;
+    padding: 5px 10px;
+    z-index: $zIndexHigh;
     @include clearer();
     a {
         color: $white;
     }
-    .headerIns {
-        max-width: $sizeDesktop;
-        margin: auto;
-    }
     .headerLeft {
-        width: 30%;
+        width: 130px;
         float: left;
         .logo {
-            width: 125px;
             a {
                 display: block;
-                width: 305px;
-                height: 30px;
+                width: 130px;
+                height: 20px;
+                margin: 5px 0;
                 background-image: url(../../img/logoTopAlt.png);
                 background-repeat: no-repeat;
                 background-position: top left;
@@ -29,67 +30,95 @@
         }
     }
     .headerRight {
-        width: 70%;
-        float: left;
+        width: calc(100% - 140px);
+        float: right;
         text-align: right;
         font-size: $fontSizeSmall;
         @include clearer();
     }
     .langs {
-        padding: 3px 0 0 0;
+        padding: 2px 5px;
         float: right;
+        background: rgba($white, 0.05);
+        @include borderRadius(20px);
         @include clearer();
         .lang {
             text-align: right;
             display: inline-block;
-            margin: 0 0 0 10px;
+            margin: 0 5px;
             a,
             span {
-                padding: 5px 8px;
                 display: inline-block;
+                padding: 3px;
                 font-weight: bold;
                 font-size: $fontSizeTiny;
                 text-transform: uppercase;
+                height: 20px;
+                line-height: 20px;
+                color: rgba($white, 0.8);
             }
             a {
-                background: lighten($colorAccent, 5%);
+                @include animate();
                 &:hover {
-                    background: lighten($colorAccent, 10%);
+                    color: $white;
                 }
             }
             span {
-                background: darken($colorAccent, 5%);
-                cursor: default;
+                color: $colorMainAlt
             }
         }
     }
     .infoUser {
         font-size: $fontSizeTiny;
-        padding: 8px 0 0 20px;
+        padding: 0 40px 0 0;
         float: right;
         text-align: right;
         font-size: $fontSizeSmall;
+        position: relative;
         .infoUserItem {
             display: inline-block;
-            padding: 0 0 0 20px;
+            padding: 0 0 0 15px;
             a {
-                padding: 0 0 0 10px;
-                opacity: 0.8;
-                @include iconBeforeAbsolute($icon-settings, $top: 3px);
+                display: inline-block;
+                padding: 5px 15px;
+                line-height: 20px;
+                height: 20px;
+                background: rgba($white, 0.2);
+                color: rgba($white, 0.9);
+                font-size: $fontSizeSmall;
+                font-weight: normal;
+                @include animate();
+                @include borderRadius(20px);
                 &:hover {
-                    opacity: 1;
-                }
-            }
-            &:first-child {
-                padding-left: 10px;
-            }
-            &.infoUserLogout {
-                a {
-                    &:before {
-                        content: $icon-exit;
-                    }
+                    background: rgba($colorAccentAlt, 0.8);
+                    color: $white;
                 }
             }
         }
-    }    
+        .infoUserLogout {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            a {
+                display: block;
+                width: 30px;
+                height: 30px;
+                padding: 0;
+                margin: 0;
+                line-height: 32px;
+                font-size: 20px;
+                background: $white;
+                color: $colorAccent;
+                text-align: center;
+                @include borderRadius(100%);
+                @include animate();
+                &:hover {
+                    background: rgba($white, 0.8);
+                    color: $colorError;
+                }
+            }
+        }
+    }
 }

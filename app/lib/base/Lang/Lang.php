@@ -121,9 +121,7 @@ class Lang extends Db_Object {
     * Return the language label.
     */
     static public function langCode($code) {
-        $langs = array('en'=>'English',
-                        'fr'=>'Fran&ccedil;ais',
-                        'es'=>'Espa&ntilde;ol');
+        $langs = array('en'=>'English', 'fr'=>'Français', 'es'=>'Español');
         return (isset($langs[$code])) ? $langs[$code] : $code;
     }
 

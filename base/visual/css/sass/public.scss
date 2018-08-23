@@ -1,0 +1,443 @@
+@import "_reset.scss";
+
+@import "_variables.scss";
+@import "_common.scss";
+@import "_mixins.scss";
+
+@import "_public_header.scss";
+@import "_public_menu.scss";
+@import "_public_footer.scss";
+@import "_public_sidebar.scss";
+
+html,
+body {
+    background: desaturate(lighten($colorAccent, 60%), 80%);
+}
+
+.content {
+    font-size: 1.2em;
+    max-width: $sizeDesktop;
+    margin: auto;
+    padding: 100px 0;
+}
+
+.shareIcons {
+    display: inline-block;
+    text-align: right;
+    padding: 0 0 10px 0;
+    .shareIcon {
+        display: inline-block;
+        padding: 0 0 0 10px;
+        a {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            overflow: hidden;
+            text-indent: -5000px;
+            text-align: left;
+            background: $colorText;
+            opacity: 0.7;
+            @include animate();
+            @include borderRadius(35px);
+            @include iconBeforeAbsolute($icon-facebook, $paddingLeft: 0, $top: 0, $left: 0);
+            &:before {
+                text-indent: 0;
+                text-align: center;
+                width: 35px;
+                line-height: 35px;
+                color: $white;
+                font-weight: normal;
+            }
+            &:hover {
+                opacity: 1;
+                background: lighten($colorText, 10%);
+                @include simpleShadow();
+            }
+        }
+        &.shareIcon-facebook a {
+            background: $colorFacebook;
+            &:before {
+                content: $icon-facebook;
+            }
+        }
+        &.shareIcon-twitter a {
+            background: $colorTwitter;
+            &:before {
+                content: $icon-twitter;
+            }
+        }
+        &.shareIcon-youtube a {
+            background: $colorYoutube;
+            &:before {
+                content: $icon-youtube;
+            }
+        }
+        &.shareIcon-linkedin a {
+            background: $colorLinkedin;
+            &:before {
+                content: $icon-linkedin;
+            }
+        }
+        &.shareIcon-vimeo a {
+            background: $colorVimeo;
+            &:before {
+                content: $icon-vimeo;
+            }
+        }
+        &.shareIcon-instagram a {
+            background: $colorInstagram;
+            &:before {
+                content: $icon-instagram;
+            }
+        }
+    }
+}
+
+.contentWrapper {
+    .content {
+        background: $white;
+        margin: 20px auto;
+        padding: 20px;
+        max-width: $sizeDesktop;
+        @include simpleShadow();
+        @include borderBox();
+    }
+}
+.contentIns {
+    @include clearer();
+    .contentInfo {
+        width: 70%;
+        float: left;
+    }
+    .contentSidebar {
+        width: 27%;
+        float: right;
+    }
+    h1 {
+        font-size: $fontSizeHuge;
+        max-width: 80%;
+        margin: 0 0 20px 0;
+        padding: 0 0 20px 0;
+        color: $colorAccentAlt;
+        text-transform: uppercase;
+        font-weight: normal;
+        position: relative;
+        display: block;
+        &:after {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30%;
+            height: 3px;
+            background: rgba($colorAccentAlt, 0.5);
+            border-top: 1px solid rgba($colorAccentAlt, 0.7);
+            border-bottom: 1px solid rgba($colorAccentAlt, 0.7);
+            display: block;
+            content: '';
+        }
+    }
+}
+
+//Pager
+.pagerAll {
+    padding: 0 0 20px 0;
+    text-align: left;
+    &:last-child {
+        padding: 20px 0 0 0;
+    }
+    .pagerActive,
+    .pager {
+        display: inline-block;
+        font-size: $fontSizeSmall;
+        margin: 0 2px;
+        a {
+            padding: 7px 15px;
+            background: lighten($colorText, 5%);
+            font-weight: bold;
+            display: inline-block;
+            color: $white;
+            @include borderRadius(2px);
+            &:hover {
+                background: lighten($colorText, 10%) !important;
+            }
+        }
+    }
+    .pagerActive a {
+        background: lighten($colorText, 15%);
+    }
+}
+.listResults {
+    padding: 0 0 10px 0;
+    text-align: right;
+    font-size: 0.8rem;
+    font-style: italic;
+    color: rgba($colorText, 0.5);
+}
+
+//Item public
+.itemPublic {
+    margin: 0 0 20px 0;
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid rgba($colorAccent, 0.2);
+    &:last-child {
+        margin: 0;
+        padding: 0;
+        border-bottom: 0;
+    }
+    a {
+        display: block;
+        font-weight: normal;
+        @include clearer();
+        h2 {
+            font-weight: bold;
+            padding-bottom: 5px;
+            color: $colorAccent;
+        }
+        img {
+            float: left;
+            margin: 0 10px 5px 0;
+        }
+        p {
+            font-size: 1rem;
+            em {
+                display: block;
+                font-style: italic;
+                font-size: $fontSizeSmall;
+                padding-bottom: 10px;
+            }
+        }
+    }
+}
+
+//Post complete
+.itemCompletePost {
+    line-height: 1.5rem;
+    .postTop {
+        @include clearer();
+        margin: 0 0 20px 0;
+        .postTopLeft {
+            width: 38%;
+            float: left;
+            img {
+                width: 100%;
+            }
+        }
+        .postTopRight {
+            width: 60%;
+            float: right;
+        }
+        em {
+            display: block;
+            padding: 0 0 10px 0;
+            font-size: $fontSizeSmall;
+        }
+        strong {
+            font-weight: normal;
+            color: $colorAccent;
+        }
+    }
+}
+
+//Breadcrumbs
+.breadcrumbs {
+    padding: 0 0 10px 0;
+    color: rgba($colorText, 0.3);
+    font-size: $fontSizeSmall;
+    font-style: italic;
+    a {
+        color: rgba($colorText, 0.5);
+        font-weight: normal;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    .breadCrumbSeparator {
+        display: inline-block;
+        padding: 0 5px;
+    }
+}
+
+//Contact
+.contact {
+    @include clearer();
+    .contactLeft {
+        width: 58%;
+        float: left;
+    }
+    .contactRight {
+        width: 40%;
+        float: right;
+    }
+    .formContact {
+        padding: 15px;
+        background: rgba($colorAccent, 0.1);
+        border: 1px solid rgba($colorAccent, 0.2);
+        .formField {
+            padding: 0 0 15px 0;
+            label {
+                display: block;
+                text-transform: uppercase;
+                color: $colorAccent;
+                padding: 0 0 5px 0;
+                font-size: $fontSizeSmall;
+            }
+            input,
+            textarea {
+                display: block;
+                width: 100%;
+                padding: 5px;
+                background: $white;
+                color: $colorAccent;
+                font-family: $fontFamily;
+                border: 1px solid rgba($colorAccent, 0.4);
+            }
+            &.required {
+                label {
+                    color: darken($colorAccent, 10%);
+                    &:after {
+                        content: '*';
+                        display: inline-block;
+                        padding: 0 0 0 5px;
+                        color: lighten($colorAccent, 10%);
+                    }
+                }
+            }
+            .error {
+                font-weight: bold;
+                color: $colorMessageError;
+                font-size: $fontSizeSmall;
+                padding-bottom: 3px;
+                + input,
+                + textarea {
+                    border: 1px solid $colorMessageError;
+                }
+            }
+        }
+        input.formSubmit {
+            display: block;
+            max-width: 200px;
+            margin: 5px auto 0 auto;
+            padding: 10px;
+            background: $colorAccentAlt;
+            color: $white;
+            text-align: center;
+            cursor: pointer;
+            border: 0;
+            font-weight: bold;
+            text-transform: uppercase;
+            @include borderRadius(3px);
+            &:hover {
+                background: darken($colorAccentAlt, 20%);
+                @include simpleShadow();
+            }
+        }
+    }
+}
+
+//Messages
+.message {
+    font-size: $fontSizeSmall;
+    padding: 20px;
+    margin: 0 0 20px 0px;
+    text-align: center;
+    color: $white;
+    background: $colorMessage;
+    font-weight: bold;
+    white-space: normal;
+    @include borderRadius(3px);
+    a {
+        color: $white;
+        text-decoration: underline;
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+}
+.messageError {
+    background: $colorMessageError;
+}
+.messageAlert {
+    background: $colorMessageAlert;
+}
+
+//Banner
+.banners {
+    $heightBanner: 400px;
+    position: relative;
+    height: $heightBanner;
+    overflow: hidden;
+    margin: 0 0 20px 0;
+    .banner {
+        background: $colorAccent;
+        a {
+            color: $white;
+            font-weight: normal;
+        }
+        .bannerImage {
+            position: relative;
+            height: $heightBanner;
+            padding: 20px;
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            @include borderBox();
+            .bannerInfo {
+                position: absolute;
+                padding: 20px;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: rgba(darken($colorAccent, 20%), 0.5);
+            }
+            h2 {
+                font-weight: bold;
+                font-size: $fontSizeBig;
+                padding-bottom: 20px;
+                color: $white;
+            }
+        }
+    }
+    .controls {
+        position: absolute;
+        width: 100%;
+        top: 15%;
+        .control {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: rgba($colorAccentAlt, 0.5);
+            color: $white;
+            cursor: pointer;
+            text-align: center;
+            line-height: 50px;
+            &:hover {
+                background: rgba($colorAccentAlt, 0.8);
+            }
+            &:before {
+                line-height: 40px;
+                text-align: center;
+            }
+            &.controlLeft {
+                @include iconBefore($icon-arrow-simple-left);
+                left: 0;
+            }
+            &.controlRight {
+                right: 0;
+                @include iconBefore($icon-arrow-simple-right);
+            }
+        }
+    }
+}
+
+//Intro page
+.intro {
+    @include clearer();
+    .introLeft {
+        width: 68%;
+        float: left;
+    }
+    .introRight {
+        width: 30%;
+        float: right;
+    }
+}

@@ -1,0 +1,19 @@
+.sidebar {
+    .sidebarBlock {
+        background: rgba($colorAccent, 0.2);
+        margin: 0 0 20px 0;
+        &:last-child {
+            margin: 0;
+        }
+        h2 {
+            background: $colorAccent;
+            color: $white;
+            text-transform: uppercase;
+            padding: 10px;
+            font-weight: normal;
+        }
+        p {
+            padding: 10px;
+        }
+    }
+}

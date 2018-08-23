@@ -1,6 +1,22 @@
 .footer {
     text-align: center;
-    padding: 15px;
-    padding-top: 80px;
-    font-size: 0.8em;
+    margin: 40px 0 0 0;
+    padding: 40px 10px 10px 10px;
+    font-size: $fontSizeTiny;
+    color: rgba($colorText, 0.7);
+    position: relative;
+    &:after {
+    	position: absolute;
+    	top: 0;
+    	left: 0;
+    	right: 0;
+    	width: 300px;
+    	height: 2px;
+    	margin: auto;
+    	background: darken($white, 5%);
+    	content: '';
+    }
+    a {
+    	color: rgba($colorText, 0.7);
+    }
 }

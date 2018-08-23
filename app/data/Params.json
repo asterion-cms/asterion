@@ -1,5 +1,15 @@
 [
 	{
+		"code": "metainfo-googleWebmasters",
+		"name": "Meta tag for Google Webmasters",
+		"information": ""
+	},
+	{
+		"code": "metainfo-googleAnalytics",
+		"name": "Script from Google Analytics",
+		"information": ""
+	},
+	{
 		"code": "linksocial-facebook",
 		"name": "Facebook",
 		"information": "http://www.facebook.com"

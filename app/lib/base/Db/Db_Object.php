@@ -474,7 +474,7 @@ class Db_Object extends Db_Sql {
         $version = ($version != '') ? '_'.strtolower($version) : '';
         $file = STOCK_FILE.$this->className.'/'.$this->get($attributeName).'/'.$this->get($attributeName).$version.'.jpg';
         if (is_file($file)) {
-            return str_replace(STOCK_FILE, STOCK_URL, $file);
+            return str_replace(STOCK_FILE, STOCK_URL, $file).(($this->get('modified')!='') ? '?v='.Date::sqlInt($this->get('modified')) : '');
         }
     }
 

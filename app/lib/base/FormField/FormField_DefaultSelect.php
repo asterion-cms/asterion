@@ -27,6 +27,7 @@ class FormField_DefaultSelect {
         $this->options['label'] = (string)$this->item->label;
         $this->options['placeholder'] = (string)$this->item->placeholder;
         $this->options['firstSelect'] = (string)$this->item->firstSelect;
+        $this->options['checkbox'] = (boolean)$this->item->checkbox;
         $this->options['typeField'] = (isset($options['typeField'])) ? $options['typeField'] : 'select';
         //Load the values
         $refObject = (string)$this->item->refObject;
