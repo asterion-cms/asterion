@@ -13,6 +13,7 @@
 ##
 # The following lines send the "Not Found" pages to a proper URL
 ##
+
 ErrorDocument 403 /error
 ErrorDocument 404 /error
 
@@ -22,16 +23,17 @@ ErrorDocument 404 /error
 <IfModule mod_rewrite.c>
     RewriteEngine On
     ##
-    # The following two lines can be used in certain servers
+    # The following lines can be used in certain servers
     # to force the use of www in the URL
-    #
-    # RewriteCond %{HTTP_HOST} !^www\.
-    # RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
     ##
+    RewriteCond %{HTTP_HOST} !=localhost
+    RewriteCond %{HTTP_HOST} !^www\.
+    RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
 </IfModule>
+
 Options All -Indexes
 
 ##
@@ -105,6 +107,7 @@ Options All -Indexes
     AddOutputFilterByType DEFLATE text/javascript
     AddOutputFilterByType DEFLATE text/plain
 </IfModule>
+
 <IfModule mod_gzip.c>
     mod_gzip_on Yes
     mod_gzip_dechunk Yes
