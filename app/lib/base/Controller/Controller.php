@@ -204,12 +204,29 @@ abstract class Controller{
                     $object->delete();
                 }
                 if ($this->action == 'deleteAjax') {
-                    $this->mode == 'ajax';
-                    return '{}';
+                    $this->mode = 'json';
+                    return '{"label": "success"}';
                 } else {
                     header('Location: '.url($this->type.'/listAdmin', true));
                 }
                 exit();
+            break;
+            case 'deleteImage':
+                /**
+                * This is the action that deletes a record.
+                */
+                $this->checkLoginAdmin();
+                $this->mode = 'json';
+                if ($this->id != '') {
+                    $type = new $this->type();
+                    $object = $type->readObject($this->id);
+                    $directory = STOCK_FILE.$object->className.'/'.$this->extraId;
+                    if (is_dir($directory)) {
+                        File::deleteDirectory($directory);
+                    }
+                    return '{"label": "success"}';
+                }
+                return '{"label": "error"}';
             break;
             case 'sortSave':
                 /**
@@ -382,7 +399,7 @@ abstract class Controller{
         $controlsTop = ($controlsTop != '') ? '<div class="controlsTop">'.$controlsTop.'</div>' : '';
         return $this->searchForm().'
                 '.$controlsTop.'
-                <div class="listAdmin listAdmin'.$this->type.' '.$sortableListClass.'" rel="'.url($this->type.'/sortSave/', true).'">
+                <div class="listAdmin listAdmin'.$this->type.' '.$sortableListClass.'" data-url="'.url($this->type.'/sortSave/', true).'">
                     '.$list->showListPager(array('function'=>'Admin',
                                                 'message'=>'<div class="message">'.__('noItems').'</div>'),
                                             array('userType'=>$this->login->get('type'), 'multipleChoice'=>$multipleChoice)).'
@@ -404,7 +421,7 @@ abstract class Controller{
             $listItems .= '<div class="lineAdminBlock">
                                 <div class="lineAdminTitle">'.$item.'</div>
                                 <div class="lineAdminItems">
-                                    <div class="listAdmin '.$sortableListClass.'" rel="'.url($this->type.'/sortSave/', true).'">
+                                    <div class="listAdmin '.$sortableListClass.'" data-url="'.url($this->type.'/sortSave/', true).'">
                                         '.$list->showList(array('function'=>'Admin',
                                                                 'message'=>'<div class="message">'.__('noItems').'</div>'),
                                                             array('userType'=>$this->login->get('type'))).'
@@ -444,7 +461,7 @@ abstract class Controller{
                 $options['asc_'.$infoOrderItem[0]] = __($infoOrderItem[0]);
                 $options['des_'.$infoOrderItem[0]] = __($infoOrderItem[0]).' ('.__('reverse').')';
             }
-            return '<div class="orderActions" rel="'.url($this->type.'/sortList/', true).'">
+            return '<div class="orderActions" data-url="'.url($this->type.'/sortList/', true).'">
                         <div class="orderActionsIns">
                             '.FormField::create('select', array('label'=>__('orderBy'), 'name'=>'orderList', 'value'=>$options, 'selected'=>$selectedItem)).'
                         </div>
@@ -460,8 +477,7 @@ abstract class Controller{
         if (count($multipleActions) > 0) {
             $multipleActionsOptions = '';
             foreach ($multipleActions as $multipleAction) {
-                $linkMultiple = url($this->type.'/multiple-'.$multipleAction, true);
-                $multipleActionsOptions .= '<div class="multipleAction multipleOption" rel="'.$linkMultiple.'">
+                $multipleActionsOptions .= '<div class="multipleAction multipleOption" data-url="'.url($this->type.'/multiple-'.$multipleAction, true).'">
                                                 '.__($multipleAction.'Selected').'
                                             </div>';
             }

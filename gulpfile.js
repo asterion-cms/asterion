@@ -9,23 +9,20 @@
 */
 
 /**
-
-optimize-images             Optimize the JPG, GIF and PNG images in the argv.site visual and stock folders
-optimize-css                Minimise the CSS files in the argv.site/visual folder
-optimize-html               Minimise the HTML files in the argv.site/cache folder
-optimize                    Combine the optimize-css, optimize-html, optimize-images tasks
-
-sass-compile-phonegap       Compile the SASS files in the argv.site/phonegap folder
-sass-compile                Compile the SASS files in the argv.site/visual folder
-sass                        Combine the sass-compile and sass-compile-phonegap
-
-zip-all                     Zip the app and site files
-ftp-zip                     Connect to an FTP server and send the site.zip and unzip.php files
-unzip-server                Script to unzip a file in the server
-package                     Package the whole site
-package-ftp                 Package the site and send it to the server
-
-*/
+*
+* MAIN TASKS
+*
+* optimize-images             Optimize the JPG, GIF and PNG images in the argv.site visual and stock folders
+* optimize-css                Minimize the CSS files in the argv.site/visual folder
+* optimize-html               Minimize the HTML files in the argv.site/cache folder
+* optimize                    Combine the optimize-css, optimize-html, optimize-images tasks
+*
+* sass                        Watch and compile the sass files in the /base and /app directories
+* scripts                     Watch and merge the JS files in the /base and /app directories
+*
+* build                       Run the sass, scripts and optimize tasks
+*
+**/
 
 /**
 * Variables
@@ -35,12 +32,16 @@ package-ftp                 Package the site and send it to the server
 var gulp = require('gulp');
 var util = require('gulp-util');
 var sass = require('gulp-sass');
+var concat = require('gulp-concat');
 var debug = require('gulp-debug-streams');
 var shell = require('gulp-shell');
+var rename = require('gulp-rename');
+var uglify = require('gulp-uglify');
+var minify = require('gulp-minify');
 var minifyHTML = require('gulp-minify-html');
+var minifyCss = require('gulp-minify-css');
 var autoprefixer = require('gulp-autoprefixer');
 var uncss = require('gulp-uncss');
-var minifyCss = require('gulp-minify-css');
 var imagemin = require('gulp-imagemin');
 var pngquant = require('imagemin-pngquant');
 var jpegtran = require('imagemin-jpegtran');
@@ -109,162 +110,67 @@ gulp.task('optimize-html', function() {
 });
 
 gulp.task('optimize', function(callback) {
-    if (checkArguments()) {
-        runSequence('optimize-css', 'optimize-html', 'optimize-images');
-    }
+    if (checkArguments()) runSequence('optimize-css', 'optimize-html', 'optimize-images');
+});
+
+/**
+* SCRIPTS compilation
+**/
+gulp.task('scripts-compile-app', function() { if (checkArguments()) return gulpScripts('app'); });
+gulp.task('scripts-compile-base', function() { if (checkArguments()) return gulpScripts('base'); });
+gulp.task('scripts-compile', function() { if (checkArguments()) runSequence('scripts-compile-app', 'scripts-compile-base'); });
+
+gulp.task('scripts', function() {
+    if (checkArguments()) gulp.watch([argv.site + '/**/libjs/src/*.js'], ['scripts-compile-app', 'scripts-compile-base']);
 });
 
 /**
 * SASS compilation
 **/
-gulp.task('sass-compile-phonegap', function(callback) {
-    if (checkArguments()) {
-        return gulp.src([argv.site+'/phonegap/www/visual/css/sass/*.scss'])
-            .pipe(sass({outputStyle: 'compressed'})
-                .on('error', sass.logError))
-            .pipe(debug({title: 'Info:'}))
-            .pipe(gulp.dest(argv.site + '/phonegap/www/visual/css/stylesheets/'));
-    }
-});
+gulp.task('sass-compile-base', function() { if (checkArguments()) return gulpSass('base'); });
+gulp.task('sass-compile-app', function() { if (checkArguments()) return gulpSass('app'); });
+gulp.task('sass-compile', function() { if (checkArguments()) runSequence('sass-compile-app', 'sass-compile-base'); });
 
-gulp.task('sass-compile', function(callback) {
-    if (checkArguments()) {
-        return gulp.src([argv.site+'/visual/css/sass/*.scss'])
-            .pipe(sass({outputStyle: 'compressed'})
-                .on('error', sass.logError))
-            .pipe(debug({title: 'Info:'}))
-            .pipe(gulp.dest(argv.site + '/visual/css/stylesheets/'));
-    }
+gulp.task('sass', function() {
+    if (checkArguments()) gulp.watch([argv.site + '/**/visual/css/sass/*.scss'], ['sass-compile-base', 'sass-compile-app']);
 });
-
-gulp.task('sass', function(callback) {
-    if (checkArguments()) {
-        gulp.watch([
-                        argv.site + '/visual/**/*.scss',
-                        argv.site + '/phonegap/www/visual/**/*.scss'
-                    ], ['sass-compile', 'sass-compile-phonegap']);
-    }
-});
-
 
 /**
-* Production tasks
+* WATCH the whole project
 **/
-gulp.task('copy-config-old', function(callback) {
-    if (checkArguments()) {
-        return gulp.src(argv.site + '/config/config.php')
-                .pipe(rename(argv.site + '/config/config_old.php'))
-                .pipe(gulp.dest('./'))
-                .pipe(debug({title: 'Copying: ', minimal: true}));
-    }
+gulp.task('watch', function() {
+    if (checkArguments()) gulp.watch([argv.site + '/**/visual/css/sass/*.scss', argv.site + '/**/libjs/src/*.js'], ['sass-compile-base', 'sass-compile-app', 'scripts-compile-app', 'scripts-compile-base']);
 });
 
-gulp.task('copy-config-prod', function(callback) {
-    if (checkArguments()) {
-        var typeConfig = (argv.typeConfig) ? argv.typeConfig : 'prod';
-        return gulp.src(argv.site + '/config/config_' + typeConfig + '.php')
-                .pipe(rename(argv.site + '/config/config.php'))
-                .pipe(gulp.dest('./'))
-                .pipe(debug({title: 'Copying: ', minimal: true}));
-    }
-});
-
-gulp.task('copy-config-old-back', function(callback) {
-    if (checkArguments()) {
-        return gulp.src(argv.site + '/config/config_old.php')
-                .pipe(rename(argv.site + '/config/config.php'))
-                .pipe(gulp.dest('./'))
-                .pipe(debug({title: 'Copying: ', minimal: true}));
-    }
-});
-
-gulp.task('copy-unzip', function(callback) {
-    if (checkArguments()) {
-        return gulp.src('unzip.task')
-                .pipe(rename('unzip.php'))
-                .pipe(gulp.dest('./'))
-                .pipe(debug({title: 'Copying: ', minimal: true}));
-    }
-});
-
-gulp.task('zip-all', function(callback) {
-    if (checkArguments()) {
-        var siteFiles = gulp.src([argv.site + '/**/*', '!' + argv.site + '/**/config_*.php', '!' + argv.site + '/phonegap'], {base: "../fbapps"});
-        var appFiles = gulp.src(['index.php', '.htaccess', 'robots.txt', 'app/**/*'], {base: "./"});
-        return merge(siteFiles, appFiles)
-                .pipe(gulpZip('complete.zip'))
-                .pipe(gulp.dest('./'))
-                .pipe(debug({title: 'Zipping app: ', minimal: true}));
-    }
-});
-
-gulp.task('ftp-zip', function(callback) {
-    if (checkArgumentsFtp()) {
-        var ftpPort = (argv.port) ? argv.port : '21';
-        var ftpRemotePath = (argv.remotePath) ? argv.remotePath : '/public_html';
-        var conn = vinylFtp.create( {
-            host:     argv.host,
-            user:     argv.user,
-            password: argv.pass,
-            port:     ftpPort,
-            parallel: 1
-        });
-        return gulp.src(['site.zip', 'unzip.php'])
-            .pipe(conn.dest( ftpRemotePath))
-            .pipe(debug({title: 'Sending: ', minimal: true}));
-    }
-});
-
-gulp.task('unzip-server', function(callback) {
-    if (checkArgumentsFtp()) {
-        var remoteZipHost = (argv.remoteZipHost) ? argv.remoteZipHost : argv.host;
-        return request('http://' + remoteZipHost + '/unzip.php')
-            .pipe(debug({title: 'Server Unzip: ', minimal: true}));
-    }
-});
-
-gulp.task('delete-files', function(callback) {
-    if (checkArguments()) {
-        del([
-                'unzip.php', 'site.zip',
-                argv.site + '/config/config_old.php'
-            ]);
-        return true;
-    }
-});
-
-gulp.task('package', function(callback) {
-    if (checkArgumentsFtp()) {
-        runSequence('copy-config', 'copy-unzip', 'zip-all');
-    }
-});
-
-gulp.task('package-ftp', function(callback) {
-    if (checkArgumentsFtp()) {
-        runSequence('copy-config-old', 'copy-config-prod', 'copy-unzip', 'zip-all', 'ftp-zip', 'unzip-server', 'delete-files', 'copy-config-old-back');
-    }
-});
+/**
+* BUILD the whole project
+**/
+gulp.task('build', function() { if (checkArguments()) runSequence('sass-compile', 'scripts-compile', 'optimize'); });
 
 /**
 * General functions
 */
 var checkArguments = function() {
-    if (argv.site) {
-        argv.site = (argv.site[argv.site.length - 1] == '/') ? argv.site.substr(0, (argv.site.length - 1)) : argv.site;
-        return true;
-    } else {
-        console.log('You should specify a site to perform the task.');
-        console.log('For ex.: gulp [task_name] --site asterion');
-        return false;
-    }
+    argv.site = (argv.site) ? ((argv.site[argv.site.length - 1] == '/') ? argv.site.substr(0, (argv.site.length - 1)) : argv.site) : '.';
+    return true;
 }
 
-var checkArgumentsFtp = function() {
-    if (argv.site && argv.host && argv.user && argv.pass) {
-        return true;
-    } else {
-        console.log('You should specify a site, ftp-host, ftp-user and ftp-password to perform this task.');
-        console.log('For ex.: gulp [task_name] --site asterion --host www.asterion.com --user asterion --pass password_asterion');
-        return false;
-    }
+var gulpSass = function(directory) {
+    let inputFiles = [argv.site + '/' + directory + '/visual/css/sass/*.scss'];
+    return gulp.src(inputFiles)
+                .pipe(sass({outputStyle: 'compressed'})
+                    .on('error', sass.logError))
+                .pipe(debug({title: 'Info:'}))
+                .pipe(gulp.dest(argv.site + '/' + directory + '/visual/css/stylesheets/'));
+}
+
+var gulpScripts = function(directory) {
+    let modulesJson = require(argv.site + '/' + directory + '/libjs/src/modules.json');
+    let inputFiles = modulesJson.map((item) => argv.site + item);
+    inputFiles.push(argv.site + '/' + directory + '/libjs/src/*.js');
+    return gulp.src(inputFiles)
+                .pipe(concat('dist.js'))
+                .pipe(minify())
+                .pipe(debug({title: 'Info:'}))
+                .pipe(gulp.dest(argv.site + '/' + directory + '/libjs/'));
 }

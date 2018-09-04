@@ -144,6 +144,9 @@ class Form {
                     default:
                         return FormField::show('select', $options);
                     break;
+                    case 'select-2':
+                        return FormField::show('select2', $options);
+                    break;
                     case 'select-link':
                         return FormField::show('selectLink', $options);
                     break;
@@ -169,6 +172,13 @@ class Form {
                                 '.FormField::create('hidden', array('name'=>$name.'_oldId', 'value'=>$this->object->id()));
                     break;
                 }
+            break;
+            case 'autocomplete':
+                return '<div class="autocompleteItem autocompleteItem-'.$name.'" data-url="'.url($refObject.'/autocomplete/'.$refAttribute, true).'">
+                            <div class="autocompleteItemIns">
+                                '.$autocomplete.'
+                            </div>
+                        </div>';
             break;
             case 'multiple':
                 switch($type) {
@@ -216,7 +226,7 @@ class Form {
                                             'size'=>'60',
                                             'value'=>$autocompleteItems);
                         $autocomplete = FormField_Text::create($options);
-                        return '<div class="autocompleteItem autocompleteItem-'.$name.'" rel="'.url($refObject.'/autocomplete/'.$refAttribute, true).'">
+                        return '<div class="autocompleteItem autocompleteItem-'.$name.'" data-url="'.url($refObject.'/autocomplete/'.$refAttribute, true).'">
                                     <div class="autocompleteItemIns">
                                         '.$autocomplete.'
                                     </div>
@@ -272,9 +282,9 @@ class Form {
                             $refObjectFormIns = new $refObjectForm($itemValues, array(), $refObjectIns);
                             $multipleOptionsIns = array('multiple'=>true, 'nameMultiple'=>$name);
                             $orderNested = ($refObjectFormIns->object->hasOrd()) ? '<div class="nestedFormFieldOrder"><i class="icon icon-move"></i></div>' : '';
-                            $nestedFormField .= '<div class="nestedFormFieldObject" rel="'.$refObjectIns->id().'">
+                            $nestedFormField .= '<div class="nestedFormFieldObject" data-id="'.$refObjectIns->id().'">
                                                         <div class="nestedFormFieldOptions">
-                                                            <div class="nestedFormFieldDelete" rel="'.url($refObject.'/delete/'.$refObjectIns->id(), true).'">
+                                                            <div class="nestedFormFieldDelete" data-url="'.url($refObject.'/delete/'.$refObjectIns->id(), true).'">
                                                                 <i class="icon icon-trash"></i>
                                                             </div>
                                                             '.$orderNested.'

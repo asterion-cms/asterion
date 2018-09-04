@@ -35,6 +35,15 @@ function activateBasicElements() {
     });
 
     /**
+    * DELETE an image from an object.
+    **/
+    $(document).on('click', '.formFieldsImageDelete', function(evt){
+        evt.stopImmediatePropagation();
+        let parentContainer = $(this).parents('.formFieldsImage').first();
+        $.ajax($(this).data('url')).done(function(htmlResponse) { if (htmlResponse.label && htmlResponse.label=='success') parentContainer.remove(); });
+    });
+
+    /**
     * RESET an object.
     * Function to show a message before resetting an object.
     **/
@@ -46,7 +55,7 @@ function activateBasicElements() {
     * ORDER elements in a list.
     **/
     $(document).on('change', '.orderActions select', function(evt){
-        window.location = $(this).parents('.orderActions').attr('rel') + $(this).val();
+        window.location = $(this).parents('.orderActions').data('url') + $(this).val();
     });
 
     /**
@@ -60,6 +69,11 @@ function activateBasicElements() {
             $(selectItem).attr('disabled', !$(checkboxItem).is(':checked'));
         });
     });
+
+    /**
+    * SELECT2 for the select items in the forms
+    **/
+    $('.formAdmin .select2 select').select2();
 
 }
 
@@ -81,7 +95,7 @@ function activateMultipleActions() {
             if ($(ele).prop('checked')==true) postValues.push($(ele).attr('name'));
         });
         if (postValues.length > 0) {
-            $.post($(this).attr('rel'), {'list-ids': postValues}).done(function() { location.reload(); });
+            $.post($(this).data('url'), {'list-ids': postValues}).done(function() { location.reload(); });
         }
     });
 
@@ -116,7 +130,7 @@ function activateNestedForms() {
         event.stopImmediatePropagation();
         var self = $(this);
         var container = $(this).parents('.nestedFormFieldObject');
-        var actionDelete = $(this).attr('rel');
+        var actionDelete = $(this).data('url');
         if (!actionDelete) {
             container.remove();
         } else {
@@ -141,8 +155,7 @@ function activateSortable() {
         $(ele).sortable({
             handle:'.iconHandle',
             update: function() {
-                let urlLoad = $(this).attr('rel');
-                $.post(urlLoad,{'newOrder[]': $(ele).find('.lineAdmin').toArray().map(item => $(item).attr('rel'))});
+                $.post($(this).data('url'),{'newOrder[]': $(ele).find('.lineAdmin').toArray().map(item => $(item).data('id'))});
             }
         });
     });
@@ -166,7 +179,7 @@ function activateAutocomplete() {
     $('.autocompleteItem input').each(function(index, ele){
         $(ele).autocomplete({
             minLength: 2,
-            source: function(request, response) { $.getJSON($(ele).parents('.autocompleteItem').attr('rel'), { term: split(request.term).pop() }, response ); },
+            source: function(request, response) { $.getJSON($(ele).parents('.autocompleteItem').data('url'), { term: split(request.term).pop() }, response ); },
             focus: function() { return false; },
             select: function(event, ui) {
                 let terms = split(this.value);
@@ -186,7 +199,6 @@ function activateAutocomplete() {
 function activateDatePicker() {
     $('.dateText input').each(function(index, ele){
         var dateFormatView = 'yy-mm-dd';
-        if ($(ele).attr('rel')=='dayMonth') var dateFormatView = 'dd-mm';
         $(ele).datepicker({ 'firstDay': 1, 'dateFormat': dateFormatView });
     });
 }
@@ -195,6 +207,7 @@ function activateDatePicker() {
 * CKEditor for certain elements in a form.
 **/
 function activateCK() {
+
     $('.ckeditorArea textarea').each(function(index, ele){
         if ($(ele).attr('rel') != 'ckeditor') {
             $(ele).attr('rel', 'ckeditor');
@@ -219,6 +232,7 @@ function activateCK() {
             });
         }
     });
+
     $('.ckeditorAreaSimple textarea').each(function(index, ele){
         if ($(ele).attr('rel') != 'ckeditor') {
             $(ele).attr('rel', 'ckeditor');
@@ -235,6 +249,7 @@ function activateCK() {
             });
         }
     });
+
 }
 
 /**

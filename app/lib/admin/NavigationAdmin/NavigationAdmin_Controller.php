@@ -31,20 +31,14 @@ class NavigationAdmin_Controller extends Controller{
                 $this->messageError = __('permissionsError');
                 return $ui->render();
             break;
-            case 'base-info':
+            case 'js':
                 $this->mode = 'js';
-                $info = array(
-                            'base_url'=>LOCAL_URL,
-                            'base_file'=>LOCAL_FILE,
-                            'app_url'=>APP_URL,
-                            'app_folder'=>APP_FOLDER,
-                            'site_url'=>url(''),
-                            'lang'=>Lang::active()
-                            );
-                return 'var info_site = '.json_encode($info).';';
-            break;
-            case 'js-translations':
-                $this->mode = 'js';
+                $info = array('base_url'=>LOCAL_URL,
+                                'base_file'=>LOCAL_FILE,
+                                'app_url'=>APP_URL,
+                                'app_folder'=>APP_FOLDER,
+                                'site_url'=>url(''),
+                                'lang'=>Lang::active());
                 $query = 'SELECT code, translation_'.Lang::active().' as translation
                         FROM '.Db::prefixTable('LangTrans').'
                         WHERE code LIKE "js_%"';
@@ -54,7 +48,8 @@ class NavigationAdmin_Controller extends Controller{
                     $trasnlationValue = $translationResult['translation'];
                     $translations[$translationResult['code']] = $trasnlationValue;
                 }
-                return 'var info_translations = '.json_encode($translations).';';
+                return 'var info_site = '.json_encode($info).';
+                        var info_translations = '.json_encode($translations).';';
             break;
             case 'backup':
                 $this->checkLoginAdmin();

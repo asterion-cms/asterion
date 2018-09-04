@@ -691,6 +691,11 @@ class Db_Sql {
                         $query .= ($values[$nameCheckbox]=='1' && isset($values[$name])) ? '`'.$name.'`="'.$values[$name].'", ' : '`'.$name.'`=NULL, ';
                     }
                 break;
+                case 'select-2':
+                    $multiple = (string)$item->multiple;
+                    $setValues[$name] = ($multiple == 'true') ? json_encode($values[$name]) : $values[$name];
+                    $query .= '`'.$name.'` = :'.$name.', ';
+                break;
                 case 'id-autoincrement':
                 case 'file':
                 case 'multiple-object':
@@ -735,7 +740,41 @@ class Db_Sql {
             }
             // Case single
             if (isset($_FILES[$fieldName]) && isset($_FILES[$fieldName]['tmp_name']) && $_FILES[$fieldName]['tmp_name']!='') {
-                if ((string)$field->mode == 'adaptable') {
+                if (is_array($_FILES[$fieldName]['tmp_name'])) {
+                    // Multiple files
+                    $filesArray = [];
+                    for ($i=0; $i<count($_FILES[$fieldName]['tmp_name']); $i++) {
+                        $filesArray[] = array('name'=>(isset($_FILES[$fieldName]['name'][$i]) ? $_FILES[$fieldName]['name'][$i] : ''),
+                                                'tmp_name'=>(isset($_FILES[$fieldName]['tmp_name'][$i]) ? $_FILES[$fieldName]['tmp_name'][$i] : ''),
+                                                'type'=>(isset($_FILES[$fieldName]['type'][$i]) ? $_FILES[$fieldName]['type'][$i] : ''),
+                                                'error'=>(isset($_FILES[$fieldName]['error'][$i]) ? $_FILES[$fieldName]['error'][$i] : ''),
+                                                'size'=>(isset($_FILES[$fieldName]['size'][$i]) ? $_FILES[$fieldName]['size'][$i] : ''));
+                    }
+                    $filesSaved = array();
+                    foreach ($filesArray as $key=>$fileItem) {
+                        $fileTmp = $fileItem['tmp_name'];
+                        $fileName = $fileItem['name'];
+                        switch (File::fileExtension($fileName)) {
+                            default:
+                                $fileSave = $this->id().'_'.Text::simpleUrlFile($_FILES[$fieldName]['name']).'-'.$key;
+                                if (File::uploadUrl($fileTmp, $this->className, $fileSave)) {
+                                    $filesSaved[] = $fileSave;
+                                }
+                            break;
+                            case 'jpg':
+                            case 'jpeg':
+                            case 'png':
+                            case 'gif':
+                                $fileSave = Text::simpleUrlFileBase($this->id().'_'.$fieldName).'-'.$key;
+                                if (Image_File::saveImageUrl($fileTmp, $this->className, $fileSave)) {
+                                    $filesSaved[] = $fileSave;
+                                }
+                            break;
+                        }
+                    }
+                    if (count($filesSaved) > 0) $this->modifySimple($fieldName, implode(':', $filesSaved));
+                    unset($_FILES[$fieldName]);
+                } elseif ((string)$field->mode == 'adaptable') {
                     // Image and file
                     $fileTmp = $_FILES[$fieldName]['tmp_name'];
                     $fileName = $_FILES[$fieldName]['name'];

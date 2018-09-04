@@ -1,5 +1,9 @@
 @import "_reset.scss";
 
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+@import "../../../../node_modules/jquery-ui-dist/jquery-ui.css";
+@import "../../../../node_modules/select2/dist/css/select2.css";
+
 @import "_variables.scss";
 @import "_common.scss";
 @import "_mixins.scss";

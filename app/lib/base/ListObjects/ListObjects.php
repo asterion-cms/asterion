@@ -52,7 +52,7 @@ class ListObjects {
         }
         return $this->countTotal;
     }
-
+    
     /**
     * Check if the list is empty.
     */
@@ -64,14 +64,13 @@ class ListObjects {
     * Populate the list.
     */
     public function populate() {
-        $pageUrl = (__('pageUrl')!='pageUrl') ? __('pageUrl') : PAGER_URL_STRING;
-        $page = (isset($_GET[$pageUrl])) ? intval($_GET[$pageUrl])-1 : 0;
+        $page = $this->page()-1;
         if ($this->query!='') {
             if ($this->results!='') {
                 $this->options['query'] .= ' LIMIT '.($page*$this->results).', '.$this->results;
             }
             $this->list = $this->object->readListQuery($this->options['query']);
-        } else {
+        } else {        
             if ($this->results!='') {
                 $this->options['limit'] = ($page*$this->results).', '.$this->results;
             }
@@ -115,12 +114,11 @@ class ListObjects {
     public function pager($options=array()) {
         if (!isset($this->pagerHtml)) {
             $this->pagerHtml = '';
-            $pageUrl = (__('pageUrl')!='pageUrl') ? __('pageUrl') : PAGER_URL_STRING;
-            $page = (isset($_GET[$pageUrl])) ? intval($_GET[$pageUrl]) : 0;
+            $page = $this->page();
             $delta = (isset($options['delta'])) ? intval($options['delta']) : 5;
             $midDelta = ceil($delta/2);
             if ($this->results > 0 && $this->countTotal() > $this->results) {
-                $totalPages = ceil($this->countTotal()/$this->results);
+                $totalPages = $this->totalPages();
                 if ($totalPages <= $delta) {
                     //The number of pages is equal or less than delta
                     $listFrom = 0;
@@ -146,8 +144,8 @@ class ListObjects {
                             $listFrom = $page - $midDelta;
                             $listTo = $page + $midDelta;
                             $listStart = true;
-                            $listEnd = true;
-                        }
+                            $listEnd = true;                        
+                        }                    
                     }
                 }
                 $html = '';
@@ -196,6 +194,32 @@ class ListObjects {
                     </div>
                     '.$pager.'
                 </div>';
+    }
+
+    /**
+    * Returns actual page
+    */
+    public function page() {
+        $pageUrl = (__('pageUrl')!='pageUrl') ? __('pageUrl') : PAGER_URL_STRING;
+        return (isset($_GET[$pageUrl])) ? intval($_GET[$pageUrl]) : 1;
+    }
+
+    /**
+    * Return the total number of pages
+    */
+    public function totalPages() {
+        return ceil($this->countTotal()/$this->results);
+    }
+
+    /**
+    * Return the meta tags next and previous
+    */
+    public function metaNavigation() {
+        $page = $this->page();
+        $totalPages = $this->totalPages();
+        $meta = ($page<$totalPages) ? '<link rel="next" href="'.Url::urlPage($page+1).'"/>' : '';
+        $meta .= ($page>1) ? '<link rel="prev" href="'.Url::urlPage($page-1).'"/>' : '';
+        return $meta;
     }
 
 }

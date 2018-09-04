@@ -86,7 +86,7 @@ class Ui {
         $canModify = ($permissions['permissionModify']=='1') ? $this->modify($nested) : '';
         $canDelete = ($permissions['permissionDelete']=='1') ? $this->delete(true) : '';
         $canOrder = ($permissions['permissionModify']=='1' && $this->object->hasOrd()) ? $this->order() : '';
-        $relOrd = ($permissions['permissionModify']=='1') ? 'rel="'.$this->object->id().'"' : '';
+        $relOrd = ($permissions['permissionModify']=='1') ? 'id="'.$this->object->id().'"' : '';
         $viewPublic = ((string)$this->object->info->info->form->viewPublic == 'true') ? $this->view() : '';
         $layout = (string)$this->object->info->info->form->layout;
         $multipleChoice = '';

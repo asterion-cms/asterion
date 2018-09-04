@@ -54,13 +54,13 @@ if (!function_exists('get_called_class')) {
                         return get_class($flag[$indexFlag]['object']);
                     default: return $flag[$indexFlag]['class'];
                 }
-            default: 
+            default:
                 if (DEBUG) {
                     throw new Exception ("Unknown backtrace method type.");
                 }
             break;
         }
-    } 
+    }
 }
 
 /**
@@ -86,8 +86,8 @@ function url_exists($url) {
 * Function to remove an entire directory on the server.
 */
 function rrmdir($dir) {
-    //Remove an entire directoy 
-    foreach(glob($dir.'/*') as $file) { 
+    //Remove an entire directoy
+    foreach(glob($dir.'/*') as $file) {
         if(is_dir($file)) {
             rrmdir($file);
         } else {
@@ -106,10 +106,10 @@ function __($code) {
 
 /**
 * Function to build an URL using the correct path to the website.
-* 
+*
 * $url: The single path for the URL
 * $admin: Boolean to determine if the URL is for the BackEnd
-* 
+*
 * Example:
 * echo url('about-us');
 * > http://localhost/asterion/about-us
@@ -126,7 +126,7 @@ function url($url='', $admin=false) {
 * Function to do a recursive glob search
 */
 function rglob($pattern, $flags=0) {
-    $files = glob($pattern, $flags); 
+    $files = glob($pattern, $flags);
     foreach (glob(dirname($pattern).'/*', GLOB_ONLYDIR|GLOB_NOSORT) as $directory) {
         $files = array_merge($files, rglob($directory.'/'.basename($pattern), $flags));
     }

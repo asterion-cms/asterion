@@ -93,10 +93,22 @@
     }
 }
 .menuSideWrapper {
-    padding: 5px 0;
+    padding: 10px 0 0 0;
+    background: lighten($colorAccent, 15%);
     .menuSideTitle {
-        font-size: $fontSizeTiny;
-        padding: 0 0 5px;
+        font-size: $fontSizeTiny * 8 / 10;
         text-transform: uppercase;
+        padding: 0 0 10px 10px;
+        color: rgba($white, 0.5);
+    }
+    .menuSideItem {
+        &.menuSideItemBase {
+            a {
+                background: lighten($colorAccent, 15%);
+                &:hover {
+                    background: darken($colorAccentAlt, 20%);
+                }
+            }
+        }
     }
 }

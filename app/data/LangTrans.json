@@ -1088,7 +1088,7 @@
 	{
 		"code": "myAccount",
 		"translation_en": "My account",
-		"translation_fr": "Ma compte",
+		"translation_fr": "Mon compte",
 		"translation_es": "Mi cuenta"
 	},
 	{
@@ -1468,5 +1468,17 @@
 		"translation_en": "Show or hide the map",
 		"translation_fr": "Montrer la carte",
 		"translation_es": "Mostrar u ocultar el mapa"
+	},
+	{
+		"code": "maximumSize",
+		"translation_en": "Maximum size",
+		"translation_fr": "Taille maximum",
+		"translation_es": "Tamaño máximo"
+	},
+	{
+		"code": "minimumSize",
+		"translation_en": "Minimum size",
+		"translation_fr": "Taille minimum",
+		"translation_es": "Tamaño mínimo"
 	}
 ]

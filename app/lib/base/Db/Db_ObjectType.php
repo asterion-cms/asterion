@@ -30,6 +30,7 @@
 *       textarea-ck
 *       textarea-code
 *       select
+*       select-2
 *       select-varchar
 *       select-link
 *       date
@@ -111,15 +112,7 @@ class Db_ObjectType {
                 $sql .= '`'.$name.'` INT,';
             break;
             case 'select':
-                switch ($type) {
-                    default:
-                        $sql .= '`'.$name.'` INT,';
-                    break;
-                    case 'select-varchar':
-                    case 'select-link':
-                        $sql .= '`'.$name.'` VARCHAR(255) NULL COLLATE utf8_unicode_ci,';
-                    break;
-                }
+                $sql .= '`'.$name.'` VARCHAR(255) NULL COLLATE utf8_unicode_ci,';
             break;
             case 'date':
                 $sql .= '`'.$name.'` DATETIME,';
