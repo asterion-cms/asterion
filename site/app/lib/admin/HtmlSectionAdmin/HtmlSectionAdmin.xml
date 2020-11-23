@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+* @structure HtmlSectionAdmin
+*
+* @author Leano Martinet <info@asterion-cms.com>
+* @package Asterion
+* @version 4.0.0
+-->
+<object>
+    <name>HtmlSectionAdmin</name>
+    <table>html_section_admin</table>
+    <info>
+        <sql>
+            <primary>id</primary>
+        </sql>
+        <form>
+            <title>html_sections_admin</title>
+            <orderBy>code</orderBy>
+            <label>#title</label>
+            <hiddenAdminMenu>true</hiddenAdminMenu>
+            <templateItemAdmin>
+                <p class="accent"><strong>#title</strong></p>
+                <p class="tiny"><em>_code</em> : <span class="accent">#code</span></p>
+            </templateItemAdmin>
+        </form>
+    </info>
+    <attributes>
+        <attribute>
+            <name>id</name>
+            <type>id_autoincrement</type>
+        </attribute>
+        <attribute>
+            <name>code</name>
+            <label>code</label>
+            <type>text_code</type>
+            <required>unique</required>
+        </attribute>
+        <attribute>
+            <name>title</name>
+            <language>true</language>
+            <label>title</label>
+            <required>not_empty</required>
+            <type>text</type>
+        </attribute>
+        <attribute>
+            <name>title_url</name>
+            <language>true</language>
+            <type>hidden_url</type>
+            <refAttribute>title</refAttribute>
+        </attribute>
+        <attribute>
+            <name>section</name>
+            <label>section</label>
+            <language>true</language>
+            <required>not_empty</required>
+            <type>textarea_ck</type>
+        </attribute>
+    </attributes>
+    <indexes>
+        <index>
+            <name>code</name>
+            <fields>code</fields>
+        </index>
+        <index>
+            <name>title_url</name>
+            <fields>title_url</fields>
+            <language>true</language>
+        </index>
+    </indexes>
+</object>

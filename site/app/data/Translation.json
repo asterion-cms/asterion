@@ -1,0 +1,1241 @@
+[{
+    "code": "accepted",
+    "translation_en": "Accepted",
+    "translation_fr": "Confirmé",
+    "translation_es": "Aceptado"
+}, {
+    "code": "addNewRegister",
+    "translation_en": "Add a new record",
+    "translation_fr": "Ajouter un nouveau record",
+    "translation_es": "Añadir un registro"
+}, {
+    "code": "april",
+    "translation_en": "April",
+    "translation_fr": "Avril",
+    "translation_es": "Abril"
+}, {
+    "code": "label",
+    "translation_en": "Label",
+    "translation_fr": "Libelle",
+    "translation_es": "Etiqueta"
+}, {
+    "code": "august",
+    "translation_en": "August",
+    "translation_fr": "Août",
+    "translation_es": "Agosto"
+}, {
+    "code": "back",
+    "translation_en": "Back",
+    "translation_fr": "Retour",
+    "translation_es": "Volver"
+}, {
+    "code": "cancel",
+    "translation_en": "Cancel",
+    "translation_fr": "Annuler",
+    "translation_es": "Cancelar"
+}, {
+    "code": "here",
+    "translation_en": "here",
+    "translation_fr": "ici",
+    "translation_es": "aquí"
+}, {
+    "code": "changePassword",
+    "translation_en": "Change my Password",
+    "translation_fr": "Changer mon mot de passe",
+    "translation_es": "Cambiar mi contraseña"
+}, {
+    "code": "change-your-temporary_password",
+    "translation_en": "You have recently recovered your password. Please update it #HERE",
+    "translation_fr": "Vous avez récemment récupéré votre mot de passe. S'il vous plaît mettre à jour #HERE",
+    "translation_es": "Usted ha recuperado su contraseña recientemente. Por favor actualizela #HERE"
+}, {
+    "code": "change_password_error",
+    "translation_en": "The password cannot be changed, please try again.",
+    "translation_fr": "Le mot de pas n'a pas été sauvegardé, veuillez essayer à nouveau.",
+    "translation_es": "La contraseña no ha sido cambiada, por favor intente nuevamente."
+}, {
+    "code": "change_password_success",
+    "translation_en": "Your password has been changed.",
+    "translation_fr": "Votre mot de passe a été changé.",
+    "translation_es": "Su contraseña ha sido cambiada."
+}, {
+    "code": "classCSS",
+    "translation_en": "CSS Class",
+    "translation_fr": "Classe CSS",
+    "translation_es": "Clase CSS"
+}, {
+    "code": "createAccount",
+    "translation_en": "Sign up",
+    "translation_fr": "Créez votre compte",
+    "translation_es": "Crear cuenta"
+}, {
+    "code": "december",
+    "translation_en": "December",
+    "translation_fr": "Décembre",
+    "translation_es": "Diciembre"
+}, {
+    "code": "delete",
+    "translation_en": "Delete",
+    "translation_fr": "Supprimer",
+    "translation_es": "Borrar"
+}, {
+    "code": "deselectAll",
+    "translation_en": "Deselect All",
+    "translation_fr": "Désélectionner tous",
+    "translation_es": "Deseleccionar"
+}, {
+    "code": "email",
+    "translation_en": "Email",
+    "translation_fr": "Email",
+    "translation_es": "Email"
+}, {
+    "code": "emptyList",
+    "translation_en": "The list is empty",
+    "translation_fr": "La liste est vide",
+    "translation_es": "La lista esta vacía"
+}, {
+    "code": "linkCode",
+    "translation_en": "Code for the link",
+    "translation_fr": "Lien pour le code",
+    "translation_es": "Codigo para el enlace"
+}, {
+    "code": "internalLink",
+    "translation_en": "Internal link",
+    "translation_fr": "Lien interne",
+    "translation_es": "Enlace interno"
+}, {
+    "code": "externalLink",
+    "translation_en": "External link",
+    "translation_fr": "Lien externe",
+    "translation_es": "Enlace externo"
+}, {
+    "code": "externalLinkLabel",
+    "translation_en": "External link or label",
+    "translation_fr": "Lien externe ou libelle",
+    "translation_es": "Enlace externo o etiqueta"
+}, {
+    "code": "homePage",
+    "translation_en": "Home",
+    "translation_fr": "Accueil",
+    "translation_es": "Inicio"
+}, {
+    "code": "list",
+    "translation_en": "List",
+    "translation_fr": "Liste",
+    "translation_es": "Lista"
+}, {
+    "code": "error_connection",
+    "translation_en": "Your email and/or password are not correct. Please try again.",
+    "translation_fr": "Votre e-mail et / ou mot de passe ne sont pas correctes. Veuillez réessayer.",
+    "translation_es": "Si email y/o contraseña no son correctos. Intente nuevamente."
+}, {
+    "code": "errorMail",
+    "translation_en": "The email address is incorrect.",
+    "translation_fr": "L'adresse email est incorrecte.",
+    "translation_es": "El email es incorrecto."
+}, {
+    "code": "error_password_alpha",
+    "translation_en": "The password must have only alphanumeric characters.",
+    "translation_fr": "Le mot de passe ne doit comporter que des caractères alphanumériques.",
+    "translation_es": "La contraseña debe tener solo caracteres alfanumericos."
+}, {
+    "code": "error_password_size",
+    "translation_en": "The password must have at least 6 characters.",
+    "translation_fr": "Le mot de passe doit comporter au moins 6 caractères.",
+    "translation_es": "La contraseña debe tener como minimo 6 caracteres."
+}, {
+    "code": "errors_form",
+    "translation_en": "There are errors in the form.",
+    "translation_fr": "Il y a des erreurs dans le formulaire.",
+    "translation_es": "Existen errores en el formulario."
+}, {
+    "code": "errorExisting",
+    "translation_en": "This value is already in use.",
+    "translation_fr": "Cette valeur est déjà en cours d'utilisation.",
+    "translation_es": "Este valor ya esta en uso."
+}, {
+    "code": "exit",
+    "translation_en": "Exit",
+    "translation_fr": "Sortir",
+    "translation_es": "Salir"
+}, {
+    "code": "february",
+    "translation_en": "February",
+    "translation_fr": "Février",
+    "translation_es": "Febrero"
+}, {
+    "code": "home",
+    "translation_en": "Home",
+    "translation_fr": "Accueil",
+    "translation_es": "Inicio"
+}, {
+    "code": "idExists",
+    "translation_en": "The code already exists",
+    "translation_fr": "Le code existe déjà",
+    "translation_es": "El codigo ya existe"
+}, {
+    "code": "insert_new",
+    "translation_en": "Insert new",
+    "translation_fr": "Insérer",
+    "translation_es": "Insertar nuevo"
+}, {
+    "code": "january",
+    "translation_en": "January",
+    "translation_fr": "Janvier",
+    "translation_es": "Enero"
+}, {
+    "code": "js_loading",
+    "translation_en": "Loading...",
+    "translation_fr": "Chargement en cours...",
+    "translation_es": "Cargando..."
+}, {
+    "code": "js_messageDelete",
+    "translation_en": "Are you sure about deleting this record? It will also delete the records related to it.",
+    "translation_fr": "Êtes-vous sur de la suppression de cet enregistrement? Il va également supprimer les enregistrements qui lui sont liés.",
+    "translation_es": "Esta seguro de borrar este registro? También se borrarán los registros relacionados al mismo."
+}, {
+    "code": "js_messageDeleteSimple",
+    "translation_en": "Are you sure about deleting this record?",
+    "translation_fr": "Êtes-vous sur de la suppression de cet enregistrement?",
+    "translation_es": "Esta seguro de borrar este registro?"
+}, {
+    "code": "js_not_empty",
+    "translation_en": "This field cannot be empty",
+    "translation_fr": "Ce champ ne peut être vide",
+    "translation_es": "Este campo no puede estar vacío"
+}, {
+    "code": "july",
+    "translation_en": "July",
+    "translation_fr": "Juillet",
+    "translation_es": "Julio"
+}, {
+    "code": "june",
+    "translation_en": "June",
+    "translation_fr": "Juin",
+    "translation_es": "Junio"
+}, {
+    "code": "activateSelected",
+    "translation_en": "Activate selected",
+    "translation_fr": "Activer la sélection",
+    "translation_es": "Activar seleccionados"
+}, {
+    "code": "active",
+    "translation_en": "Active",
+    "translation_fr": "Actif",
+    "translation_es": "Activo"
+}, {
+    "code": "categories",
+    "translation_en": "Categories",
+    "translation_fr": "Catégories",
+    "translation_es": "Categorias"
+}, {
+    "code": "category",
+    "translation_en": "Category",
+    "translation_fr": "Catégorie",
+    "translation_es": "Categoría"
+}, {
+    "code": "code",
+    "translation_en": "Code",
+    "translation_fr": "Code",
+    "translation_es": "Código"
+}, {
+    "code": "contact",
+    "translation_en": "Contact",
+    "translation_fr": "Contact",
+    "translation_es": "Contacto"
+}, {
+    "code": "contacts",
+    "translation_en": "Contacts",
+    "translation_fr": "Contacts",
+    "translation_es": "Contactos"
+}, {
+    "code": "date",
+    "translation_en": "Date",
+    "translation_fr": "Date",
+    "translation_es": "Fecha"
+}, {
+    "code": "deactivateSelected",
+    "translation_en": "Deactivate selected",
+    "translation_fr": "Désactiver la sélection",
+    "translation_es": "Desactivar los seleccionados"
+}, {
+    "code": "deleteSelected",
+    "translation_en": "Delete selected items",
+    "translation_fr": "Supprimer la sélection",
+    "translation_es": "Eiminar los seleccionados"
+}, {
+    "code": "description",
+    "translation_en": "Description",
+    "translation_fr": "Description",
+    "translation_es": "Descripcion"
+}, {
+    "code": "email",
+    "translation_en": "Email",
+    "translation_fr": "Email",
+    "translation_es": "Email"
+}, {
+    "code": "file",
+    "translation_en": "File",
+    "translation_fr": "Fichier",
+    "translation_es": "Archivo"
+}, {
+    "code": "image",
+    "translation_en": "Image",
+    "translation_fr": "Image",
+    "translation_es": "Imagen"
+}, {
+    "code": "lang",
+    "translation_en": "Language",
+    "translation_fr": "Langue",
+    "translation_es": "Idioma"
+}, {
+    "code": "langs",
+    "translation_en": "Languages",
+    "translation_fr": "Langues",
+    "translation_es": "Idiomas"
+}, {
+    "code": "lastName",
+    "translation_en": "Last Name",
+    "translation_fr": "Nom",
+    "translation_es": "Apellido"
+}, {
+    "code": "link",
+    "translation_en": "Link",
+    "translation_fr": "Lien",
+    "translation_es": "Enlace"
+}, {
+    "code": "links",
+    "translation_en": "Links",
+    "translation_fr": "Liens",
+    "translation_es": "Enlaces"
+}, {
+    "code": "linkUrl",
+    "translation_en": "Link URL",
+    "translation_fr": "Lien URL",
+    "translation_es": "Enlace URL"
+}, {
+    "code": "menu",
+    "translation_en": "Menu",
+    "translation_fr": "Menu",
+    "translation_es": "Menu"
+}, {
+    "code": "subMenu",
+    "translation_en": "Sub-menu",
+    "translation_fr": "Sous-menu",
+    "translation_es": "Sub-menu"
+}, {
+    "code": "message",
+    "translation_en": "Message",
+    "translation_fr": "Message",
+    "translation_es": "Mensaje"
+}, {
+    "code": "meta_description",
+    "translation_en": "Meta Description",
+    "translation_fr": "Description Meta",
+    "translation_es": "Descripcion Meta"
+}, {
+    "code": "meta_keywords",
+    "translation_en": "Meta Keywords",
+    "translation_fr": "Mots-clés Meta",
+    "translation_es": "Palabra Clave Meta"
+}, {
+    "code": "name",
+    "translation_en": "Name",
+    "translation_fr": "Nom",
+    "translation_es": "Nombre"
+}, {
+    "code": "namePerson",
+    "translation_en": "Name",
+    "translation_fr": "Prenom",
+    "translation_es": "Nombre"
+}, {
+    "code": "notActive",
+    "translation_en": "Not Active",
+    "translation_fr": "Inactif",
+    "translation_es": "Inactivo"
+}, {
+    "code": "notCanceled",
+    "translation_en": "Valid",
+    "translation_fr": "Validée",
+    "translation_es": "Válido"
+}, {
+    "code": "page",
+    "translation_en": "Page",
+    "translation_fr": "Page",
+    "translation_es": "Página"
+}, {
+    "code": "pages",
+    "translation_en": "Pages",
+    "translation_fr": "Pages",
+    "translation_es": "Páginas"
+}, {
+    "code": "params",
+    "translation_en": "Site parameters",
+    "translation_fr": "Paramètres du site",
+    "translation_es": "Parámetros"
+}, {
+    "code": "metainfo",
+    "translation_en": "Meta information",
+    "translation_fr": "Information meta",
+    "translation_es": "Información meta"
+}, {
+    "code": "misc",
+    "translation_en": "Miscellany",
+    "translation_fr": "Miscellanées",
+    "translation_es": "Miscelánea"
+}, {
+    "code": "linksocial",
+    "translation_en": "Links to social networks",
+    "translation_fr": "Liens aux réseaux sociales",
+    "translation_es": "Enlaces a las redes sociales"
+}, {
+    "code": "password",
+    "translation_en": "Password",
+    "translation_fr": "Mot de passe",
+    "translation_es": "Contraseña"
+}, {
+    "code": "pictures",
+    "translation_en": "Pictures",
+    "translation_fr": "Photos",
+    "translation_es": "Imágenes"
+}, {
+    "code": "section",
+    "translation_en": "Section",
+    "translation_fr": "Section",
+    "translation_es": "Sección"
+}, {
+    "code": "sections",
+    "translation_en": "Sections",
+    "translation_fr": "Sections",
+    "translation_es": "Secciones"
+}, {
+    "code": "htmlSections",
+    "translation_en": "HTML Sections",
+    "translation_fr": "Sections HTML",
+    "translation_es": "Secciones HTML"
+}, {
+    "code": "html_sections_admin",
+    "translation_en": "HTML Admin Sections",
+    "translation_fr": "Sections HTML Admin",
+    "translation_es": "Secciones Admin HTML"
+}, {
+    "code": "tags",
+    "translation_en": "Tags",
+    "translation_fr": "Tags",
+    "translation_es": "Tags"
+}, {
+    "code": "telephone",
+    "translation_en": "Telephone",
+    "translation_fr": "Téléphone",
+    "translation_es": "Teléfono"
+}, {
+    "code": "address",
+    "translation_en": "Address",
+    "translation_fr": "Adresse",
+    "translation_es": "Dirección"
+}, {
+    "code": "title",
+    "translation_en": "Title",
+    "translation_fr": "Libellé",
+    "translation_es": "Título"
+}, {
+    "code": "translation",
+    "translation_en": "Translation",
+    "translation_fr": "Traduction",
+    "translation_es": "Traducción"
+}, {
+    "code": "translations",
+    "translation_en": "Translations",
+    "translation_fr": "Traductions",
+    "translation_es": "Traducciones"
+}, {
+    "code": "type",
+    "translation_en": "Type",
+    "translation_fr": "Type",
+    "translation_es": "Tipo"
+}, {
+    "code": "user",
+    "translation_en": "User",
+    "translation_fr": "Utilisateur",
+    "translation_es": "Usuario"
+}, {
+    "code": "users",
+    "translation_en": "Users",
+    "translation_fr": "Utilisateurs",
+    "translation_es": "Usuarios"
+}, {
+    "code": "administrators",
+    "translation_en": "Administrators",
+    "translation_fr": "Administrateurs",
+    "translation_es": "Administradores"
+}, {
+    "code": "user_admin_type",
+    "translation_en": "User Type",
+    "translation_fr": "Type d'utilisateur",
+    "translation_es": "Tipo de usuario"
+}, {
+    "code": "user_admin_types",
+    "translation_en": "User Types",
+    "translation_fr": "Type d'utilisateurs",
+    "translation_es": "Tipos de usuario"
+}, {
+    "code": "loggedAs",
+    "translation_en": "Logged as",
+    "translation_fr": "Connecté en tant que",
+    "translation_es": "Conectado como"
+}, {
+    "code": "login",
+    "translation_en": "Login",
+    "translation_fr": "Identification",
+    "translation_es": "Conectarse"
+}, {
+    "code": "login_message",
+    "translation_en": "Please enter your email and password.",
+    "translation_fr": "S'il vous plaît, tappez votre email et votre mot de passe.",
+    "translation_es": "Por favor, ingrese su email y contraseña."
+}, {
+    "code": "logout",
+    "translation_en": "Logout",
+    "translation_fr": "Déconnexion",
+    "translation_es": "Salir"
+}, {
+    "code": "mail-doesnt-exist",
+    "translation_en": "The email doesn't exist in our database.",
+    "translation_fr": "L' email n'existe pas dans notre base de données.",
+    "translation_es": "El email no existe en nuestra base de datos."
+}, {
+    "code": "march",
+    "translation_en": "March",
+    "translation_fr": "Mars",
+    "translation_es": "Marzo"
+}, {
+    "code": "may",
+    "translation_en": "May",
+    "translation_fr": "Mai",
+    "translation_es": "Mayo"
+}, {
+    "code": "modify",
+    "translation_en": "Modify",
+    "translation_fr": "Modifier",
+    "translation_es": "Modificar"
+}, {
+    "code": "move",
+    "translation_en": "Move",
+    "translation_fr": "Déplacer",
+    "translation_es": "Mover"
+}, {
+    "code": "information",
+    "translation_en": "Information",
+    "translation_fr": "Information",
+    "translation_es": "Informacion"
+}, {
+    "code": "account_message",
+    "translation_en": "Use this form to update your information.",
+    "translation_fr": "Utilisez ce formulaire pour mettre à jour vos informations.",
+    "translation_es": "Use este formulario para modificar sus datos."
+}, {
+    "code": "change-password-message",
+    "translation_en": "Use this form to change your password.",
+    "translation_fr": "Utilisez ce formulaire pour mettre à jour votre mot de passe.",
+    "translation_es": "Use este formulario para modificar su contraseña."
+}, {
+    "code": "newPassword",
+    "translation_en": "New password",
+    "translation_fr": "Nouveau mot de passe",
+    "translation_es": "Nueva contraseña"
+}, {
+    "code": "next",
+    "translation_en": "Next",
+    "translation_fr": "Suivant",
+    "translation_es": "Siguiente"
+}, {
+    "code": "item",
+    "translation_en": "Item",
+    "translation_fr": "Item",
+    "translation_es": "Item"
+}, {
+    "code": "items",
+    "translation_en": "Items",
+    "translation_fr": "Items",
+    "translation_es": "Items"
+}, {
+    "code": "listItems",
+    "translation_en": "List items",
+    "translation_fr": "Liste des éléments",
+    "translation_es": "Lista de elementos"
+}, {
+    "code": "noItems",
+    "translation_en": "There are no items in this list.",
+    "translation_fr": "Il n'y a aucun élément dans ce liste.",
+    "translation_es": "No hay elementos en esta lista."
+}, {
+    "code": "noItemsSearch",
+    "translation_en": "There are no items matching your search.",
+    "translation_fr": "Il n'y a aucun élément correspondant à votre recherche.",
+    "translation_es": "No hay resultados para su búsqueda."
+}, {
+    "code": "not_empty",
+    "translation_en": "This field cannot be empty",
+    "translation_fr": "Ce champ ne peut être vide",
+    "translation_es": "Este campo no puede estar vacío"
+}, {
+    "code": "mainPage",
+    "translation_en": "Main page",
+    "translation_fr": "Page principale",
+    "translation_es": "Pagina principal"
+}, {
+    "code": "november",
+    "translation_en": "November",
+    "translation_fr": "Novembre",
+    "translation_es": "Noviembre"
+}, {
+    "code": "october",
+    "translation_en": "October",
+    "translation_fr": "Octobre",
+    "translation_es": "Octubre"
+}, {
+    "code": "old_password",
+    "translation_en": "Old or temporary password",
+    "translation_fr": "Temporarie ou ancien mot de passe",
+    "translation_es": "Contraseña antigua o temporal"
+}, {
+    "code": "old_password_error",
+    "translation_en": "Your old password is incorrect.",
+    "translation_fr": "Votre ancien mot de passe est incorrect.",
+    "translation_es": "Su contraseña antigua no es correcta."
+}, {
+    "code": "password",
+    "translation_en": "Password",
+    "translation_fr": "Mot de passe",
+    "translation_es": "Contraseña"
+}, {
+    "code": "passwordConfirmation",
+    "translation_en": "Password confirmation",
+    "translation_fr": "Confirmation de mot de passe",
+    "translation_es": "Confirmación de su contraseña"
+}, {
+    "code": "passwordConfirmationError",
+    "translation_en": "The passwords don't match",
+    "translation_fr": "Les mots de passe ne correspondent pas",
+    "translation_es": "Las contraseñas no coinciden"
+}, {
+    "code": "password_forgot",
+    "translation_en": "I forgot my password",
+    "translation_fr": "J'ai oublié mon mot de passe",
+    "translation_es": "Olvidé mi contraseña"
+}, {
+    "code": "password_forgot_message",
+    "translation_en": "Please, enter your email address and we will send you a temporary password.",
+    "translation_fr": "S'il vous plaît , entrez votre adresse email et nous vous enverrons un mot de passe temporaire.",
+    "translation_es": "Por favor, ingrese su email y le enviaremos una contraseña temporal."
+}, {
+    "code": "password_sent_mail",
+    "translation_en": "We have sent an email with your temporary password.",
+    "translation_fr": "Nous avons envoyé un e-mail avec votre mot de passe temporaire.",
+    "translation_es": "Hemos enviado un email con su contraseña temporal."
+}, {
+    "code": "pending",
+    "translation_en": "Pending",
+    "translation_fr": "Attente",
+    "translation_es": "Pendiente"
+}, {
+    "code": "permissions",
+    "translation_en": "Permissions",
+    "translation_fr": "Permissions",
+    "translation_es": "Permisos"
+}, {
+    "code": "manages_permissions",
+    "translation_en": "Can manage permissions",
+    "translation_fr": "Peut gérer les autorisations",
+    "translation_es": "Puede administrar permisos"
+}, {
+    "code": "permissions-error",
+    "translation_en": "You don't have the permissions to visit this page.",
+    "translation_fr": "Vous n'avez pas les permissions pour visiter cette page.",
+    "translation_es": "No tiene permisos para ver esta página."
+}, {
+    "code": "permission_list_admin",
+    "translation_en": "Permission to list items.",
+    "translation_fr": "Autorisation pour lister les éléments.",
+    "translation_es": "Permiso para listar elementos."
+}, {
+    "code": "permission_insert",
+    "translation_en": "Permission to insert items.",
+    "translation_fr": "Autorisation pour insérer des éléments.",
+    "translation_es": "Permiso para insertar elementos."
+}, {
+    "code": "permission_modify",
+    "translation_en": "Permission to modify items.",
+    "translation_fr": "Autorisation pour modifier des éléments.",
+    "translation_es": "Permiso para modificar elementos."
+}, {
+    "code": "permission_delete",
+    "translation_en": "Permission to delete items.",
+    "translation_fr": "Autorisation pour supprimer les éléments.",
+    "translation_es": "Permiso para eliminar items."
+}, {
+    "code": "print",
+    "translation_en": "Print",
+    "translation_fr": "Imprimer",
+    "translation_es": "Imprimir"
+}, {
+    "code": "reservedRights",
+    "translation_en": "All rights reserved",
+    "translation_fr": "Tous droits réservés",
+    "translation_es": "Derechos reservados"
+}, {
+    "code": "resultsFor",
+    "translation_en": "Results for",
+    "translation_fr": "Résultats pour",
+    "translation_es": "Resultados para"
+}, {
+    "code": "save",
+    "translation_en": "Save",
+    "translation_fr": "Enregistrer",
+    "translation_es": "Guardar"
+}, {
+    "code": "saveCheck",
+    "translation_en": "Save and check",
+    "translation_fr": "Enregistrer et vérifiez",
+    "translation_es": "Guardar y revisar"
+}, {
+    "code": "saved_form",
+    "translation_en": "The record has been saved, please check if everything is right.",
+    "translation_fr": "L'enregistrement a été sauvegardé, veuillez vérifier si tout est correct.",
+    "translation_es": "Este registro ha sido guardado, por favor revise si todo está en orden."
+}, {
+    "code": "search",
+    "translation_en": "Search",
+    "translation_fr": "Rechercher",
+    "translation_es": "Buscar"
+}, {
+    "code": "selectAll",
+    "translation_en": "Select All",
+    "translation_fr": "Sélectionner tout",
+    "translation_es": "Seleccionar todos"
+}, {
+    "code": "send",
+    "translation_en": "Send",
+    "translation_fr": "Envoyer",
+    "translation_es": "Enviar"
+}, {
+    "code": "september",
+    "translation_en": "September",
+    "translation_fr": "Septembre",
+    "translation_es": "Septiembre"
+}, {
+    "code": "show",
+    "translation_en": "Show",
+    "translation_fr": "Afficher",
+    "translation_es": "Mostrar"
+}, {
+    "code": "site_contact",
+    "translation_en": "Contact",
+    "translation_fr": "Contact",
+    "translation_es": "Contacto"
+}, {
+    "code": "site_links",
+    "translation_en": "Links",
+    "translation_fr": "Liens",
+    "translation_es": "Enlaces"
+}, {
+    "code": "try_login_again",
+    "translation_en": "Try to login again.",
+    "translation_fr": "Ressayez de vous connecter.",
+    "translation_es": "Intente conectarse nuevamente."
+}, {
+    "code": "userExists",
+    "translation_en": "The user already exists",
+    "translation_fr": "L'utilisateur existe déjà",
+    "translation_es": "El usuario ya existe"
+}, {
+    "code": "view",
+    "translation_en": "Show",
+    "translation_fr": "Voir",
+    "translation_es": "Ver"
+}, {
+    "code": "viewAllItems",
+    "translation_en": "Show all items",
+    "translation_fr": "Voir toutes les enregistrements",
+    "translation_es": "Ver todos los registros"
+}, {
+    "code": "viewFile",
+    "translation_en": "View the file",
+    "translation_fr": "Voir le fichier",
+    "translation_es": "Ver el archivo"
+}, {
+    "code": "viewLess",
+    "translation_en": "View less",
+    "translation_fr": "Moins d'infos",
+    "translation_es": "Ver menos"
+}, {
+    "code": "view_list",
+    "translation_en": "View the list",
+    "translation_fr": "Voir la liste",
+    "translation_es": "Ver la lista"
+}, {
+    "code": "mail_templates",
+    "translation_en": "Email templates",
+    "translation_fr": "Gabarits des emails",
+    "translation_es": "Plantillas de los emails"
+}, {
+    "code": "template",
+    "translation_en": "Template",
+    "translation_fr": "Gabarit",
+    "translation_es": "Plantilla"
+}, {
+    "code": "mails",
+    "translation_en": "Emails",
+    "translation_fr": "Emails",
+    "translation_es": "Emails"
+}, {
+    "code": "mail",
+    "translation_en": "Email",
+    "translation_fr": "Email",
+    "translation_es": "Email"
+}, {
+    "code": "subject",
+    "translation_en": "Subject",
+    "translation_fr": "Sujet",
+    "translation_es": "Título del email"
+}, {
+    "code": "reply_to",
+    "translation_en": "Reply to",
+    "translation_fr": "Répondre à",
+    "translation_es": "Responder a"
+}, {
+    "code": "update_password",
+    "translation_en": "Recover your password",
+    "translation_fr": "Récuperer votre mot de passe",
+    "translation_es": "Recuperar su contraseña"
+}, {
+    "code": "temporary_password_message",
+    "translation_en": "Please enter your email and your temporary password",
+    "translation_fr": "SVP tappez votre email et mot de passe temporaire",
+    "translation_es": "Por favor, ingrese su email y contraseña temporal"
+}, {
+    "code": "update_password-error",
+    "translation_en": "Your email or password are not correct. Please try again.",
+    "translation_fr": "Votre e-mail ou mot de passe ne sont pas correctes. Veuillez réessayer.",
+    "translation_es": "Si email o contraseña no son correctos. Intente nuevamente."
+}, {
+    "code": "ids_available",
+    "translation_en": "IDs available",
+    "translation_fr": "IDs disponibles",
+    "translation_es": "IDs disponibles"
+}, {
+    "code": "latitude",
+    "translation_en": "Latitude",
+    "translation_fr": "Latitude",
+    "translation_es": "Latitud"
+}, {
+    "code": "longitude",
+    "translation_en": "Longitude",
+    "translation_fr": "Longitude",
+    "translation_es": "Longitud"
+}, {
+    "code": "passwordNewMessage",
+    "translation_en": "Leave empty if you don't want to change the current password",
+    "translation_fr": "Laissez vide si vous ne voulez pas changer le mot de passe actuel",
+    "translation_es": "Deje este campo vacío si no desea cambiar la contraseña"
+}, {
+    "code": "information",
+    "translation_en": "Information",
+    "translation_fr": "Information",
+    "translation_es": "Informacion"
+}, {
+    "code": "action",
+    "translation_en": "Action",
+    "translation_fr": "Action",
+    "translation_es": "Accion"
+}, {
+    "code": "shortDescription",
+    "translation_en": "Short description",
+    "translation_fr": "Description courte",
+    "translation_es": "Breve descripción"
+}, {
+    "code": "publishDate",
+    "translation_en": "Publish date",
+    "translation_fr": "Date de publication",
+    "translation_es": "Fecha de publicación"
+}, {
+    "code": "posts",
+    "translation_en": "Posts",
+    "translation_fr": "Articles",
+    "translation_es": "Articulos"
+}, {
+    "code": "no",
+    "translation_en": "No",
+    "translation_fr": "No",
+    "translation_es": "No"
+}, {
+    "code": "yes",
+    "translation_en": "Yes",
+    "translation_fr": "Oui",
+    "translation_es": "Si"
+}, {
+    "code": "comments",
+    "translation_en": "Comments",
+    "translation_fr": "Commentaires",
+    "translation_es": "Comentarios"
+}, {
+    "code": "comments",
+    "translation_en": "Comment",
+    "translation_fr": "Commentaire",
+    "translation_es": "Comentario"
+}, {
+    "code": "web",
+    "translation_en": "Website",
+    "translation_fr": "Site web",
+    "translation_es": "Sitio web"
+}, {
+    "code": "banners",
+    "translation_en": "Banners",
+    "translation_fr": "Bannières",
+    "translation_es": "Banners"
+}, {
+    "code": "content",
+    "translation_en": "Content",
+    "translation_fr": "Contenu",
+    "translation_es": "Contenido"
+}, {
+    "code": "viewMore",
+    "translation_en": "See more",
+    "translation_fr": "Voir",
+    "translation_es": "Ver más"
+}, {
+    "code": "downloadFile",
+    "translation_en": "Download file",
+    "translation_fr": "Télécharger le fichier",
+    "translation_es": "Descargar el archivo"
+}, {
+    "code": "account",
+    "translation_en": "My account",
+    "translation_fr": "Mon compte",
+    "translation_es": "Mi cuenta"
+}, {
+    "code": "listTotal",
+    "translation_en": "#RESULTS items in total.",
+    "translation_fr": "#RESULTS résultats en total.",
+    "translation_es": "#RESULTS resultados en total."
+}, {
+    "code": "class",
+    "translation_en": "Class",
+    "translation_fr": "Classe",
+    "translation_es": "Clase"
+}, {
+    "code": "language",
+    "translation_en": "Language",
+    "translation_fr": "Langage",
+    "translation_es": "Idioma"
+}, {
+    "code": "published",
+    "translation_en": "Published",
+    "translation_fr": "Publié",
+    "translation_es": "Publicado"
+}, {
+    "code": "reverse",
+    "translation_en": "Reverse",
+    "translation_fr": "Inverse",
+    "translation_es": "Reverso"
+}, {
+    "code": "orderBy",
+    "translation_en": "Order by",
+    "translation_fr": "Trier par",
+    "translation_es": "Ordenar por"
+}, {
+    "code": "value",
+    "translation_en": "Value",
+    "translation_fr": "Valeur",
+    "translation_es": "Valor"
+}, {
+    "code": "titlePage",
+    "translation_en": "Page title",
+    "translation_fr": "Titre de la page",
+    "translation_es": "Título de la página"
+}, {
+    "code": "meta_description",
+    "translation_en": "Meta description",
+    "translation_fr": "Description meta",
+    "translation_es": "Descripción meta"
+}, {
+    "code": "meta_keywords",
+    "translation_en": "Meta keywords",
+    "translation_fr": "Mots-clés meta",
+    "translation_es": "Palabras clave meta"
+}, {
+    "code": "selectValue",
+    "translation_en": "- Select a value -",
+    "translation_fr": "- Sélectionner une valeur -",
+    "translation_es": "- Seleccione un valor -"
+}, {
+    "code": "selectValueLink",
+    "translation_en": "- Select a value if you want a link -",
+    "translation_fr": "- Sélectionner une valeur si vous voulez avoir un lien -",
+    "translation_es": "- Seleccione un valor si desea tener un enlace -"
+}, {
+    "code": "latestPosts",
+    "translation_en": "Latests posts",
+    "translation_fr": "Articles récents",
+    "translation_es": "Articulos recientes"
+}, {
+    "code": "popularPosts",
+    "translation_en": "Popular posts",
+    "translation_fr": "Articles populaires",
+    "translation_es": "Articulos populares"
+}, {
+    "code": "pageUrl",
+    "translation_en": "page",
+    "translation_fr": "page",
+    "translation_es": "pagina"
+}, {
+    "code": "messageThanksContact",
+    "translation_en": "Thanks for your message.",
+    "translation_fr": "Merci pour votre message.",
+    "translation_es": "Gracias por su mensaje."
+}, {
+    "code": "thanks",
+    "translation_en": "Thanks",
+    "translation_fr": "Merci",
+    "translation_es": "Gracias"
+}, {
+    "code": "documentation",
+    "translation_en": "Documentation",
+    "translation_fr": "Documentation",
+    "translation_es": "Documentación"
+}, {
+    "code": "portfolio",
+    "translation_en": "Portfolio",
+    "translation_fr": "Portfolio",
+    "translation_es": "Portafolio"
+}, {
+    "code": "about-us",
+    "translation_en": "About us",
+    "translation_fr": "À propos",
+    "translation_es": "Sobre nosotros"
+}, {
+    "code": "download",
+    "translation_en": "Download",
+    "translation_fr": "Télécharger",
+    "translation_es": "Descargar"
+}, {
+    "code": "tryDemo",
+    "translation_en": "Try the demo",
+    "translation_fr": "Essayer la démo",
+    "translation_es": "Demostración"
+}, {
+    "code": "viewGitHub",
+    "translation_en": "View on GitHub",
+    "translation_fr": "Voie le GitHub",
+    "translation_es": "Ver el GitHub"
+}, {
+    "code": "documentation",
+    "translation_en": "Documentation",
+    "translation_fr": "Documentation",
+    "translation_es": "Documentación"
+}, {
+    "code": "documentationCategories",
+    "translation_en": "Documentation - Categories",
+    "translation_fr": "Documentation - Categories",
+    "translation_es": "Documentación - Categorias"
+}, {
+    "code": "export",
+    "translation_en": "Export",
+    "translation_fr": "Exporter",
+    "translation_es": "Exportar"
+}, {
+    "code": "exportJson",
+    "translation_en": "Export JSON",
+    "translation_fr": "Exporter JSON",
+    "translation_es": "Exportar JSON"
+}, {
+    "code": "cache",
+    "translation_en": "Cache",
+    "translation_fr": "Cache",
+    "translation_es": "Cache"
+}, {
+    "code": "backup",
+    "translation_en": "Backup",
+    "translation_fr": "Backup",
+    "translation_es": "Backup"
+}, {
+    "code": "exportInformation",
+    "translation_en": "Export the data of your website",
+    "translation_fr": "Exportez les données de votre site Web",
+    "translation_es": "Exportar los datos de su sitio web"
+}, {
+    "code": "sqlFormat",
+    "translation_en": "SQL format",
+    "translation_fr": "Format SQL",
+    "translation_es": "Formato SQL"
+}, {
+    "code": "jsonFormat",
+    "translation_en": "JSON format",
+    "translation_fr": "Format JSON",
+    "translation_es": "Formato JSON"
+}, {
+    "code": "sqlFormatInfo",
+    "translation_en": "A single file with the entire database",
+    "translation_fr": "Un fichier unique avec toute la base de données",
+    "translation_es": "Un archivo con toda la base de datos"
+}, {
+    "code": "jsonFormatInfo",
+    "translation_en": "One JSON file for each object",
+    "translation_fr": "Un fichier JSON pour chaque objet",
+    "translation_es": "Un archivo JSON por cada objeto"
+}, {
+    "code": "availableObjects",
+    "translation_en": "Available objects",
+    "translation_fr": "Objets disponibles",
+    "translation_es": "Objetos disponibles"
+}, {
+    "code": "results",
+    "translation_en": "results",
+    "translation_fr": "résultats",
+    "translation_es": "resultados"
+}, {
+    "code": "reset_object",
+    "translation_en": "Reset the object",
+    "translation_fr": "Réinitialiser l'objet",
+    "translation_es": "Reinicializar el objeto"
+}, {
+    "code": "reset_objects",
+    "translation_en": "Reset the objects",
+    "translation_fr": "Réinitialiser les objets",
+    "translation_es": "Reinicializar los objetos"
+}, {
+    "code": "reloadObject",
+    "translation_en": "Reload the object",
+    "translation_fr": "Recharger l'objet",
+    "translation_es": "Recargar el objeto"
+}, {
+    "code": "js_reset_objectMessage",
+    "translation_en": "Resetting or reloading the object will delete the data you have saved and load the default values. There is no way to undo this action.",
+    "translation_fr": "La réinitialisation o recharge de l'objet supprime les données que vous avez enregistrées et charge les valeurs par défaut. Il n'est pas possible d'annuler cette action.",
+    "translation_es": "Reinicializar o recargar el objeto eliminará los datos que ha guardado y cargará los valores predeterminados. No hay manera de deshacer esta acción."
+}, {
+    "code": "reset",
+    "translation_en": "Reset",
+    "translation_fr": "Réinitialisation",
+    "translation_es": "Reinicializar"
+}, {
+    "code": "directoryNotWritable",
+    "translation_en": "The directory #DIRECTORY is not writable",
+    "translation_fr": "Le répertoire #DIRECTORY n'est pas accessible en écriture",
+    "translation_es": "El directorio #DIRECTORY no se puede escribir"
+}, {
+    "code": "backupJson",
+    "translation_en": "Backup JSON",
+    "translation_fr": "Backup JSON",
+    "translation_es": "Backup JSON"
+}, {
+    "code": "backupSql",
+    "translation_en": "Backup SQL",
+    "translation_fr": "Backup SQL",
+    "translation_es": "Backup SQL"
+}, {
+    "code": "staticMethod",
+    "translation_en": "Static method",
+    "translation_fr": "Méthode statique",
+    "translation_es": "Método estático"
+}, {
+    "code": "objectsToCache",
+    "translation_en": "Methods of the objects to store in the cache",
+    "translation_fr": "Méthodes des objets à stocker dans le cache",
+    "translation_es": "Métodos de los objetos para almacenar en la caché"
+}, {
+    "code": "objectsToCacheInfo",
+    "translation_en": "To cache objects you have to add the @cache annotation in the methods of the Ui classes.",
+    "translation_fr": "Pour mettre en cache des objets, vous devez ajouter l'annotation @cache dans les méthodes des classes Ui.",
+    "translation_es": "Para almacenar objetos en caché hay que añadir la anotación @cache en los métodos de las clases Ui."
+}, {
+    "code": "noObjectsToCache",
+    "translation_en": "There are no objects to store in the cache. Use the @cache annotation in the Ui classes.",
+    "translation_fr": "Il n'y a aucun objet à stocker dans le cache. Utilisez l'annotation @cache dans les classes Ui.",
+    "translation_es": "No hay objetos para almacenar en la memoria caché. Utilice la anotación @cache en las clases Ui."
+}, {
+    "code": "objectCached",
+    "translation_en": "The methods of the object are successfully cached.",
+    "translation_fr": "Les méthodes de l'objet ont été mises en cache avec succès.",
+    "translation_es": "Los métodos del objeto se almacenaron correctamente en caché."
+}, {
+    "code": "objectsCached",
+    "translation_en": "The methods of the objects are successfully cached.",
+    "translation_fr": "Les méthodes des objets ont été mises en cache avec succès.",
+    "translation_es": "Los métodos de los objectos se almacenaron correctamente en caché."
+}, {
+    "code": "cacheAll",
+    "translation_en": "Cache all objects",
+    "translation_fr": "Enregister tous les objets",
+    "translation_es": "Guardar todos los objetos"
+}, {
+    "code": "brands",
+    "translation_en": "Brands",
+    "translation_fr": "Marques",
+    "translation_es": "Marcas"
+}, {
+    "code": "readMore",
+    "translation_en": "Read more",
+    "translation_fr": "Plus d'infos",
+    "translation_es": "Leer más"
+}, {
+    "code": "thanksMessage",
+    "translation_en": "Thanks for the message.",
+    "translation_fr": "Merci pour le message.",
+    "translation_es": "Gracias por el mensaje."
+}, {
+    "code": "examples",
+    "translation_en": "Examples",
+    "translation_fr": "Exemples",
+    "translation_es": "Ejemplos"
+}, {
+    "code": "github",
+    "translation_en": "GitHub",
+    "translation_fr": "GitHub",
+    "translation_es": "GitHub"
+}, {
+    "code": "recipes",
+    "translation_en": "Recipes",
+    "translation_fr": "Recettes",
+    "translation_es": "Recetas"
+}, {
+    "code": "ingredients",
+    "translation_en": "Ingredients",
+    "translation_fr": "Ingredients",
+    "translation_es": "Ingredientes"
+}, {
+    "code": "ingredient",
+    "translation_en": "Ingredient",
+    "translation_fr": "Ingredient",
+    "translation_es": "Ingrediente"
+}, {
+    "code": "rating",
+    "translation_en": "Rating",
+    "translation_fr": "Rating",
+    "translation_es": "Puntuación"
+}, {
+    "code": "numPersons",
+    "translation_en": "Number of people",
+    "translation_fr": "Nombre des personnes",
+    "translation_es": "Número de personas"
+}, {
+    "code": "preparation",
+    "translation_en": "Preparation",
+    "translation_fr": "Preparation",
+    "translation_es": "Preparación"
+}, {
+    "code": "showHideMap",
+    "translation_en": "Show or hide the map",
+    "translation_fr": "Montrer la carte",
+    "translation_es": "Mostrar u ocultar el mapa"
+}, {
+    "code": "maximumSize",
+    "translation_en": "Maximum size",
+    "translation_fr": "Taille maximum",
+    "translation_es": "Tamaño máximo"
+}, {
+    "code": "minimumSize",
+    "translation_en": "Minimum size",
+    "translation_fr": "Taille minimum",
+    "translation_es": "Tamaño mínimo"
+}]

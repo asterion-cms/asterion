@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+* @structure Params
+*
+* @author Leano Martinet <info@asterion-cms.com>
+* @package Asterion
+* @version 4.0.0
+-->
+<object>
+    <name>Params</name>
+    <table>params</table>
+    <info>
+        <sql>
+            <primary>id</primary>
+        </sql>
+        <form>
+            <title>params</title>
+            <orderBy>code</orderBy>
+            <label>#information</label>
+            <templateItemAdmin>
+                <p class="accent"><strong>#name</strong></p>
+                <p class="tiny"><em>_code</em> : <span class="accent">#code</span></p>
+                <p class="tiny"><em>_value</em> : <span class="accent">#information</span></p>
+            </templateItemAdmin>
+        </form>
+    </info>
+    <attributes>
+        <attribute>
+            <name>id</name>
+            <type>id_autoincrement</type>
+        </attribute>
+        <attribute>
+            <label>code</label>
+            <name>code</name>
+            <type>text_code</type>
+            <required>unique</required>
+        </attribute>
+        <attribute>
+            <name>name</name>
+            <label>name</label>
+            <type>text</type>
+            <required>not_empty</required>
+        </attribute>
+        <attribute>
+            <label>image</label>
+            <name>image</name>
+            <type>file</type>
+            <mode>image</mode>
+        </attribute>
+        <attribute>
+            <label>file</label>
+            <name>file</name>
+            <type>file</type>
+        </attribute>
+        <attribute>
+            <label>information</label>
+            <name>information</name>
+            <type>textarea_code</type>
+            <required></required>
+        </attribute>
+    </attributes>
+    <indexes>
+        <index>
+            <name>code</name>
+            <type></type>
+            <fields>code</fields>
+        </index>
+    </indexes>
+</object>

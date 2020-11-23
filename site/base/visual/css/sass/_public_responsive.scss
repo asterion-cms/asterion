@@ -1,0 +1,47 @@
+@media screen and (max-width: $sizeDesktop) {
+}
+
+@media screen and (max-width: $sizeTablet) {
+}
+
+@media screen and (max-width: $sizeMobile) {
+
+	.header {
+		padding: 20px 10px;
+	    .header_left {
+	        width: 250px;
+	        margin: auto;
+	        float: none;
+	    }
+	    .header_right {
+	        width: auto;
+	        float: none;
+	        margin: auto;
+	        .langs {
+	            float: none;
+	            margin: 20px auto 0 auto;
+	            text-align: center;
+	        }
+	    }
+	}
+	.langs {
+		text-align: center;
+	    .lang {
+	        display: inline-block;
+	        margin: 0 10px;
+	        float: none;
+	    }
+	}
+	.content_wrapper {
+	    .content {
+			padding: 50px 10px;
+		}
+	}
+	.footer {
+		padding: 30px 10px 0 10px;
+	}
+
+}
+
+@media print {
+}

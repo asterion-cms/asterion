@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+* @structure Translation
+*
+* @author Leano Martinet <info@asterion-cms.com>
+* @package Asterion
+* @version 4.0.0
+-->
+<object>
+    <name>Translation</name>
+    <table>translation</table>
+    <info>
+        <sql>
+            <primary>id</primary>
+        </sql>
+        <form>
+            <title>translations</title>
+            <orderBy>code</orderBy>
+            <label>#translation</label>
+            <templateItemAdmin>
+                <div class="label_table">
+                    <div class="label_cell label_cell20 accent"><strong>#code</strong></div>
+                    <div class="label_cell">#translation_en</div>
+                    <div class="label_cell">#translation_fr</div>
+                    <div class="label_cell">#translation_es</div>
+                </div>
+            </templateItemAdmin>
+        </form>
+    </info>
+    <attributes>
+        <attribute>
+            <name>id</name>
+            <type>id_autoincrement</type>
+        </attribute>
+        <attribute>
+            <label>code</label>
+            <name>code</name>
+            <type>text_code</type>
+            <required>unique</required>
+        </attribute>
+        <attribute>
+            <label>translation</label>
+            <name>translation</name>
+            <language>true</language>
+            <type>text_large</type>
+            <required>not_empty</required>
+        </attribute>
+    </attributes>
+</object>

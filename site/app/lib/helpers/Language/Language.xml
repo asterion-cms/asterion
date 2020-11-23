@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+* @structure Language
+*
+* @author Leano Martinet <info@asterion-cms.com>
+* @package Asterion
+* @version 4.0.0
+-->
+<object>
+    <name>Language</name>
+    <table>language</table>
+    <info>
+        <sql>
+            <primary>id</primary>
+            <label>name</label>
+            <order>true</order>
+        </sql>
+        <form>
+            <title>languages</title>
+            <label>#name</label>
+            <orderBy>ord</orderBy>
+            <hiddenAdminMenu>true</hiddenAdminMenu>
+            <templateItemAdmin>
+                <p class="accent"><strong>#name</strong></p>
+                <p class="tiny"><em>_code</em> : <span class="accent">#id</span></p>
+                <p class="tiny"><em>_local_names</em> : <span class="accent">#local_names</span></p>
+            </templateItemAdmin>
+        </form>
+    </info>
+    <attributes>
+        <attribute>
+            <name>id</name>
+            <type>id_varchar</type>
+            <label>code</label>
+            <required>unique</required>
+        </attribute>
+        <attribute>
+            <name>name</name>
+            <label>name</label>
+            <type>text</type>
+            <required>not_empty</required>
+        </attribute>
+        <attribute>
+            <name>local_names</name>
+            <label>local_names</label>
+            <type>text</type>
+        </attribute>
+    </attributes>
+</object>

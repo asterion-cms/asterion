@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+* @structure Permission
+*
+* @author Leano Martinet <info@asterion-cms.com>
+* @package Asterion
+* @version 4.0.0
+-->
+<object>
+    <name>Permission</name>
+    <table>permission</table>
+    <info>
+        <sql>
+            <primary>id</primary>
+        </sql>
+        <form>
+            <title>permissions</title>
+            <hiddenAdminMenu>true</hiddenAdminMenu>
+        </form>
+    </info>
+    <attributes>
+        <attribute>
+            <name>id</name>
+            <type>id_autoincrement</type>
+        </attribute>
+        <attribute>
+            <name>id_user_admin_type</name>
+            <label>user_admin_type</label>
+            <type>select</type>
+            <refObject>UserAdminType</refObject>
+        </attribute>
+        <attribute>
+            <name>object_name</name>
+            <label>object_name</label>
+            <type>text</type>
+            <required>not_empty</required>
+        </attribute>
+        <attribute>
+            <name>permission_list_admin</name>
+            <label>permission_list_admin</label>
+            <type>checkbox</type>
+        </attribute>
+        <attribute>
+            <name>permission_insert</name>
+            <label>permission_insert</label>
+            <type>checkbox</type>
+        </attribute>
+        <attribute>
+            <name>permission_modify</name>
+            <label>permission_modify</label>
+            <type>checkbox</type>
+        </attribute>
+        <attribute>
+            <name>permission_delete</name>
+            <label>permission_delete</label>
+            <type>checkbox</type>
+        </attribute>
+    </attributes>
+</object>

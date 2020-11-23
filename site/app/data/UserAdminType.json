@@ -1,0 +1,11 @@
+[{
+    "id_user_admin_type": "1",
+    "code": "superadmin",
+    "name": "Super Administrator",
+    "manages_permissions": "1"
+}, {
+    "id_user_admin_type": "2",
+    "code": "admin",
+    "name": "Administrator",
+    "manages_permissions": "0"
+}]

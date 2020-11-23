@@ -1,0 +1,33 @@
+[{
+    "code": "google_webmasters",
+    "name": "Meta tag for Google Webmasters",
+    "information": ""
+}, {
+    "code": "google_analytics",
+    "name": "Script from Google Analytics",
+    "information": ""
+}, {
+    "code": "linksocial_facebook",
+    "name": "Facebook",
+    "information": "http://www.facebook.com"
+}, {
+    "code": "linksocial_twitter",
+    "name": "Twitter",
+    "information": "http://www.twitter.com"
+}, {
+    "code": "linksocial_youtube",
+    "name": "YouTube",
+    "information": "http://www.youtube.com"
+}, {
+    "code": "linksocial_linkedin",
+    "name": "LinkedIn",
+    "information": "http://www.linkedin.com"
+}, {
+    "code": "linksocial_vimeo",
+    "name": "Vimeo",
+    "information": "http://www.vimeo.com"
+}, {
+    "code": "linksocial_instagram",
+    "name": "Instagram",
+    "information": "http://www.instagram.com"
+}]

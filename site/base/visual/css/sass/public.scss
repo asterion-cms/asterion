@@ -1,0 +1,176 @@
+@import "../../../../app/visual/css/sass/_normalize.scss";
+
+@import "_variables.scss";
+@import "../../../../app/visual/css/sass/_common.scss";
+@import "../../../../app/visual/css/sass/_mixins.scss";
+
+html,
+body {
+    background: darken($white, 3%);
+}
+
+.header {
+    padding: 20px 0 50px 0;
+    max-width: $sizeDesktop;
+    margin: auto;
+    .header_ins {
+        @include clearer();
+    }
+    .header_left {
+        padding: 5px;
+        width: 250px;
+        float: left;
+    }
+    .header_right {
+        width: calc(100% - 270px);
+        float: right;
+        .header_right_top {
+            @include clearer();
+        }
+        .langs {
+            float: right;
+        }
+    }
+    .logo {
+        a {
+            width: 250px;
+            height: 35px;
+            background: url(../../img/logo_small_blue.svg) no-repeat left center;
+            text-indent: -5000px;
+            overflow: hidden;
+            display: block;
+        }
+    }
+}
+
+.langs {
+    .lang {
+        display: block;
+        width: 40px;
+        height: 40px;
+        margin: 0 0 0 10px;
+        float: right;
+        a,
+        span {
+            display: block;
+            width: 40px;
+            line-height: 40px;
+            text-transform: uppercase;
+            text-align: center;
+            color: $white;
+            font-weight: bold;
+            @include borderRadius(5px);
+        }
+        span {
+            background: rgba($colorText, 0.7);
+            cursor: default;
+        }
+        a {
+            background: rgba($colorText, 0.5);
+            @include clearer();
+            &:hover {
+                background: rgba($colorText, 0.8);
+            }
+        }
+    }
+}
+
+.search_top {
+    max-width: 300px;
+    float: right;
+    fieldset {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+    .form_search {
+        @include clearer();
+        .formFieldIns {
+            width: 250px;
+            float: left;
+            input {
+                width: 100%;
+                padding: 5px;
+                line-height: 40px;
+                height: 40px;
+                border: 0;
+                display: block;
+                @include borderBox();
+                @include borderRadius(2px);
+            }
+        }
+        .submitBtn {
+            width: 40px;
+            height: 40px;
+            float: right;
+            cursor: pointer;
+            color: $white;
+            &:hover {
+                color: $colorText;
+            }
+        }
+    }
+}
+
+.footer {
+    margin: 50px 0 0 0;
+    padding: 50px 0 30px 0;
+    position: relative;
+    text-align: center;
+    font-size: $fontSizeSmall;
+    &:before {
+        width: 100px;
+        height: 3px;
+        display: block;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        background: rgba($colorAccent, 0.2);
+    }
+    a {
+        color: $colorAccent;
+        @include animate();
+        &:hover {
+            color: darken($colorAccent, 20%);
+        }
+    }
+}
+
+.content_wrapper {
+    .content {
+        max-width: $sizeDesktop;
+        margin: auto;
+        padding: 100px 0;
+    }
+}
+
+.content_ins {
+    text-align: center;
+    h1 {
+        font-size: $fontSizeHuge;
+        margin: 0 0 30px 0;
+        padding: 0 0 30px 0;
+        color: $colorAccent;
+        position: relative;
+        font-weight: bold;
+        display: block;
+        &:after {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100px;
+            height: 3px;
+            display: block;
+            margin: auto;
+            background: rgba($colorAccent, 0.2);
+            content: '';
+        }
+    }
+}
+
+@import "_public_responsive.scss";
+

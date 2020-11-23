@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+* @structure Log
+*
+* @author Leano Martinet <info@asterion-cms.com>
+* @package Asterion
+* @version 4.0.0
+-->
+<object>
+    <name>Log</name>
+    <table>log</table>
+    <info>
+        <sql>
+            <primary>id</primary>
+        </sql>
+        <form>
+            <title>logs</title>
+            <orderBy>date DESC</orderBy>
+            <label>#message</label>
+            <hiddenAdminMenu>true</hiddenAdminMenu>
+            <templateItemAdmin>
+                <p class="tiny"><strong>#date</strong></p>
+                <p class="tiny">#ip</p>
+                <p class="tiny">#message</p>
+            </templateItemAdmin>
+        </form>
+    </info>
+    <attributes>
+        <attribute>
+            <name>id</name>
+            <type>id_autoincrement</type>
+        </attribute>
+        <attribute>
+            <name>date</name>
+            <label>date</label>
+            <type>date</type>
+        </attribute>
+        <attribute>
+            <name>ip</name>
+            <label>ip</label>
+            <type>ip</type>
+        </attribute>
+        <attribute>
+            <name>object</name>
+            <label>object</label>
+            <type>text</type>
+        </attribute>
+        <attribute>
+            <name>message</name>
+            <label>message</label>
+            <type>textarea</type>
+        </attribute>
+    </attributes>
+</object>
