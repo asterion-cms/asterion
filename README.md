@@ -1,4 +1,4 @@
-# Asterion
+# Asterion 4.0.0
 *Asterion is a simple multilingual web framework designed for developers.*
 *It is written mainly in PHP and built over the LAMP environment.*
 
@@ -71,50 +71,46 @@ path_to_my_site/base/config/config.php
 
 And edit the following lines:
 
-The **TITLE** constant defines the title of your page, it will be always editable in the future.
+The **ASTERION_TITLE** constant defines the title of your page, it will be always editable in the future.
 ```php
-define('TITLE', 'Base Site');
+define('ASTERION_TITLE', 'Base Site');
 ```
 
-The **SERVER_URL** constant must point to the public base access. If you are developing it should be **http://localhost**, **http://128.0.0.1** or **http://localhost:8888** depending on your server's configuration.
+The **ASTERION_SERVER_URL** constant must point to the public base access. If you are developing it should be **http://localhost**, **http://128.0.0.1** or **http://localhost:8888** depending on your server's configuration.
 ```php
-define('SERVER_URL', 'http://localhost');
+define('ASTERION_SERVER_URL', 'http://localhost');
 ```
 
-The **BASE_STRING** is the name of folder where you downloaded your website.
+The **ASTERION_BASE_STRING** is the name of folder where you downloaded your website.
 ```php
-define('BASE_STRING','/asterion/');
+define('ASTERION_BASE_STRING','/asterion/');
 ```
 
-The idea behind the **SERVER_URL** and the **BASE_STRING** constants is that they help to build the most important **LOCAL_URL** and **LOCAL_FILE** constants. The **LOCAL_URL** constant must point to the public website and **LOCAL_FILE** constant must point to the server’s file system, as described in the first step of the installation.
+The idea behind the **ASTERION_SERVER_URL** and the **ASTERION_BASE_STRING** constants is that they help to build the most important **ASTERION_LOCAL_URL** and **ASTERION_LOCAL_FILE** constants. The **ASTERION_LOCAL_URL** constant must point to the public website and **ASTERION_LOCAL_FILE** constant must point to the server’s file system, as described in the first step of the installation.
 ```php
-define('LOCAL_URL', SERVER_URL.BASE_STRING);
-define('LOCAL_FILE', $_SERVER['DOCUMENT_ROOT'].BASE_STRING);
+define('ASTERION_LOCAL_URL', ASTERION_SERVER_URL.ASTERION_BASE_STRING);
+define('ASTERION_LOCAL_FILE', $_SERVER['DOCUMENT_ROOT'].ASTERION_BASE_STRING);
 ```
 
-The **DEBUG** constant must be true if you are developing the website. It must be false when you are ready to publish it in your web server.
+The **ASTERION_DEBUG** constant must be true if you are developing the website. It must be false when you are ready to publish it in your web server.
 ```php
-define('DEBUG', true);
+define('ASTERION_DEBUG', true);
 ```
 
-We have translated our framework in English, Spanish and French but it can be easily translated to other languages in the future. You can change the value depending on the languages that you need for your website. For example, if it will be just in English just put en, if you want it in French and Spanish put fr:es.
+The **ASTERION_DB_** constants are used to configure the MySQL database. Asterion needs to know the server, user, password and port to connect to the database. It also needs the database name and eventually a prefix for the tables.
 ```php
-define('LANGS', 'en:es:fr');
+define('ASTERION_DB_USE', true);
+define('ASTERION_DB_SERVER', 'localhost');
+define('ASTERION_DB_NAME', '');
+define('ASTERION_DB_USER', '');
+define('ASTERION_DB_PASSWORD', '');
+define('ASTERION_DB_PORT', '3306');
+define('ASTERION_DB_PREFIX', 'ast_');
 ```
 
-The **DB_** constants are used to configure the MySQL database. Asterion needs to know the server, user, password and port to connect to the database. It also needs the database name and eventually a prefix for the tables.
+The **ASTERION_EMAIL** constant is the main email address, **Asterion** will use it to create the first user and to manage the general communications.
 ```php
-define('DB_SERVER', 'localhost');
-define('DB_NAME', '');
-define('DB_USER', '');
-define('DB_PASSWORD', '');
-define('DB_PORT', '3306');
-define('DB_PREFIX', 'ast_');
-```
-
-The **EMAIL** constant is the main email address, **Asterion** will use it to create the first user and to manage the general communications.
-```php
-define('EMAIL', 'info@asterion.org');
+define('ASTERION_EMAIL', 'info@asterion.org');
 ```
 
 ##### 4. Test your installation.
@@ -156,29 +152,29 @@ path_to_the_new_location_of_my_site/base/config/config.php
 
 And edit the following lines:
 
-The **SERVER_URL** constant must change to the new public access. If you are migrating to a production server you should put the correct URL here that should be something like **http://www.my-website.com**.
+The **ASTERION_SERVER_URL** constant must change to the new public access. If you are migrating to a production server you should put the correct URL here that should be something like **http://www.my-website.com**.
 ```php
-define('SERVER_URL', 'http://www.my-website.com');
+define('ASTERION_SERVER_URL', 'http://www.my-website.com');
 ```
 
-The **BASE_STRING** must also change to the new location. If you are in production mode you should just put a slash **/** because usually you just have one website in each domain.
+The **ASTERION_BASE_STRING** must also change to the new location. If you are in production mode you should just put a slash **/** because usually you just have one website in each domain.
 ```php
-define('BASE_STRING','/');
+define('ASTERION_BASE_STRING','/');
 ```
 
 Now that we are in a production mode, keep the **DEBUG** to false to make it cleaner for the users.
 ```php
-define('DEBUG', false);
+define('ASTERION_DEBUG', false);
 ```
 
 You should also change the **DB_** constants to have access to the new **MySQL** database.
 ```php
-define('DB_SERVER', 'localhost');
-define('DB_NAME', '');
-define('DB_USER', '');
-define('DB_PASSWORD', '');
-define('DB_PORT', '3306');
-define('DB_PREFIX', 'ast_');
+define('ASTERION_DB_SERVER', 'localhost');
+define('ASTERION_DB_NAME', '');
+define('ASTERION_DB_USER', '');
+define('ASTERION_DB_PASSWORD', '');
+define('ASTERION_DB_PORT', '3306');
+define('ASTERION_DB_PREFIX', 'ast_');
 ```
 
 ##### 4. Test your website.
@@ -219,26 +215,26 @@ http://localhost/asterion
 Some databases have blocked access from certain URLs or they need a special port. Finally, check if the following variables in the config file are correct:
 
 ```php
-define('DB_SERVER', 'localhost');
-define('DB_NAME', '');
-define('DB_USER', '');
-define('DB_PASSWORD', '');
-define('DB_PORT', '3306');
+define('ASTERION_DB_SERVER', 'localhost');
+define('ASTERION_DB_NAME', '');
+define('ASTERION_DB_USER', '');
+define('ASTERION_DB_PASSWORD', '');
+define('ASTERION_DB_PORT', '3306');
 ```
 
 ##### Solution to errors of your file system
 As stated in the first installation step, the most important thing to configure are the two constants that point to your website:
 
 ```php
-define('LOCAL_URL', SERVER_URL.BASE_STRING);
-define('LOCAL_FILE', $_SERVER['DOCUMENT_ROOT'].BASE_STRING);
+define('ASTERION_LOCAL_URL', SERVER_URL.BASE_STRING);
+define('ASTERION_LOCAL_FILE', $_SERVER['DOCUMENT_ROOT'].BASE_STRING);
 ```
 
 Both must point to the public and local work directory. If you get some errors you can force the configuration of these variables like:
 
 ```php
-define('LOCAL_URL', 'http://localhost/asterion/');
-define('LOCAL_FILE', '/home/path_to_my_website/public_htm/asterion/');
+define('ASTERION_LOCAL_URL', 'http://localhost/asterion/');
+define('ASTERION_LOCAL_FILE', '/home/path_to_my_website/public_htm/asterion/');
 ```
 
 A common error is to forget the slash **/** at the end of both paths.
